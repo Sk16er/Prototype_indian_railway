@@ -1,0 +1,223 @@
+@import "tailwindcss";
+
+/* =========================================================
+   RBMS – Rail Block Management System
+   Material 3 Design Token System (from Stitch)
+   ========================================================= */
+
+@theme {
+  /* --- Colors (Material 3 Palette) --- */
+  --color-on-tertiary-container: #46b135;
+  --color-on-primary-fixed-variant: #1f477b;
+  --color-on-primary-container: #799dd6;
+  --color-secondary-fixed-dim: #ffb77a;
+  --color-surface-container-highest: #dae2fd;
+  --color-primary: #001e40;
+  --color-on-secondary: #ffffff;
+  --color-tertiary-fixed-dim: #72de5c;
+  --color-on-error: #ffffff;
+  --color-inverse-on-surface: #eef0ff;
+  --color-on-error-container: #93000a;
+  --color-surface-container: #eaedff;
+  --color-outline-variant: #c3c6d1;
+  --color-primary-fixed: #d5e3ff;
+  --color-inverse-primary: #a7c8ff;
+  --color-outline: #737780;
+  --color-surface-container-low: #f2f3ff;
+  --color-secondary-container: #fe9832;
+  --color-on-secondary-container: #683700;
+  --color-error-container: #ffdad6;
+  --color-surface-bright: #faf8ff;
+  --color-tertiary-fixed: #8dfc75;
+  --color-on-tertiary-fixed-variant: #035300;
+  --color-on-primary: #ffffff;
+  --color-on-background: #131b2e;
+  --color-surface-tint: #3a5f94;
+  --color-on-secondary-fixed: #2e1500;
+  --color-surface-container-high: #e2e7ff;
+  --color-surface-container-lowest: #ffffff;
+  --color-surface-variant: #dae2fd;
+  --color-background: #faf8ff;
+  --color-on-surface-variant: #43474f;
+  --color-on-surface: #131b2e;
+  --color-tertiary-container: #023d00;
+  --color-inverse-surface: #283044;
+  --color-primary-fixed-dim: #a7c8ff;
+  --color-error: #ba1a1a;
+  --color-on-tertiary-fixed: #012200;
+  --color-secondary: #8f4e00;
+  --color-surface: #faf8ff;
+  --color-on-primary-fixed: #001b3c;
+  --color-tertiary: #012500;
+  --color-on-tertiary: #ffffff;
+  --color-on-secondary-fixed-variant: #6d3a00;
+  --color-surface-dim: #d2d9f4;
+  --color-secondary-fixed: #ffdcc2;
+  --color-primary-container: #003366;
+
+  /* --- Border Radius --- */
+  --radius: 0.125rem;
+  --radius-lg: 0.25rem;
+  --radius-xl: 0.5rem;
+  --radius-full: 0.75rem;
+
+  /* --- Spacing --- */
+  --spacing-header-main-h: 88px;
+  --spacing-container-max: 1280px;
+  --spacing-gutter-sm: 0.5rem;
+  --spacing-gutter-xs: 0.25rem;
+  --spacing-gutter-md: 1rem;
+  --spacing-topbar-h: 40px;
+  --spacing-gutter-lg: 1.5rem;
+  --spacing-gutter-xl: 2rem;
+  --spacing-nav-bar-h: 48px;
+
+  /* --- Font Families --- */
+  --font-label-lg: "Inter", sans-serif;
+  --font-headline-md: "Inter", sans-serif;
+  --font-headline-sm: "Inter", sans-serif;
+  --font-title-lg: "Inter", sans-serif;
+  --font-headline-lg-mobile: "Inter", sans-serif;
+  --font-body-lg: "Inter", sans-serif;
+  --font-headline-lg: "Inter", sans-serif;
+  --font-label-sm: "Inter", sans-serif;
+  --font-display-lg: "Inter", sans-serif;
+  --font-body-sm: "Inter", sans-serif;
+  --font-label-md: "Inter", sans-serif;
+  --font-body-md: "Inter", sans-serif;
+}
+
+/* --- Typography Utility Classes --- */
+/* Tailwind v4 @theme doesn't support fontSize composite tokens,
+   so we define them as utility classes */
+
+@utility text-label-lg {
+  font-size: 14px;
+  line-height: 20px;
+  letter-spacing: 0.02em;
+  font-weight: 600;
+}
+
+@utility text-headline-md {
+  font-size: 22px;
+  line-height: 30px;
+  font-weight: 600;
+}
+
+@utility text-headline-sm {
+  font-size: 18px;
+  line-height: 26px;
+  font-weight: 600;
+}
+
+@utility text-title-lg {
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 600;
+}
+
+@utility text-headline-lg-mobile {
+  font-size: 24px;
+  line-height: 32px;
+  letter-spacing: -0.01em;
+  font-weight: 700;
+}
+
+@utility text-body-lg {
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 400;
+}
+
+@utility text-headline-lg {
+  font-size: 30px;
+  line-height: 38px;
+  letter-spacing: -0.01em;
+  font-weight: 700;
+}
+
+@utility text-label-sm {
+  font-size: 11px;
+  line-height: 14px;
+  letter-spacing: 0.05em;
+  font-weight: 700;
+}
+
+@utility text-display-lg {
+  font-size: 40px;
+  line-height: 48px;
+  letter-spacing: -0.02em;
+  font-weight: 700;
+}
+
+@utility text-body-sm {
+  font-size: 12px;
+  line-height: 18px;
+  font-weight: 400;
+}
+
+@utility text-label-md {
+  font-size: 12px;
+  line-height: 16px;
+  letter-spacing: 0.04em;
+  font-weight: 600;
+}
+
+@utility text-body-md {
+  font-size: 14px;
+  line-height: 20px;
+  font-weight: 400;
+}
+
+/* --- Base Layer --- */
+@layer base {
+  html, body, #root {
+    margin: 0;
+    padding: 0;
+    font-family: "Inter", "Noto Sans", Arial, sans-serif;
+  }
+  #root {
+    min-height: 100vh;
+  }
+  body {
+    overscroll-behavior: none;
+    color: var(--color-on-surface);
+  }
+  button, input, select, textarea {
+    font: inherit;
+  }
+  main > :first-child {
+    margin-top: 0 !important;
+  }
+  main > :last-child {
+    margin-bottom: 0 !important;
+  }
+}
+
+/* Missing in the original token set; keeping this alongside the other type utilities
+   prevents controls from falling back to browser-default sizing/weight. */
+@utility text-title-md {
+  font-size: 14px;
+  line-height: 20px;
+  letter-spacing: 0.01em;
+  font-weight: 600;
+}
+
+@utility font-title-md {
+  font-family: "Inter", "Noto Sans", Arial, sans-serif;
+}
+
+/* Hide scrollbars */
+::-webkit-scrollbar {
+  display: none;
+}
+
+/* Ticker scroll animation */
+@keyframes ticker-scroll {
+  0% { transform: translateX(100%); }
+  100% { transform: translateX(-100%); }
+}
+
+.animate-ticker {
+  animation: ticker-scroll 45s linear infinite;
+}

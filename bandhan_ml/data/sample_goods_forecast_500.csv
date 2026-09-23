@@ -1,0 +1,8 @@
+section_id,day_of_week,forecast_goods_trains,source
+SEC_01,0,18,COA-derived local forecast
+SEC_01,1,17,COA-derived local forecast
+SEC_01,2,18,COA-derived local forecast
+SEC_01,3,19,COA-derived local forecast
+SEC_01,4,20,COA-derived local forecast
+SEC_01,5,14,COA-derived local forecast
+SEC_01,6,12,COA-derived local forecast

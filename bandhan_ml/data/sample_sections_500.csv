@@ -1,0 +1,18 @@
+section_id,from_station_id,to_station_id,section_name,length_km,max_speed,traffic_class,num_tracks
+SEC_01,STN_01,STN_02,Howrah - Liluah,33.77,130,dense,3
+SEC_02,STN_02,STN_03,Liluah - Bally,24.97,110,medium,2
+SEC_03,STN_03,STN_04,Bally - Dankuni,13.9,130,dense,3
+SEC_04,STN_04,STN_05,Dankuni - Chandannagar,31.65,130,dense,3
+SEC_05,STN_05,STN_06,Chandannagar - Chinsurah,27.7,110,medium,2
+SEC_06,STN_06,STN_07,Chinsurah - Bandel,34.25,130,dense,3
+SEC_07,STN_07,STN_08,Bandel - Bardinhaman,15.31,90,light,2
+SEC_08,STN_08,STN_09,Bardinhaman - Durgapur,14.59,130,dense,3
+SEC_09,STN_09,STN_10,Durgapur - Asansol,23.12,130,dense,3
+SEC_10,STN_10,STN_11,Asansol - Raniganj,17.28,130,dense,3
+SEC_11,STN_11,STN_12,Raniganj - Andal,13.49,110,medium,2
+SEC_12,STN_12,STN_13,Andal - Panagarh,19.16,130,dense,3
+SEC_13,STN_13,STN_14,Panagarh - Memari,29.63,130,dense,3
+SEC_14,STN_14,STN_15,Memari - Shaktigarh,22.86,130,dense,3
+SEC_15,STN_15,STN_16,Shaktigarh - Kharagpur,11.16,110,medium,2
+SEC_16,STN_16,STN_17,Kharagpur - Midnapore,14.26,110,medium,2
+SEC_17,STN_17,STN_18,Midnapore - Jhargram,33.72,130,dense,3

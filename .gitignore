@@ -1,0 +1,32 @@
+# Python virtual environment and caches
+.venv/
+venv/
+env/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# Node dependencies and local tooling
+node_modules/
+.npm/
+
+# Logs and local environment files
+*.log
+.env
+.env.*
+!.env.example
+
+# OS/editor files
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# Temporary runtime output
+*.tmp
+*.swp
+
+# Keep the frontend source and deployment build under version control.
+# The nested frontend .gitignore may still ignore its own dist/ directory.

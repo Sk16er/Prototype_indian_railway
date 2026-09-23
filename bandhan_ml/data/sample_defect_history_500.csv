@@ -1,0 +1,501 @@
+defect_id,asset_id,section_id,defect_type,asset_type,initial_severity_grade,severity_grade,detected_date,resolved_date,status,escalated_to_critical_within_30d,escalation_date,future_event_desc,duration_hours,is_monsoon_detected
+DEF_00001,TRA_SEC_01_1,SEC_01,Sleeper_Fastening_Defect,Track,1,1,2024-01-02 00:00:00,2024-01-09 00:00:00,RESOLVED,0,,No escalation to Grade 4 within 30 days (monitored through 2024-02-01),7.03,0
+DEF_00002,TRA_SEC_05_3,SEC_05,Sleeper_Fastening_Defect,Track,1,1,2024-01-02 00:00:00,2024-01-04 00:00:00,RESOLVED,0,,No escalation to Grade 4 within 30 days (monitored through 2024-02-01),10.13,0
+DEF_00003,TRA_SEC_01_2,SEC_01,Sleeper_Fastening_Defect,Track,2,2,2024-01-02 00:00:00,2024-01-03 00:00:00,RESOLVED,0,,No escalation to Grade 4 within 30 days (monitored through 2024-02-01),6.15,0
+DEF_00004,TRA_SEC_13_2,SEC_13,Sleeper_Fastening_Defect,Track,2,2,2024-01-02 00:00:00,2024-01-07 00:00:00,RESOLVED,0,,No escalation to Grade 4 within 30 days (monitored through 2024-02-01),5.24,0
+DEF_00005,TRA_SEC_06_3,SEC_06,Track_Geometry_Rail_Wear,Track,1,1,2024-01-03 00:00:00,2024-01-09 00:00:00,RESOLVED,0,,No escalation to Grade 4 within 30 days (monitored through 2024-02-02),3.21,0
+DEF_00006,TRA_SEC_11_1,SEC_11,Rail_Weld_Flaw,Track,1,1,2024-01-04 00:00:00,2024-01-11 00:00:00,RESOLVED,0,,No escalation to Grade 4 within 30 days (monitored through 2024-02-03),29.63,0
+DEF_00007,TRA_SEC_17_2,SEC_17,Rail_Weld_Flaw,Track,2,2,2024-01-04 00:00:00,2024-01-07 00:00:00,RESOLVED,0,,No escalation to Grade 4 within 30 days (monitored through 2024-02-03),5.76,0
+DEF_00008,TRA_SEC_08_3,SEC_08,Sleeper_Fastening_Defect,Track,2,2,2024-01-05 00:00:00,2024-01-07 00:00:00,RESOLVED,0,,No escalation to Grade 4 within 30 days (monitored through 2024-02-04),4.35,0
+DEF_00009,OHE_SEC_11_1,SEC_11,Contact_Wire_Thinning,OHE,1,1,2024-01-07 00:00:00,2024-01-09 00:00:00,RESOLVED,0,,No escalation to Grade 4 within 30 days (monitored through 2024-02-06),2.95,0
+DEF_00010,SIG_SEC_17_1,SEC_17,Signal_Interlocking_Failure,Signal,2,2,2024-01-07 00:00:00,2024-01-12 00:00:00,RESOLVED,0,,No escalation to Grade 4 within 30 days (monitored through 2024-02-06),3.71,0
+DEF_00011,OHE_SEC_12_2,SEC_12,Cantilever_Assembly_Wear,OHE,2,2,2024-01-10 00:00:00,2024-01-15 00:00:00,RESOLVED,0,,No escalation to Grade 4 within 30 days (monitored through 2024-02-09),9.66,0
+DEF_00012,TRA_SEC_02_2,SEC_02,Track_Geometry_Rail_Wear,Track,2,2,2024-01-10 00:00:00,2024-01-12 00:00:00,RESOLVED,0,,No escalation to Grade 4 within 30 days (monitored through 2024-02-09),7.67,0
+DEF_00013,TRA_SEC_07_3,SEC_07,Sleeper_Fastening_Defect,Track,1,1,2024-01-11 00:00:00,2024-01-12 00:00:00,RESOLVED,0,,No escalation to Grade 4 within 30 days (monitored through 2024-02-10),4.9,0
+DEF_00014,SIG_SEC_05_1,SEC_05,Signal_Interlocking_Failure,Signal,1,1,2024-01-11 00:00:00,2024-01-14 00:00:00,RESOLVED,0,,No escalation to Grade 4 within 30 days (monitored through 2024-02-10),3.16,0
+DEF_00015,SIG_SEC_13_4,SEC_13,Signal_Interlocking_Failure,Signal,1,1,2024-01-12 00:00:00,2024-01-16 00:00:00,RESOLVED,0,,No escalation to Grade 4 within 30 days (monitored through 2024-02-11),1.93,0
+DEF_00016,TRA_SEC_14_2,SEC_14,Rail_Weld_Flaw,Track,1,1,2024-01-13 00:00:00,2024-01-16 00:00:00,RESOLVED,0,,No escalation to Grade 4 within 30 days (monitored through 2024-02-12),10.02,0
+DEF_00017,SIG_SEC_09_3,SEC_09,Point_Machine_Wear,Signal,1,1,2024-01-13 00:00:00,2024-01-18 00:00:00,RESOLVED,0,,No escalation to Grade 4 within 30 days (monitored through 2024-02-12),0.94,0
+DEF_00018,TRA_SEC_11_1,SEC_11,Rail_Weld_Flaw,Track,1,4,2024-01-14 00:00:00,2024-01-15 00:00:00,RESOLVED,1,2024-01-31 00:00:00,Escalated to Grade 4 on 2024-01-31 (+17 days),10.11,0
+DEF_00019,TRA_SEC_13_1,SEC_13,Rail_Weld_Flaw,Track,1,1,2024-01-15 00:00:00,2024-01-16 00:00:00,RESOLVED,0,,No escalation to Grade 4 within 30 days (monitored through 2024-02-14),4.82,0
+DEF_00020,SIG_SEC_08_4,SEC_08,Signal_Interlocking_Failure,Signal,1,1,2024-01-15 00:00:00,2024-01-17 00:00:00,RESOLVED,0,,No escalation to Grade 4 within 30 days (monitored through 2024-02-14),6.91,0
+DEF_00021,SIG_SEC_15_2,SEC_15,Point_Machine_Wear,Signal,1,1,2024-01-17 00:00:00,2024-01-20 00:00:00,RESOLVED,0,,No escalation to Grade 4 within 30 days (monitored through 2024-02-16),6.1,0
+DEF_00022,OHE_SEC_06_1,SEC_06,Cantilever_Assembly_Wear,OHE,1,1,2024-01-17 00:00:00,2024-01-22 00:00:00,RESOLVED,0,,No escalation to Grade 4 within 30 days (monitored through 2024-02-16),2.45,0
+DEF_00023,TRA_SEC_13_1,SEC_13,Track_Geometry_Rail_Wear,Track,1,4,2024-01-17 00:00:00,2024-01-22 00:00:00,RESOLVED,1,2024-02-14 00:00:00,Escalated to Grade 4 on 2024-02-14 (+28 days),19.29,0
+DEF_00024,TRA_SEC_17_1,SEC_17,Sleeper_Fastening_Defect,Track,1,1,2024-01-19 00:00:00,2024-01-20 00:00:00,RESOLVED,0,,No escalation to Grade 4 within 30 days (monitored through 2024-02-18),9.13,0
+DEF_00025,SIG_SEC_05_4,SEC_05,Point_Machine_Wear,Signal,1,1,2024-01-20 00:00:00,2024-01-25 00:00:00,RESOLVED,0,,No escalation to Grade 4 within 30 days (monitored through 2024-02-19),3.0,0
+DEF_00026,SIG_SEC_01_3,SEC_01,Track_Circuit_Glitch,Signal,2,2,2024-01-21 00:00:00,2024-01-25 00:00:00,RESOLVED,0,,No escalation to Grade 4 within 30 days (monitored through 2024-02-20),4.03,0
+DEF_00027,OHE_SEC_02_1,SEC_02,OHE_Stagger_Deviation,OHE,2,4,2024-01-22 00:00:00,2024-01-23 00:00:00,RESOLVED,1,2024-02-20 00:00:00,Escalated to Grade 4 on 2024-02-20 (+29 days),8.17,0
+DEF_00028,TRA_SEC_09_3,SEC_09,Track_Geometry_Rail_Wear,Track,1,1,2024-01-24 00:00:00,2024-01-29 00:00:00,RESOLVED,0,,No escalation to Grade 4 within 30 days (monitored through 2024-02-23),3.05,0
+DEF_00029,OHE_SEC_09_2,SEC_09,OHE_Stagger_Deviation,OHE,1,1,2024-01-25 00:00:00,2024-01-28 00:00:00,RESOLVED,0,,No escalation to Grade 4 within 30 days (monitored through 2024-02-24),2.72,0
+DEF_00030,OHE_SEC_12_2,SEC_12,Cantilever_Assembly_Wear,OHE,1,4,2024-01-26 00:00:00,2024-01-27 00:00:00,RESOLVED,1,2024-02-22 00:00:00,Escalated to Grade 4 on 2024-02-22 (+27 days),16.8,0
+DEF_00031,SIG_SEC_04_3,SEC_04,Point_Machine_Wear,Signal,3,3,2024-01-27 00:00:00,2024-01-28 00:00:00,RESOLVED,0,,No escalation to Grade 4 within 30 days (monitored through 2024-02-26),5.16,0
+DEF_00032,SIG_SEC_12_4,SEC_12,Signal_Interlocking_Failure,Signal,1,1,2024-01-27 00:00:00,2024-01-28 00:00:00,RESOLVED,0,,No escalation to Grade 4 within 30 days (monitored through 2024-02-26),3.79,0
+DEF_00033,TRA_SEC_07_2,SEC_07,Track_Geometry_Rail_Wear,Track,2,4,2024-01-27 00:00:00,2024-01-31 00:00:00,RESOLVED,1,2024-02-04 00:00:00,Escalated to Grade 4 on 2024-02-04 (+8 days),9.43,0
+DEF_00034,SIG_SEC_17_4,SEC_17,Signal_Interlocking_Failure,Signal,1,4,2024-01-31 00:00:00,2024-02-02 00:00:00,RESOLVED,1,2024-02-15 00:00:00,Escalated to Grade 4 on 2024-02-15 (+15 days),15.59,0
+DEF_00035,SIG_SEC_16_4,SEC_16,Point_Machine_Wear,Signal,2,2,2024-01-31 00:00:00,2024-02-01 00:00:00,RESOLVED,0,,No escalation to Grade 4 within 30 days (monitored through 2024-03-01),7.16,0
+DEF_00036,TRA_SEC_15_3,SEC_15,Track_Geometry_Rail_Wear,Track,1,1,2024-02-01 00:00:00,2024-02-06 00:00:00,RESOLVED,0,,No escalation to Grade 4 within 30 days (monitored through 2024-03-02),6.03,0
+DEF_00037,SIG_SEC_15_2,SEC_15,Track_Circuit_Glitch,Signal,1,1,2024-02-01 00:00:00,2024-02-02 00:00:00,RESOLVED,0,,No escalation to Grade 4 within 30 days (monitored through 2024-03-02),5.12,0
+DEF_00038,OHE_SEC_16_1,SEC_16,OHE_Stagger_Deviation,OHE,2,2,2024-02-02 00:00:00,2024-02-03 00:00:00,RESOLVED,0,,No escalation to Grade 4 within 30 days (monitored through 2024-03-03),2.89,0
+DEF_00039,SIG_SEC_05_4,SEC_05,Track_Circuit_Glitch,Signal,2,2,2024-02-05 00:00:00,2024-02-12 00:00:00,RESOLVED,0,,No escalation to Grade 4 within 30 days (monitored through 2024-03-06),2.58,0
+DEF_00040,OHE_SEC_10_2,SEC_10,Cantilever_Assembly_Wear,OHE,1,1,2024-02-06 00:00:00,2024-02-08 00:00:00,RESOLVED,0,,No escalation to Grade 4 within 30 days (monitored through 2024-03-07),4.04,0
+DEF_00041,TRA_SEC_05_2,SEC_05,Track_Geometry_Rail_Wear,Track,1,1,2024-02-08 00:00:00,2024-02-09 00:00:00,RESOLVED,0,,No escalation to Grade 4 within 30 days (monitored through 2024-03-09),8.62,0
+DEF_00042,TRA_SEC_03_1,SEC_03,Rail_Weld_Flaw,Track,1,1,2024-02-08 00:00:00,2024-02-10 00:00:00,RESOLVED,0,,No escalation to Grade 4 within 30 days (monitored through 2024-03-09),7.63,0
+DEF_00043,SIG_SEC_03_2,SEC_03,Point_Machine_Wear,Signal,1,1,2024-02-09 00:00:00,2024-02-12 00:00:00,RESOLVED,0,,No escalation to Grade 4 within 30 days (monitored through 2024-03-10),3.98,0
+DEF_00044,TRA_SEC_15_1,SEC_15,Sleeper_Fastening_Defect,Track,3,3,2024-02-10 00:00:00,2024-02-11 00:00:00,RESOLVED,0,,No escalation to Grade 4 within 30 days (monitored through 2024-03-11),5.35,0
+DEF_00045,TRA_SEC_03_1,SEC_03,Track_Geometry_Rail_Wear,Track,1,1,2024-02-10 00:00:00,2024-02-12 00:00:00,RESOLVED,0,,No escalation to Grade 4 within 30 days (monitored through 2024-03-11),4.42,0
+DEF_00046,TRA_SEC_10_3,SEC_10,Rail_Weld_Flaw,Track,2,2,2024-02-10 00:00:00,2024-02-11 00:00:00,RESOLVED,0,,No escalation to Grade 4 within 30 days (monitored through 2024-03-11),9.06,0
+DEF_00047,SIG_SEC_17_4,SEC_17,Track_Circuit_Glitch,Signal,2,2,2024-02-12 00:00:00,2024-02-17 00:00:00,RESOLVED,0,,No escalation to Grade 4 within 30 days (monitored through 2024-03-13),6.52,0
+DEF_00048,TRA_SEC_07_2,SEC_07,Track_Geometry_Rail_Wear,Track,1,1,2024-02-13 00:00:00,2024-02-15 00:00:00,RESOLVED,0,,No escalation to Grade 4 within 30 days (monitored through 2024-03-14),1.87,0
+DEF_00049,SIG_SEC_03_1,SEC_03,Signal_Interlocking_Failure,Signal,2,2,2024-02-13 00:00:00,2024-02-14 00:00:00,RESOLVED,0,,No escalation to Grade 4 within 30 days (monitored through 2024-03-14),4.61,0
+DEF_00050,TRA_SEC_07_3,SEC_07,Rail_Weld_Flaw,Track,1,1,2024-02-13 00:00:00,2024-02-20 00:00:00,RESOLVED,0,,No escalation to Grade 4 within 30 days (monitored through 2024-03-14),6.7,0
+DEF_00051,TRA_SEC_10_2,SEC_10,Rail_Weld_Flaw,Track,3,3,2024-02-14 00:00:00,2024-02-17 00:00:00,RESOLVED,0,,No escalation to Grade 4 within 30 days (monitored through 2024-03-15),11.76,0
+DEF_00052,OHE_SEC_10_2,SEC_10,Cantilever_Assembly_Wear,OHE,1,1,2024-02-14 00:00:00,2024-02-18 00:00:00,RESOLVED,0,,No escalation to Grade 4 within 30 days (monitored through 2024-03-15),4.88,0
+DEF_00053,TRA_SEC_15_3,SEC_15,Rail_Weld_Flaw,Track,1,1,2024-02-15 00:00:00,2024-02-21 00:00:00,RESOLVED,0,,No escalation to Grade 4 within 30 days (monitored through 2024-03-16),6.22,0
+DEF_00054,SIG_SEC_14_4,SEC_14,Track_Circuit_Glitch,Signal,1,1,2024-02-16 00:00:00,2024-02-19 00:00:00,RESOLVED,0,,No escalation to Grade 4 within 30 days (monitored through 2024-03-17),3.5,0
+DEF_00055,SIG_SEC_04_2,SEC_04,Point_Machine_Wear,Signal,1,1,2024-02-16 00:00:00,2024-02-25 00:00:00,RESOLVED,0,,No escalation to Grade 4 within 30 days (monitored through 2024-03-17),2.97,0
+DEF_00056,SIG_SEC_13_1,SEC_13,Signal_Interlocking_Failure,Signal,1,1,2024-02-16 00:00:00,2024-02-28 00:00:00,RESOLVED,0,,No escalation to Grade 4 within 30 days (monitored through 2024-03-17),5.46,0
+DEF_00057,SIG_SEC_06_3,SEC_06,Point_Machine_Wear,Signal,1,1,2024-02-16 00:00:00,2024-02-21 00:00:00,RESOLVED,0,,No escalation to Grade 4 within 30 days (monitored through 2024-03-17),7.53,0
+DEF_00058,SIG_SEC_17_2,SEC_17,Point_Machine_Wear,Signal,1,1,2024-02-17 00:00:00,2024-02-20 00:00:00,RESOLVED,0,,No escalation to Grade 4 within 30 days (monitored through 2024-03-18),3.25,0
+DEF_00059,OHE_SEC_14_2,SEC_14,Contact_Wire_Thinning,OHE,2,2,2024-02-19 00:00:00,2024-02-22 00:00:00,RESOLVED,0,,No escalation to Grade 4 within 30 days (monitored through 2024-03-20),2.42,0
+DEF_00060,TRA_SEC_03_2,SEC_03,Sleeper_Fastening_Defect,Track,2,2,2024-02-19 00:00:00,2024-02-21 00:00:00,RESOLVED,0,,No escalation to Grade 4 within 30 days (monitored through 2024-03-20),8.1,0
+DEF_00061,SIG_SEC_10_4,SEC_10,Point_Machine_Wear,Signal,1,1,2024-02-20 00:00:00,2024-02-23 00:00:00,RESOLVED,0,,No escalation to Grade 4 within 30 days (monitored through 2024-03-21),4.35,0
+DEF_00062,SIG_SEC_13_2,SEC_13,Track_Circuit_Glitch,Signal,3,4,2024-02-20 00:00:00,2024-02-21 00:00:00,RESOLVED,1,2024-02-29 00:00:00,Escalated to Grade 4 on 2024-02-29 (+9 days),11.79,0
+DEF_00063,SIG_SEC_07_2,SEC_07,Point_Machine_Wear,Signal,3,3,2024-02-23 00:00:00,2024-02-24 00:00:00,RESOLVED,0,,No escalation to Grade 4 within 30 days (monitored through 2024-03-24),19.43,0
+DEF_00064,SIG_SEC_08_4,SEC_08,Point_Machine_Wear,Signal,1,1,2024-02-24 00:00:00,2024-02-27 00:00:00,RESOLVED,0,,No escalation to Grade 4 within 30 days (monitored through 2024-03-25),2.84,0
+DEF_00065,SIG_SEC_06_3,SEC_06,Point_Machine_Wear,Signal,1,1,2024-02-24 00:00:00,2024-02-26 00:00:00,RESOLVED,0,,No escalation to Grade 4 within 30 days (monitored through 2024-03-25),5.66,0
+DEF_00066,OHE_SEC_15_2,SEC_15,Contact_Wire_Thinning,OHE,1,4,2024-02-25 00:00:00,2024-02-27 00:00:00,RESOLVED,1,2024-03-22 00:00:00,Escalated to Grade 4 on 2024-03-22 (+26 days),4.85,0
+DEF_00067,SIG_SEC_16_2,SEC_16,Track_Circuit_Glitch,Signal,1,1,2024-02-25 00:00:00,2024-02-26 00:00:00,RESOLVED,0,,No escalation to Grade 4 within 30 days (monitored through 2024-03-26),2.01,0
+DEF_00068,SIG_SEC_05_3,SEC_05,Point_Machine_Wear,Signal,1,1,2024-02-27 00:00:00,2024-02-29 00:00:00,RESOLVED,0,,No escalation to Grade 4 within 30 days (monitored through 2024-03-28),9.27,0
+DEF_00069,SIG_SEC_06_1,SEC_06,Signal_Interlocking_Failure,Signal,1,1,2024-02-27 00:00:00,2024-02-29 00:00:00,RESOLVED,0,,No escalation to Grade 4 within 30 days (monitored through 2024-03-28),6.49,0
+DEF_00070,TRA_SEC_13_3,SEC_13,Sleeper_Fastening_Defect,Track,1,1,2024-02-27 00:00:00,2024-03-02 00:00:00,RESOLVED,0,,No escalation to Grade 4 within 30 days (monitored through 2024-03-28),7.56,0
+DEF_00071,SIG_SEC_10_4,SEC_10,Point_Machine_Wear,Signal,2,2,2024-02-27 00:00:00,2024-02-28 00:00:00,RESOLVED,0,,No escalation to Grade 4 within 30 days (monitored through 2024-03-28),1.96,0
+DEF_00072,SIG_SEC_14_2,SEC_14,Track_Circuit_Glitch,Signal,1,1,2024-02-29 00:00:00,2024-03-02 00:00:00,RESOLVED,0,,No escalation to Grade 4 within 30 days (monitored through 2024-03-30),14.38,0
+DEF_00073,SIG_SEC_01_1,SEC_01,Track_Circuit_Glitch,Signal,1,1,2024-03-01 00:00:00,2024-03-05 00:00:00,RESOLVED,0,,No escalation to Grade 4 within 30 days (monitored through 2024-03-31),2.5,0
+DEF_00074,SIG_SEC_04_2,SEC_04,Point_Machine_Wear,Signal,1,1,2024-03-01 00:00:00,2024-03-05 00:00:00,RESOLVED,0,,No escalation to Grade 4 within 30 days (monitored through 2024-03-31),16.65,0
+DEF_00075,TRA_SEC_17_1,SEC_17,Sleeper_Fastening_Defect,Track,2,2,2024-03-01 00:00:00,2024-03-04 00:00:00,RESOLVED,0,,No escalation to Grade 4 within 30 days (monitored through 2024-03-31),5.1,0
+DEF_00076,SIG_SEC_12_2,SEC_12,Point_Machine_Wear,Signal,1,1,2024-03-02 00:00:00,2024-03-05 00:00:00,RESOLVED,0,,No escalation to Grade 4 within 30 days (monitored through 2024-04-01),5.43,0
+DEF_00077,SIG_SEC_12_1,SEC_12,Signal_Interlocking_Failure,Signal,2,2,2024-03-02 00:00:00,2024-03-06 00:00:00,RESOLVED,0,,No escalation to Grade 4 within 30 days (monitored through 2024-04-01),9.4,0
+DEF_00078,TRA_SEC_03_1,SEC_03,Sleeper_Fastening_Defect,Track,1,1,2024-03-02 00:00:00,2024-03-05 00:00:00,RESOLVED,0,,No escalation to Grade 4 within 30 days (monitored through 2024-04-01),5.46,0
+DEF_00079,OHE_SEC_13_1,SEC_13,OHE_Stagger_Deviation,OHE,1,1,2024-03-02 00:00:00,2024-03-03 00:00:00,RESOLVED,0,,No escalation to Grade 4 within 30 days (monitored through 2024-04-01),3.63,0
+DEF_00080,TRA_SEC_06_1,SEC_06,Rail_Weld_Flaw,Track,1,1,2024-03-02 00:00:00,2024-03-08 00:00:00,RESOLVED,0,,No escalation to Grade 4 within 30 days (monitored through 2024-04-01),4.83,0
+DEF_00081,TRA_SEC_09_1,SEC_09,Sleeper_Fastening_Defect,Track,1,4,2024-03-04 00:00:00,2024-03-08 00:00:00,RESOLVED,1,2024-04-01 00:00:00,Escalated to Grade 4 on 2024-04-01 (+28 days),7.77,0
+DEF_00082,TRA_SEC_06_1,SEC_06,Sleeper_Fastening_Defect,Track,1,1,2024-03-05 00:00:00,2024-03-07 00:00:00,RESOLVED,0,,No escalation to Grade 4 within 30 days (monitored through 2024-04-04),7.42,0
+DEF_00083,SIG_SEC_17_1,SEC_17,Track_Circuit_Glitch,Signal,1,1,2024-03-06 00:00:00,2024-03-14 00:00:00,RESOLVED,0,,No escalation to Grade 4 within 30 days (monitored through 2024-04-05),4.61,0
+DEF_00084,OHE_SEC_14_1,SEC_14,Contact_Wire_Thinning,OHE,2,2,2024-03-07 00:00:00,2024-03-10 00:00:00,RESOLVED,0,,No escalation to Grade 4 within 30 days (monitored through 2024-04-06),7.87,0
+DEF_00085,TRA_SEC_04_2,SEC_04,Rail_Weld_Flaw,Track,1,1,2024-03-08 00:00:00,2024-03-09 00:00:00,RESOLVED,0,,No escalation to Grade 4 within 30 days (monitored through 2024-04-07),9.22,0
+DEF_00086,TRA_SEC_03_2,SEC_03,Sleeper_Fastening_Defect,Track,2,2,2024-03-08 00:00:00,2024-03-09 00:00:00,RESOLVED,0,,No escalation to Grade 4 within 30 days (monitored through 2024-04-07),5.65,0
+DEF_00087,SIG_SEC_07_3,SEC_07,Track_Circuit_Glitch,Signal,3,3,2024-03-08 00:00:00,2024-03-11 00:00:00,RESOLVED,0,,No escalation to Grade 4 within 30 days (monitored through 2024-04-07),5.7,0
+DEF_00088,TRA_SEC_13_1,SEC_13,Rail_Weld_Flaw,Track,1,1,2024-03-09 00:00:00,2024-03-12 00:00:00,RESOLVED,0,,No escalation to Grade 4 within 30 days (monitored through 2024-04-08),5.2,0
+DEF_00089,OHE_SEC_14_2,SEC_14,Contact_Wire_Thinning,OHE,1,1,2024-03-10 00:00:00,2024-03-16 00:00:00,RESOLVED,0,,No escalation to Grade 4 within 30 days (monitored through 2024-04-09),3.52,0
+DEF_00090,SIG_SEC_06_3,SEC_06,Track_Circuit_Glitch,Signal,1,1,2024-03-10 00:00:00,2024-03-16 00:00:00,RESOLVED,0,,No escalation to Grade 4 within 30 days (monitored through 2024-04-09),3.31,0
+DEF_00091,TRA_SEC_07_3,SEC_07,Sleeper_Fastening_Defect,Track,1,1,2024-03-11 00:00:00,2024-03-16 00:00:00,RESOLVED,0,,No escalation to Grade 4 within 30 days (monitored through 2024-04-10),3.19,0
+DEF_00092,OHE_SEC_11_2,SEC_11,Cantilever_Assembly_Wear,OHE,1,1,2024-03-11 00:00:00,2024-03-23 00:00:00,RESOLVED,0,,No escalation to Grade 4 within 30 days (monitored through 2024-04-10),3.32,0
+DEF_00093,SIG_SEC_03_4,SEC_03,Signal_Interlocking_Failure,Signal,1,1,2024-03-12 00:00:00,2024-03-13 00:00:00,RESOLVED,0,,No escalation to Grade 4 within 30 days (monitored through 2024-04-11),4.58,0
+DEF_00094,OHE_SEC_08_2,SEC_08,Contact_Wire_Thinning,OHE,1,1,2024-03-13 00:00:00,2024-03-14 00:00:00,RESOLVED,0,,No escalation to Grade 4 within 30 days (monitored through 2024-04-12),1.25,0
+DEF_00095,SIG_SEC_08_1,SEC_08,Track_Circuit_Glitch,Signal,1,1,2024-03-14 00:00:00,2024-03-16 00:00:00,RESOLVED,0,,No escalation to Grade 4 within 30 days (monitored through 2024-04-13),13.62,0
+DEF_00096,SIG_SEC_04_4,SEC_04,Track_Circuit_Glitch,Signal,1,1,2024-03-14 00:00:00,2024-03-19 00:00:00,RESOLVED,0,,No escalation to Grade 4 within 30 days (monitored through 2024-04-13),6.13,0
+DEF_00097,TRA_SEC_13_3,SEC_13,Sleeper_Fastening_Defect,Track,4,4,2024-03-15 00:00:00,2024-03-16 00:00:00,RESOLVED,0,,Pre-existing Grade 4 critical defect at observation date,8.6,0
+DEF_00098,SIG_SEC_11_2,SEC_11,Signal_Interlocking_Failure,Signal,1,4,2024-03-16 00:00:00,2024-03-25 00:00:00,RESOLVED,1,2024-03-20 00:00:00,Escalated to Grade 4 on 2024-03-20 (+4 days),2.68,0
+DEF_00099,SIG_SEC_02_3,SEC_02,Track_Circuit_Glitch,Signal,1,1,2024-03-17 00:00:00,2024-04-01 00:00:00,RESOLVED,0,,No escalation to Grade 4 within 30 days (monitored through 2024-04-16),2.06,0
+DEF_00100,OHE_SEC_14_2,SEC_14,Cantilever_Assembly_Wear,OHE,1,1,2024-03-18 00:00:00,2024-03-27 00:00:00,RESOLVED,0,,No escalation to Grade 4 within 30 days (monitored through 2024-04-17),9.8,0
+DEF_00101,SIG_SEC_12_3,SEC_12,Point_Machine_Wear,Signal,1,1,2024-03-18 00:00:00,2024-03-19 00:00:00,RESOLVED,0,,No escalation to Grade 4 within 30 days (monitored through 2024-04-17),4.77,0
+DEF_00102,TRA_SEC_16_3,SEC_16,Track_Geometry_Rail_Wear,Track,1,1,2024-03-18 00:00:00,2024-03-20 00:00:00,RESOLVED,0,,No escalation to Grade 4 within 30 days (monitored through 2024-04-17),4.55,0
+DEF_00103,SIG_SEC_02_4,SEC_02,Track_Circuit_Glitch,Signal,1,1,2024-03-19 00:00:00,2024-03-20 00:00:00,RESOLVED,0,,No escalation to Grade 4 within 30 days (monitored through 2024-04-18),5.65,0
+DEF_00104,OHE_SEC_04_2,SEC_04,Cantilever_Assembly_Wear,OHE,1,1,2024-03-19 00:00:00,2024-03-20 00:00:00,RESOLVED,0,,No escalation to Grade 4 within 30 days (monitored through 2024-04-18),3.83,0
+DEF_00105,SIG_SEC_03_1,SEC_03,Signal_Interlocking_Failure,Signal,1,1,2024-03-20 00:00:00,2024-03-23 00:00:00,RESOLVED,0,,No escalation to Grade 4 within 30 days (monitored through 2024-04-19),3.64,0
+DEF_00106,TRA_SEC_15_2,SEC_15,Track_Geometry_Rail_Wear,Track,1,1,2024-03-21 00:00:00,2024-03-27 00:00:00,RESOLVED,0,,No escalation to Grade 4 within 30 days (monitored through 2024-04-20),7.41,0
+DEF_00107,SIG_SEC_03_2,SEC_03,Track_Circuit_Glitch,Signal,2,2,2024-03-21 00:00:00,2024-03-22 00:00:00,RESOLVED,0,,No escalation to Grade 4 within 30 days (monitored through 2024-04-20),4.74,0
+DEF_00108,TRA_SEC_08_3,SEC_08,Sleeper_Fastening_Defect,Track,1,1,2024-03-22 00:00:00,2024-03-23 00:00:00,RESOLVED,0,,No escalation to Grade 4 within 30 days (monitored through 2024-04-21),5.79,0
+DEF_00109,TRA_SEC_03_3,SEC_03,Track_Geometry_Rail_Wear,Track,4,4,2024-03-22 00:00:00,2024-03-29 00:00:00,RESOLVED,0,,Pre-existing Grade 4 critical defect at observation date,7.22,0
+DEF_00110,SIG_SEC_14_1,SEC_14,Signal_Interlocking_Failure,Signal,1,1,2024-03-23 00:00:00,2024-03-24 00:00:00,RESOLVED,0,,No escalation to Grade 4 within 30 days (monitored through 2024-04-22),2.63,0
+DEF_00111,TRA_SEC_14_2,SEC_14,Track_Geometry_Rail_Wear,Track,2,2,2024-03-26 00:00:00,2024-04-02 00:00:00,RESOLVED,0,,No escalation to Grade 4 within 30 days (monitored through 2024-04-25),4.09,0
+DEF_00112,SIG_SEC_16_1,SEC_16,Point_Machine_Wear,Signal,2,2,2024-03-26 00:00:00,2024-03-27 00:00:00,RESOLVED,0,,No escalation to Grade 4 within 30 days (monitored through 2024-04-25),4.92,0
+DEF_00113,SIG_SEC_08_3,SEC_08,Point_Machine_Wear,Signal,2,2,2024-03-26 00:00:00,2024-03-27 00:00:00,RESOLVED,0,,No escalation to Grade 4 within 30 days (monitored through 2024-04-25),8.25,0
+DEF_00114,TRA_SEC_06_3,SEC_06,Rail_Weld_Flaw,Track,1,1,2024-03-27 00:00:00,2024-03-28 00:00:00,RESOLVED,0,,No escalation to Grade 4 within 30 days (monitored through 2024-04-26),11.96,0
+DEF_00115,SIG_SEC_01_4,SEC_01,Signal_Interlocking_Failure,Signal,4,4,2024-03-27 00:00:00,2024-03-29 00:00:00,RESOLVED,0,,Pre-existing Grade 4 critical defect at observation date,7.4,0
+DEF_00116,OHE_SEC_08_1,SEC_08,OHE_Stagger_Deviation,OHE,1,1,2024-03-28 00:00:00,2024-04-10 00:00:00,RESOLVED,0,,No escalation to Grade 4 within 30 days (monitored through 2024-04-27),2.97,0
+DEF_00117,SIG_SEC_17_4,SEC_17,Point_Machine_Wear,Signal,1,1,2024-03-29 00:00:00,2024-04-03 00:00:00,RESOLVED,0,,No escalation to Grade 4 within 30 days (monitored through 2024-04-28),3.89,0
+DEF_00118,TRA_SEC_08_3,SEC_08,Sleeper_Fastening_Defect,Track,1,4,2024-03-29 00:00:00,2024-04-01 00:00:00,RESOLVED,1,2024-04-10 00:00:00,Escalated to Grade 4 on 2024-04-10 (+12 days),11.29,0
+DEF_00119,SIG_SEC_17_1,SEC_17,Track_Circuit_Glitch,Signal,1,1,2024-03-30 00:00:00,2024-03-31 00:00:00,RESOLVED,0,,No escalation to Grade 4 within 30 days (monitored through 2024-04-29),3.88,0
+DEF_00120,OHE_SEC_11_2,SEC_11,Cantilever_Assembly_Wear,OHE,2,2,2024-03-31 00:00:00,2024-04-01 00:00:00,RESOLVED,0,,No escalation to Grade 4 within 30 days (monitored through 2024-04-30),13.69,0
+DEF_00121,SIG_SEC_09_3,SEC_09,Track_Circuit_Glitch,Signal,1,1,2024-03-31 00:00:00,2024-04-02 00:00:00,RESOLVED,0,,No escalation to Grade 4 within 30 days (monitored through 2024-04-30),1.1,0
+DEF_00122,TRA_SEC_12_2,SEC_12,Sleeper_Fastening_Defect,Track,2,2,2024-03-31 00:00:00,2024-04-02 00:00:00,RESOLVED,0,,No escalation to Grade 4 within 30 days (monitored through 2024-04-30),6.63,0
+DEF_00123,TRA_SEC_07_1,SEC_07,Rail_Weld_Flaw,Track,2,2,2024-04-01 00:00:00,2024-04-08 00:00:00,RESOLVED,0,,No escalation to Grade 4 within 30 days (monitored through 2024-05-01),5.51,0
+DEF_00124,TRA_SEC_13_2,SEC_13,Track_Geometry_Rail_Wear,Track,1,1,2024-04-03 00:00:00,2024-04-14 00:00:00,RESOLVED,0,,No escalation to Grade 4 within 30 days (monitored through 2024-05-03),12.15,0
+DEF_00125,SIG_SEC_10_4,SEC_10,Signal_Interlocking_Failure,Signal,4,4,2024-04-03 00:00:00,2024-04-04 00:00:00,RESOLVED,0,,Pre-existing Grade 4 critical defect at observation date,4.68,0
+DEF_00126,SIG_SEC_07_2,SEC_07,Track_Circuit_Glitch,Signal,1,1,2024-04-03 00:00:00,2024-04-08 00:00:00,RESOLVED,0,,No escalation to Grade 4 within 30 days (monitored through 2024-05-03),3.24,0
+DEF_00127,TRA_SEC_12_3,SEC_12,Sleeper_Fastening_Defect,Track,2,2,2024-04-04 00:00:00,2024-04-06 00:00:00,RESOLVED,0,,No escalation to Grade 4 within 30 days (monitored through 2024-05-04),11.25,0
+DEF_00128,SIG_SEC_16_4,SEC_16,Track_Circuit_Glitch,Signal,1,1,2024-04-05 00:00:00,2024-04-06 00:00:00,RESOLVED,0,,No escalation to Grade 4 within 30 days (monitored through 2024-05-05),2.15,0
+DEF_00129,OHE_SEC_07_2,SEC_07,Cantilever_Assembly_Wear,OHE,2,2,2024-04-06 00:00:00,2024-04-10 00:00:00,RESOLVED,0,,No escalation to Grade 4 within 30 days (monitored through 2024-05-06),5.35,0
+DEF_00130,SIG_SEC_09_2,SEC_09,Track_Circuit_Glitch,Signal,1,1,2024-04-06 00:00:00,2024-04-08 00:00:00,RESOLVED,0,,No escalation to Grade 4 within 30 days (monitored through 2024-05-06),2.55,0
+DEF_00131,TRA_SEC_10_2,SEC_10,Track_Geometry_Rail_Wear,Track,1,1,2024-04-08 00:00:00,2024-04-11 00:00:00,RESOLVED,0,,No escalation to Grade 4 within 30 days (monitored through 2024-05-08),3.3,0
+DEF_00132,TRA_SEC_10_1,SEC_10,Rail_Weld_Flaw,Track,1,1,2024-04-08 00:00:00,2024-04-14 00:00:00,RESOLVED,0,,No escalation to Grade 4 within 30 days (monitored through 2024-05-08),12.74,0
+DEF_00133,TRA_SEC_02_1,SEC_02,Track_Geometry_Rail_Wear,Track,1,1,2024-04-08 00:00:00,2024-04-09 00:00:00,RESOLVED,0,,No escalation to Grade 4 within 30 days (monitored through 2024-05-08),2.74,0
+DEF_00134,SIG_SEC_16_4,SEC_16,Track_Circuit_Glitch,Signal,2,2,2024-04-08 00:00:00,2024-04-11 00:00:00,RESOLVED,0,,No escalation to Grade 4 within 30 days (monitored through 2024-05-08),2.82,0
+DEF_00135,OHE_SEC_10_2,SEC_10,Cantilever_Assembly_Wear,OHE,1,4,2024-04-08 00:00:00,2024-04-13 00:00:00,RESOLVED,1,2024-04-14 00:00:00,Escalated to Grade 4 on 2024-04-14 (+6 days),9.14,0
+DEF_00136,SIG_SEC_01_2,SEC_01,Track_Circuit_Glitch,Signal,3,3,2024-04-09 00:00:00,2024-04-15 00:00:00,RESOLVED,0,,No escalation to Grade 4 within 30 days (monitored through 2024-05-09),4.55,0
+DEF_00137,SIG_SEC_09_2,SEC_09,Signal_Interlocking_Failure,Signal,2,2,2024-04-10 00:00:00,2024-04-19 00:00:00,RESOLVED,0,,No escalation to Grade 4 within 30 days (monitored through 2024-05-10),5.39,0
+DEF_00138,OHE_SEC_12_2,SEC_12,Cantilever_Assembly_Wear,OHE,1,1,2024-04-10 00:00:00,2024-04-18 00:00:00,RESOLVED,0,,No escalation to Grade 4 within 30 days (monitored through 2024-05-10),4.2,0
+DEF_00139,TRA_SEC_15_1,SEC_15,Sleeper_Fastening_Defect,Track,1,1,2024-04-12 00:00:00,2024-04-17 00:00:00,RESOLVED,0,,No escalation to Grade 4 within 30 days (monitored through 2024-05-12),4.88,0
+DEF_00140,SIG_SEC_10_2,SEC_10,Track_Circuit_Glitch,Signal,1,1,2024-04-12 00:00:00,2024-04-15 00:00:00,RESOLVED,0,,No escalation to Grade 4 within 30 days (monitored through 2024-05-12),1.72,0
+DEF_00141,OHE_SEC_05_1,SEC_05,OHE_Stagger_Deviation,OHE,1,1,2024-04-14 00:00:00,2024-04-15 00:00:00,RESOLVED,0,,No escalation to Grade 4 within 30 days (monitored through 2024-05-14),19.7,0
+DEF_00142,SIG_SEC_17_4,SEC_17,Point_Machine_Wear,Signal,3,4,2024-04-14 00:00:00,2024-04-22 00:00:00,RESOLVED,1,2024-05-11 00:00:00,Escalated to Grade 4 on 2024-05-11 (+27 days),14.03,0
+DEF_00143,TRA_SEC_11_3,SEC_11,Track_Geometry_Rail_Wear,Track,1,1,2024-04-15 00:00:00,2024-04-17 00:00:00,RESOLVED,0,,No escalation to Grade 4 within 30 days (monitored through 2024-05-15),5.54,0
+DEF_00144,TRA_SEC_11_2,SEC_11,Rail_Weld_Flaw,Track,1,1,2024-04-15 00:00:00,2024-04-16 00:00:00,RESOLVED,0,,No escalation to Grade 4 within 30 days (monitored through 2024-05-15),6.35,0
+DEF_00145,OHE_SEC_03_2,SEC_03,OHE_Stagger_Deviation,OHE,1,1,2024-04-16 00:00:00,2024-04-20 00:00:00,RESOLVED,0,,No escalation to Grade 4 within 30 days (monitored through 2024-05-16),3.42,0
+DEF_00146,SIG_SEC_16_1,SEC_16,Signal_Interlocking_Failure,Signal,1,1,2024-04-16 00:00:00,2024-04-17 00:00:00,RESOLVED,0,,No escalation to Grade 4 within 30 days (monitored through 2024-05-16),3.11,0
+DEF_00147,SIG_SEC_03_1,SEC_03,Track_Circuit_Glitch,Signal,2,2,2024-04-16 00:00:00,2024-04-17 00:00:00,RESOLVED,0,,No escalation to Grade 4 within 30 days (monitored through 2024-05-16),2.3,0
+DEF_00148,TRA_SEC_16_3,SEC_16,Track_Geometry_Rail_Wear,Track,4,4,2024-04-16 00:00:00,2024-04-17 00:00:00,RESOLVED,0,,Pre-existing Grade 4 critical defect at observation date,6.02,0
+DEF_00149,SIG_SEC_06_1,SEC_06,Signal_Interlocking_Failure,Signal,1,4,2024-04-17 00:00:00,2024-04-18 00:00:00,RESOLVED,1,2024-04-30 00:00:00,Escalated to Grade 4 on 2024-04-30 (+13 days),12.11,0
+DEF_00150,SIG_SEC_14_1,SEC_14,Point_Machine_Wear,Signal,1,1,2024-04-17 00:00:00,2024-04-18 00:00:00,RESOLVED,0,,No escalation to Grade 4 within 30 days (monitored through 2024-05-17),6.14,0
+DEF_00151,TRA_SEC_15_3,SEC_15,Rail_Weld_Flaw,Track,3,3,2024-04-18 00:00:00,2024-04-20 00:00:00,RESOLVED,0,,No escalation to Grade 4 within 30 days (monitored through 2024-05-18),6.35,0
+DEF_00152,SIG_SEC_06_4,SEC_06,Point_Machine_Wear,Signal,3,3,2024-04-18 00:00:00,2024-04-24 00:00:00,RESOLVED,0,,No escalation to Grade 4 within 30 days (monitored through 2024-05-18),4.2,0
+DEF_00153,SIG_SEC_17_2,SEC_17,Signal_Interlocking_Failure,Signal,4,4,2024-04-19 00:00:00,2024-04-22 00:00:00,RESOLVED,0,,Pre-existing Grade 4 critical defect at observation date,20.07,0
+DEF_00154,TRA_SEC_13_3,SEC_13,Sleeper_Fastening_Defect,Track,1,1,2024-04-20 00:00:00,2024-04-22 00:00:00,RESOLVED,0,,No escalation to Grade 4 within 30 days (monitored through 2024-05-20),9.03,0
+DEF_00155,TRA_SEC_01_1,SEC_01,Sleeper_Fastening_Defect,Track,2,2,2024-04-20 00:00:00,2024-04-23 00:00:00,RESOLVED,0,,No escalation to Grade 4 within 30 days (monitored through 2024-05-20),4.45,0
+DEF_00156,TRA_SEC_06_1,SEC_06,Sleeper_Fastening_Defect,Track,2,2,2024-04-20 00:00:00,2024-04-24 00:00:00,RESOLVED,0,,No escalation to Grade 4 within 30 days (monitored through 2024-05-20),4.64,0
+DEF_00157,OHE_SEC_03_1,SEC_03,OHE_Stagger_Deviation,OHE,1,1,2024-04-20 00:00:00,2024-04-21 00:00:00,RESOLVED,0,,No escalation to Grade 4 within 30 days (monitored through 2024-05-20),4.45,0
+DEF_00158,SIG_SEC_13_2,SEC_13,Signal_Interlocking_Failure,Signal,3,3,2024-04-21 00:00:00,2024-04-25 00:00:00,RESOLVED,0,,No escalation to Grade 4 within 30 days (monitored through 2024-05-21),2.87,0
+DEF_00159,SIG_SEC_02_1,SEC_02,Point_Machine_Wear,Signal,1,1,2024-04-21 00:00:00,2024-04-22 00:00:00,RESOLVED,0,,No escalation to Grade 4 within 30 days (monitored through 2024-05-21),6.67,0
+DEF_00160,OHE_SEC_15_2,SEC_15,OHE_Stagger_Deviation,OHE,1,1,2024-04-22 00:00:00,2024-04-30 00:00:00,RESOLVED,0,,No escalation to Grade 4 within 30 days (monitored through 2024-05-22),4.38,0
+DEF_00161,SIG_SEC_10_3,SEC_10,Signal_Interlocking_Failure,Signal,1,1,2024-04-23 00:00:00,2024-04-28 00:00:00,RESOLVED,0,,No escalation to Grade 4 within 30 days (monitored through 2024-05-23),14.0,0
+DEF_00162,TRA_SEC_14_1,SEC_14,Sleeper_Fastening_Defect,Track,2,4,2024-04-23 00:00:00,2024-04-26 00:00:00,RESOLVED,1,2024-05-04 00:00:00,Escalated to Grade 4 on 2024-05-04 (+11 days),10.91,0
+DEF_00163,SIG_SEC_11_4,SEC_11,Signal_Interlocking_Failure,Signal,1,1,2024-04-24 00:00:00,2024-04-27 00:00:00,RESOLVED,0,,No escalation to Grade 4 within 30 days (monitored through 2024-05-24),5.73,0
+DEF_00164,SIG_SEC_10_2,SEC_10,Signal_Interlocking_Failure,Signal,1,1,2024-04-25 00:00:00,2024-04-28 00:00:00,RESOLVED,0,,No escalation to Grade 4 within 30 days (monitored through 2024-05-25),5.89,0
+DEF_00165,OHE_SEC_14_1,SEC_14,OHE_Stagger_Deviation,OHE,4,4,2024-04-25 00:00:00,2024-04-28 00:00:00,RESOLVED,0,,Pre-existing Grade 4 critical defect at observation date,21.74,0
+DEF_00166,TRA_SEC_11_3,SEC_11,Track_Geometry_Rail_Wear,Track,1,4,2024-04-25 00:00:00,2024-04-26 00:00:00,RESOLVED,1,2024-05-05 00:00:00,Escalated to Grade 4 on 2024-05-05 (+10 days),6.08,0
+DEF_00167,SIG_SEC_12_3,SEC_12,Signal_Interlocking_Failure,Signal,3,3,2024-04-26 00:00:00,2024-04-30 00:00:00,RESOLVED,0,,No escalation to Grade 4 within 30 days (monitored through 2024-05-26),13.44,0
+DEF_00168,SIG_SEC_07_2,SEC_07,Signal_Interlocking_Failure,Signal,1,1,2024-04-26 00:00:00,2024-04-27 00:00:00,RESOLVED,0,,No escalation to Grade 4 within 30 days (monitored through 2024-05-26),7.54,0
+DEF_00169,OHE_SEC_16_2,SEC_16,OHE_Stagger_Deviation,OHE,2,2,2024-04-27 00:00:00,2024-04-28 00:00:00,RESOLVED,0,,No escalation to Grade 4 within 30 days (monitored through 2024-05-27),4.07,0
+DEF_00170,SIG_SEC_10_2,SEC_10,Signal_Interlocking_Failure,Signal,1,1,2024-04-27 00:00:00,2024-04-28 00:00:00,RESOLVED,0,,No escalation to Grade 4 within 30 days (monitored through 2024-05-27),4.88,0
+DEF_00171,TRA_SEC_09_3,SEC_09,Sleeper_Fastening_Defect,Track,1,1,2024-04-28 00:00:00,2024-05-03 00:00:00,RESOLVED,0,,No escalation to Grade 4 within 30 days (monitored through 2024-05-28),2.63,0
+DEF_00172,SIG_SEC_04_1,SEC_04,Point_Machine_Wear,Signal,1,1,2024-04-28 00:00:00,2024-05-07 00:00:00,RESOLVED,0,,No escalation to Grade 4 within 30 days (monitored through 2024-05-28),2.61,0
+DEF_00173,TRA_SEC_17_3,SEC_17,Track_Geometry_Rail_Wear,Track,3,3,2024-04-29 00:00:00,2024-05-15 00:00:00,RESOLVED,0,,No escalation to Grade 4 within 30 days (monitored through 2024-05-29),23.42,0
+DEF_00174,SIG_SEC_17_2,SEC_17,Point_Machine_Wear,Signal,2,2,2024-04-29 00:00:00,2024-04-30 00:00:00,RESOLVED,0,,No escalation to Grade 4 within 30 days (monitored through 2024-05-29),2.83,0
+DEF_00175,OHE_SEC_13_1,SEC_13,OHE_Stagger_Deviation,OHE,1,4,2024-04-30 00:00:00,2024-05-01 00:00:00,RESOLVED,1,2024-05-01 00:00:00,Escalated to Grade 4 on 2024-05-01 (+1 days),8.24,0
+DEF_00176,TRA_SEC_13_3,SEC_13,Sleeper_Fastening_Defect,Track,2,2,2024-05-01 00:00:00,2024-05-02 00:00:00,RESOLVED,0,,No escalation to Grade 4 within 30 days (monitored through 2024-05-31),9.36,0
+DEF_00177,SIG_SEC_03_4,SEC_03,Point_Machine_Wear,Signal,1,1,2024-05-03 00:00:00,2024-05-04 00:00:00,RESOLVED,0,,No escalation to Grade 4 within 30 days (monitored through 2024-06-02),1.19,0
+DEF_00178,SIG_SEC_10_4,SEC_10,Signal_Interlocking_Failure,Signal,2,2,2024-05-06 00:00:00,2024-05-08 00:00:00,RESOLVED,0,,No escalation to Grade 4 within 30 days (monitored through 2024-06-05),7.72,0
+DEF_00179,SIG_SEC_07_3,SEC_07,Track_Circuit_Glitch,Signal,1,1,2024-05-06 00:00:00,2024-05-09 00:00:00,RESOLVED,0,,No escalation to Grade 4 within 30 days (monitored through 2024-06-05),6.52,0
+DEF_00180,SIG_SEC_01_2,SEC_01,Signal_Interlocking_Failure,Signal,1,1,2024-05-07 00:00:00,2024-05-11 00:00:00,RESOLVED,0,,No escalation to Grade 4 within 30 days (monitored through 2024-06-06),4.86,0
+DEF_00181,SIG_SEC_05_4,SEC_05,Signal_Interlocking_Failure,Signal,4,4,2024-05-07 00:00:00,2024-05-10 00:00:00,RESOLVED,0,,Pre-existing Grade 4 critical defect at observation date,36.08,0
+DEF_00182,OHE_SEC_02_1,SEC_02,Contact_Wire_Thinning,OHE,1,1,2024-05-07 00:00:00,2024-05-10 00:00:00,RESOLVED,0,,No escalation to Grade 4 within 30 days (monitored through 2024-06-06),2.09,0
+DEF_00183,TRA_SEC_12_2,SEC_12,Sleeper_Fastening_Defect,Track,1,1,2024-05-08 00:00:00,2024-05-10 00:00:00,RESOLVED,0,,No escalation to Grade 4 within 30 days (monitored through 2024-06-07),2.94,0
+DEF_00184,OHE_SEC_04_1,SEC_04,Contact_Wire_Thinning,OHE,3,4,2024-05-09 00:00:00,2024-05-14 00:00:00,RESOLVED,1,2024-05-13 00:00:00,Escalated to Grade 4 on 2024-05-13 (+4 days),9.21,0
+DEF_00185,TRA_SEC_15_1,SEC_15,Sleeper_Fastening_Defect,Track,1,1,2024-05-11 00:00:00,2024-05-13 00:00:00,RESOLVED,0,,No escalation to Grade 4 within 30 days (monitored through 2024-06-10),9.81,0
+DEF_00186,OHE_SEC_12_1,SEC_12,Contact_Wire_Thinning,OHE,1,1,2024-05-12 00:00:00,2024-05-15 00:00:00,RESOLVED,0,,No escalation to Grade 4 within 30 days (monitored through 2024-06-11),4.75,0
+DEF_00187,SIG_SEC_02_1,SEC_02,Track_Circuit_Glitch,Signal,1,1,2024-05-12 00:00:00,2024-05-13 00:00:00,RESOLVED,0,,No escalation to Grade 4 within 30 days (monitored through 2024-06-11),2.08,0
+DEF_00188,SIG_SEC_15_2,SEC_15,Point_Machine_Wear,Signal,1,1,2024-05-12 00:00:00,2024-05-13 00:00:00,RESOLVED,0,,No escalation to Grade 4 within 30 days (monitored through 2024-06-11),4.92,0
+DEF_00189,SIG_SEC_03_2,SEC_03,Signal_Interlocking_Failure,Signal,1,1,2024-05-12 00:00:00,2024-05-13 00:00:00,RESOLVED,0,,No escalation to Grade 4 within 30 days (monitored through 2024-06-11),5.23,0
+DEF_00190,SIG_SEC_03_4,SEC_03,Track_Circuit_Glitch,Signal,1,4,2024-05-13 00:00:00,2024-05-14 00:00:00,RESOLVED,1,2024-05-27 00:00:00,Escalated to Grade 4 on 2024-05-27 (+14 days),10.08,0
+DEF_00191,SIG_SEC_01_2,SEC_01,Signal_Interlocking_Failure,Signal,1,1,2024-05-13 00:00:00,2024-05-16 00:00:00,RESOLVED,0,,No escalation to Grade 4 within 30 days (monitored through 2024-06-12),2.13,0
+DEF_00192,OHE_SEC_14_2,SEC_14,OHE_Stagger_Deviation,OHE,1,1,2024-05-13 00:00:00,2024-05-16 00:00:00,RESOLVED,0,,No escalation to Grade 4 within 30 days (monitored through 2024-06-12),5.59,0
+DEF_00193,SIG_SEC_13_2,SEC_13,Track_Circuit_Glitch,Signal,1,1,2024-05-14 00:00:00,2024-05-16 00:00:00,RESOLVED,0,,No escalation to Grade 4 within 30 days (monitored through 2024-06-13),3.38,0
+DEF_00194,SIG_SEC_09_3,SEC_09,Point_Machine_Wear,Signal,2,2,2024-05-15 00:00:00,2024-05-21 00:00:00,RESOLVED,0,,No escalation to Grade 4 within 30 days (monitored through 2024-06-14),7.64,0
+DEF_00195,SIG_SEC_01_2,SEC_01,Point_Machine_Wear,Signal,1,1,2024-05-15 00:00:00,2024-05-20 00:00:00,RESOLVED,0,,No escalation to Grade 4 within 30 days (monitored through 2024-06-14),5.49,0
+DEF_00196,TRA_SEC_06_1,SEC_06,Sleeper_Fastening_Defect,Track,2,2,2024-05-15 00:00:00,2024-05-18 00:00:00,RESOLVED,0,,No escalation to Grade 4 within 30 days (monitored through 2024-06-14),2.72,0
+DEF_00197,SIG_SEC_14_1,SEC_14,Point_Machine_Wear,Signal,1,1,2024-05-15 00:00:00,2024-05-17 00:00:00,RESOLVED,0,,No escalation to Grade 4 within 30 days (monitored through 2024-06-14),2.39,0
+DEF_00198,SIG_SEC_01_4,SEC_01,Track_Circuit_Glitch,Signal,1,1,2024-05-17 00:00:00,2024-05-19 00:00:00,RESOLVED,0,,No escalation to Grade 4 within 30 days (monitored through 2024-06-16),1.35,0
+DEF_00199,SIG_SEC_14_2,SEC_14,Signal_Interlocking_Failure,Signal,2,2,2024-05-17 00:00:00,2024-05-18 00:00:00,RESOLVED,0,,No escalation to Grade 4 within 30 days (monitored through 2024-06-16),8.45,0
+DEF_00200,OHE_SEC_12_1,SEC_12,Contact_Wire_Thinning,OHE,1,1,2024-05-18 00:00:00,2024-05-22 00:00:00,RESOLVED,0,,No escalation to Grade 4 within 30 days (monitored through 2024-06-17),2.34,0
+DEF_00201,TRA_SEC_14_2,SEC_14,Sleeper_Fastening_Defect,Track,1,1,2024-05-18 00:00:00,2024-05-20 00:00:00,RESOLVED,0,,No escalation to Grade 4 within 30 days (monitored through 2024-06-17),10.56,0
+DEF_00202,SIG_SEC_09_3,SEC_09,Signal_Interlocking_Failure,Signal,4,4,2024-05-18 00:00:00,2024-05-22 00:00:00,RESOLVED,0,,Pre-existing Grade 4 critical defect at observation date,1.88,0
+DEF_00203,TRA_SEC_01_3,SEC_01,Track_Geometry_Rail_Wear,Track,2,2,2024-05-19 00:00:00,2024-05-20 00:00:00,RESOLVED,0,,No escalation to Grade 4 within 30 days (monitored through 2024-06-18),19.34,0
+DEF_00204,SIG_SEC_05_2,SEC_05,Signal_Interlocking_Failure,Signal,1,1,2024-05-19 00:00:00,2024-05-20 00:00:00,RESOLVED,0,,No escalation to Grade 4 within 30 days (monitored through 2024-06-18),4.25,0
+DEF_00205,SIG_SEC_17_2,SEC_17,Signal_Interlocking_Failure,Signal,2,2,2024-05-20 00:00:00,2024-05-21 00:00:00,RESOLVED,0,,No escalation to Grade 4 within 30 days (monitored through 2024-06-19),11.7,0
+DEF_00206,SIG_SEC_17_1,SEC_17,Track_Circuit_Glitch,Signal,3,3,2024-05-20 00:00:00,2024-05-24 00:00:00,RESOLVED,0,,No escalation to Grade 4 within 30 days (monitored through 2024-06-19),6.21,0
+DEF_00207,SIG_SEC_14_2,SEC_14,Point_Machine_Wear,Signal,2,2,2024-05-22 00:00:00,2024-05-23 00:00:00,RESOLVED,0,,No escalation to Grade 4 within 30 days (monitored through 2024-06-21),9.04,0
+DEF_00208,OHE_SEC_06_1,SEC_06,OHE_Stagger_Deviation,OHE,1,1,2024-05-22 00:00:00,2024-05-23 00:00:00,RESOLVED,0,,No escalation to Grade 4 within 30 days (monitored through 2024-06-21),3.94,0
+DEF_00209,SIG_SEC_07_2,SEC_07,Track_Circuit_Glitch,Signal,1,1,2024-05-22 00:00:00,2024-05-25 00:00:00,RESOLVED,0,,No escalation to Grade 4 within 30 days (monitored through 2024-06-21),2.55,0
+DEF_00210,SIG_SEC_14_4,SEC_14,Signal_Interlocking_Failure,Signal,2,2,2024-05-23 00:00:00,2024-05-28 00:00:00,RESOLVED,0,,No escalation to Grade 4 within 30 days (monitored through 2024-06-22),8.38,0
+DEF_00211,OHE_SEC_12_2,SEC_12,Cantilever_Assembly_Wear,OHE,1,1,2024-05-24 00:00:00,2024-06-04 00:00:00,RESOLVED,0,,No escalation to Grade 4 within 30 days (monitored through 2024-06-23),9.98,0
+DEF_00212,TRA_SEC_10_3,SEC_10,Sleeper_Fastening_Defect,Track,1,1,2024-05-24 00:00:00,2024-05-31 00:00:00,RESOLVED,0,,No escalation to Grade 4 within 30 days (monitored through 2024-06-23),7.67,0
+DEF_00213,SIG_SEC_17_2,SEC_17,Signal_Interlocking_Failure,Signal,4,4,2024-05-24 00:00:00,2024-05-26 00:00:00,RESOLVED,0,,Pre-existing Grade 4 critical defect at observation date,6.28,0
+DEF_00214,SIG_SEC_09_2,SEC_09,Point_Machine_Wear,Signal,1,1,2024-05-24 00:00:00,2024-05-27 00:00:00,RESOLVED,0,,No escalation to Grade 4 within 30 days (monitored through 2024-06-23),2.58,0
+DEF_00215,TRA_SEC_03_2,SEC_03,Sleeper_Fastening_Defect,Track,4,4,2024-05-24 00:00:00,2024-05-26 00:00:00,RESOLVED,0,,Pre-existing Grade 4 critical defect at observation date,16.49,0
+DEF_00216,TRA_SEC_12_3,SEC_12,Track_Geometry_Rail_Wear,Track,1,1,2024-05-24 00:00:00,2024-05-26 00:00:00,RESOLVED,0,,No escalation to Grade 4 within 30 days (monitored through 2024-06-23),5.24,0
+DEF_00217,OHE_SEC_02_1,SEC_02,Contact_Wire_Thinning,OHE,2,2,2024-05-25 00:00:00,2024-05-27 00:00:00,RESOLVED,0,,No escalation to Grade 4 within 30 days (monitored through 2024-06-24),6.12,0
+DEF_00218,SIG_SEC_14_3,SEC_14,Signal_Interlocking_Failure,Signal,1,1,2024-05-26 00:00:00,2024-05-27 00:00:00,RESOLVED,0,,No escalation to Grade 4 within 30 days (monitored through 2024-06-25),4.16,0
+DEF_00219,SIG_SEC_07_3,SEC_07,Signal_Interlocking_Failure,Signal,2,2,2024-05-26 00:00:00,2024-05-27 00:00:00,RESOLVED,0,,No escalation to Grade 4 within 30 days (monitored through 2024-06-25),3.72,0
+DEF_00220,OHE_SEC_10_2,SEC_10,OHE_Stagger_Deviation,OHE,1,1,2024-05-27 00:00:00,2024-05-28 00:00:00,RESOLVED,0,,No escalation to Grade 4 within 30 days (monitored through 2024-06-26),13.15,0
+DEF_00221,SIG_SEC_04_3,SEC_04,Signal_Interlocking_Failure,Signal,3,3,2024-05-27 00:00:00,2024-06-01 00:00:00,RESOLVED,0,,No escalation to Grade 4 within 30 days (monitored through 2024-06-26),5.31,0
+DEF_00222,SIG_SEC_13_3,SEC_13,Signal_Interlocking_Failure,Signal,1,1,2024-05-28 00:00:00,2024-06-01 00:00:00,RESOLVED,0,,No escalation to Grade 4 within 30 days (monitored through 2024-06-27),3.05,0
+DEF_00223,OHE_SEC_03_2,SEC_03,Contact_Wire_Thinning,OHE,1,1,2024-05-28 00:00:00,2024-05-30 00:00:00,RESOLVED,0,,No escalation to Grade 4 within 30 days (monitored through 2024-06-27),2.4,0
+DEF_00224,SIG_SEC_03_1,SEC_03,Point_Machine_Wear,Signal,1,1,2024-05-29 00:00:00,2024-06-03 00:00:00,RESOLVED,0,,No escalation to Grade 4 within 30 days (monitored through 2024-06-28),2.76,0
+DEF_00225,TRA_SEC_17_1,SEC_17,Sleeper_Fastening_Defect,Track,1,1,2024-05-30 00:00:00,2024-06-01 00:00:00,RESOLVED,0,,No escalation to Grade 4 within 30 days (monitored through 2024-06-29),6.42,0
+DEF_00226,TRA_SEC_14_1,SEC_14,Rail_Weld_Flaw,Track,4,4,2024-05-30 00:00:00,2024-05-31 00:00:00,RESOLVED,0,,Pre-existing Grade 4 critical defect at observation date,27.4,0
+DEF_00227,TRA_SEC_03_2,SEC_03,Sleeper_Fastening_Defect,Track,1,1,2024-05-31 00:00:00,2024-06-04 00:00:00,RESOLVED,0,,No escalation to Grade 4 within 30 days (monitored through 2024-06-30),3.63,0
+DEF_00228,TRA_SEC_09_2,SEC_09,Rail_Weld_Flaw,Track,1,1,2024-05-31 00:00:00,2024-06-02 00:00:00,RESOLVED,0,,No escalation to Grade 4 within 30 days (monitored through 2024-06-30),5.17,0
+DEF_00229,SIG_SEC_10_2,SEC_10,Point_Machine_Wear,Signal,1,1,2024-05-31 00:00:00,2024-06-03 00:00:00,RESOLVED,0,,No escalation to Grade 4 within 30 days (monitored through 2024-06-30),4.45,0
+DEF_00230,TRA_SEC_01_1,SEC_01,Sleeper_Fastening_Defect,Track,3,3,2024-06-01 00:00:00,2024-06-11 00:00:00,RESOLVED,0,,No escalation to Grade 4 within 30 days (monitored through 2024-07-01),3.44,1
+DEF_00231,SIG_SEC_02_2,SEC_02,Track_Circuit_Glitch,Signal,1,1,2024-06-02 00:00:00,2024-06-04 00:00:00,RESOLVED,0,,No escalation to Grade 4 within 30 days (monitored through 2024-07-02),2.58,1
+DEF_00232,SIG_SEC_10_3,SEC_10,Track_Circuit_Glitch,Signal,1,1,2024-06-02 00:00:00,2024-06-11 00:00:00,RESOLVED,0,,No escalation to Grade 4 within 30 days (monitored through 2024-07-02),2.7,1
+DEF_00233,TRA_SEC_12_3,SEC_12,Track_Geometry_Rail_Wear,Track,1,4,2024-06-02 00:00:00,2024-06-03 00:00:00,RESOLVED,1,2024-06-29 00:00:00,Escalated to Grade 4 on 2024-06-29 (+27 days),38.69,1
+DEF_00234,SIG_SEC_01_1,SEC_01,Signal_Interlocking_Failure,Signal,1,4,2024-06-03 00:00:00,2024-06-05 00:00:00,RESOLVED,1,2024-06-12 00:00:00,Escalated to Grade 4 on 2024-06-12 (+9 days),13.83,1
+DEF_00235,TRA_SEC_07_1,SEC_07,Track_Geometry_Rail_Wear,Track,2,2,2024-06-03 00:00:00,2024-06-05 00:00:00,RESOLVED,0,,No escalation to Grade 4 within 30 days (monitored through 2024-07-03),11.94,1
+DEF_00236,OHE_SEC_09_1,SEC_09,Cantilever_Assembly_Wear,OHE,1,1,2024-06-03 00:00:00,2024-06-04 00:00:00,RESOLVED,0,,No escalation to Grade 4 within 30 days (monitored through 2024-07-03),3.15,1
+DEF_00237,TRA_SEC_06_3,SEC_06,Track_Geometry_Rail_Wear,Track,1,1,2024-06-04 00:00:00,2024-06-06 00:00:00,RESOLVED,0,,No escalation to Grade 4 within 30 days (monitored through 2024-07-04),3.02,1
+DEF_00238,SIG_SEC_06_4,SEC_06,Signal_Interlocking_Failure,Signal,1,1,2024-06-04 00:00:00,2024-06-06 00:00:00,RESOLVED,0,,No escalation to Grade 4 within 30 days (monitored through 2024-07-04),2.85,1
+DEF_00239,TRA_SEC_17_1,SEC_17,Rail_Weld_Flaw,Track,1,1,2024-06-05 00:00:00,2024-06-06 00:00:00,RESOLVED,0,,No escalation to Grade 4 within 30 days (monitored through 2024-07-05),2.56,1
+DEF_00240,SIG_SEC_10_2,SEC_10,Point_Machine_Wear,Signal,2,4,2024-06-06 00:00:00,2024-06-07 00:00:00,RESOLVED,1,2024-06-22 00:00:00,Escalated to Grade 4 on 2024-06-22 (+16 days),8.43,1
+DEF_00241,SIG_SEC_13_3,SEC_13,Signal_Interlocking_Failure,Signal,1,1,2024-06-06 00:00:00,2024-06-08 00:00:00,RESOLVED,0,,No escalation to Grade 4 within 30 days (monitored through 2024-07-06),3.61,1
+DEF_00242,TRA_SEC_03_1,SEC_03,Rail_Weld_Flaw,Track,2,2,2024-06-07 00:00:00,2024-06-10 00:00:00,RESOLVED,0,,No escalation to Grade 4 within 30 days (monitored through 2024-07-07),2.55,1
+DEF_00243,TRA_SEC_16_1,SEC_16,Rail_Weld_Flaw,Track,2,2,2024-06-08 00:00:00,2024-06-12 00:00:00,RESOLVED,0,,No escalation to Grade 4 within 30 days (monitored through 2024-07-08),11.97,1
+DEF_00244,SIG_SEC_17_1,SEC_17,Signal_Interlocking_Failure,Signal,2,2,2024-06-08 00:00:00,2024-06-12 00:00:00,RESOLVED,0,,No escalation to Grade 4 within 30 days (monitored through 2024-07-08),3.8,1
+DEF_00245,SIG_SEC_10_4,SEC_10,Signal_Interlocking_Failure,Signal,4,4,2024-06-08 00:00:00,2024-06-10 00:00:00,RESOLVED,0,,Pre-existing Grade 4 critical defect at observation date,5.65,1
+DEF_00246,OHE_SEC_14_1,SEC_14,Contact_Wire_Thinning,OHE,1,4,2024-06-08 00:00:00,2024-06-13 00:00:00,RESOLVED,1,2024-06-23 00:00:00,Escalated to Grade 4 on 2024-06-23 (+15 days),5.55,1
+DEF_00247,TRA_SEC_17_1,SEC_17,Track_Geometry_Rail_Wear,Track,1,1,2024-06-09 00:00:00,2024-06-15 00:00:00,RESOLVED,0,,No escalation to Grade 4 within 30 days (monitored through 2024-07-09),3.39,1
+DEF_00248,OHE_SEC_11_1,SEC_11,Cantilever_Assembly_Wear,OHE,2,2,2024-06-09 00:00:00,2024-06-12 00:00:00,RESOLVED,0,,No escalation to Grade 4 within 30 days (monitored through 2024-07-09),2.71,1
+DEF_00249,TRA_SEC_17_2,SEC_17,Track_Geometry_Rail_Wear,Track,2,2,2024-06-09 00:00:00,2024-06-12 00:00:00,RESOLVED,0,,No escalation to Grade 4 within 30 days (monitored through 2024-07-09),13.35,1
+DEF_00250,SIG_SEC_12_1,SEC_12,Signal_Interlocking_Failure,Signal,1,1,2024-06-11 00:00:00,2024-06-19 00:00:00,RESOLVED,0,,No escalation to Grade 4 within 30 days (monitored through 2024-07-11),8.65,1
+DEF_00251,SIG_SEC_01_2,SEC_01,Track_Circuit_Glitch,Signal,1,1,2024-06-11 00:00:00,2024-06-13 00:00:00,RESOLVED,0,,No escalation to Grade 4 within 30 days (monitored through 2024-07-11),4.62,1
+DEF_00252,SIG_SEC_09_1,SEC_09,Track_Circuit_Glitch,Signal,1,1,2024-06-12 00:00:00,2024-06-17 00:00:00,RESOLVED,0,,No escalation to Grade 4 within 30 days (monitored through 2024-07-12),4.05,1
+DEF_00253,OHE_SEC_04_2,SEC_04,Contact_Wire_Thinning,OHE,2,4,2024-06-13 00:00:00,2024-06-14 00:00:00,RESOLVED,1,2024-07-03 00:00:00,Escalated to Grade 4 on 2024-07-03 (+20 days),8.42,1
+DEF_00254,SIG_SEC_11_4,SEC_11,Point_Machine_Wear,Signal,2,2,2024-06-13 00:00:00,2024-06-22 00:00:00,RESOLVED,0,,No escalation to Grade 4 within 30 days (monitored through 2024-07-13),11.71,1
+DEF_00255,TRA_SEC_13_1,SEC_13,Track_Geometry_Rail_Wear,Track,2,4,2024-06-13 00:00:00,2024-06-14 00:00:00,RESOLVED,1,2024-06-14 00:00:00,Escalated to Grade 4 on 2024-06-14 (+1 days),12.27,1
+DEF_00256,TRA_SEC_11_1,SEC_11,Rail_Weld_Flaw,Track,1,4,2024-06-14 00:00:00,2024-06-17 00:00:00,RESOLVED,1,2024-07-07 00:00:00,Escalated to Grade 4 on 2024-07-07 (+23 days),6.16,1
+DEF_00257,TRA_SEC_16_2,SEC_16,Rail_Weld_Flaw,Track,2,4,2024-06-14 00:00:00,2024-06-15 00:00:00,RESOLVED,1,2024-07-03 00:00:00,Escalated to Grade 4 on 2024-07-03 (+19 days),11.21,1
+DEF_00258,SIG_SEC_02_4,SEC_02,Signal_Interlocking_Failure,Signal,1,1,2024-06-15 00:00:00,2024-06-21 00:00:00,RESOLVED,0,,No escalation to Grade 4 within 30 days (monitored through 2024-07-15),3.95,1
+DEF_00259,SIG_SEC_11_4,SEC_11,Track_Circuit_Glitch,Signal,2,2,2024-06-15 00:00:00,2024-06-17 00:00:00,RESOLVED,0,,No escalation to Grade 4 within 30 days (monitored through 2024-07-15),11.34,1
+DEF_00260,SIG_SEC_04_2,SEC_04,Signal_Interlocking_Failure,Signal,1,1,2024-06-15 00:00:00,2024-06-21 00:00:00,RESOLVED,0,,No escalation to Grade 4 within 30 days (monitored through 2024-07-15),4.09,1
+DEF_00261,TRA_SEC_04_1,SEC_04,Sleeper_Fastening_Defect,Track,1,1,2024-06-15 00:00:00,2024-06-21 00:00:00,RESOLVED,0,,No escalation to Grade 4 within 30 days (monitored through 2024-07-15),6.67,1
+DEF_00262,OHE_SEC_06_2,SEC_06,Contact_Wire_Thinning,OHE,1,1,2024-06-16 00:00:00,2024-06-19 00:00:00,RESOLVED,0,,No escalation to Grade 4 within 30 days (monitored through 2024-07-16),4.14,1
+DEF_00263,TRA_SEC_10_3,SEC_10,Rail_Weld_Flaw,Track,2,2,2024-06-16 00:00:00,2024-06-17 00:00:00,RESOLVED,0,,No escalation to Grade 4 within 30 days (monitored through 2024-07-16),4.01,1
+DEF_00264,TRA_SEC_14_2,SEC_14,Sleeper_Fastening_Defect,Track,1,4,2024-06-16 00:00:00,2024-06-20 00:00:00,RESOLVED,1,2024-07-02 00:00:00,Escalated to Grade 4 on 2024-07-02 (+16 days),8.35,1
+DEF_00265,OHE_SEC_10_2,SEC_10,Contact_Wire_Thinning,OHE,2,2,2024-06-18 00:00:00,2024-06-19 00:00:00,RESOLVED,0,,No escalation to Grade 4 within 30 days (monitored through 2024-07-18),9.73,1
+DEF_00266,SIG_SEC_04_3,SEC_04,Point_Machine_Wear,Signal,1,1,2024-06-18 00:00:00,2024-06-19 00:00:00,RESOLVED,0,,No escalation to Grade 4 within 30 days (monitored through 2024-07-18),1.92,1
+DEF_00267,TRA_SEC_14_2,SEC_14,Rail_Weld_Flaw,Track,2,2,2024-06-18 00:00:00,2024-06-20 00:00:00,RESOLVED,0,,No escalation to Grade 4 within 30 days (monitored through 2024-07-18),15.18,1
+DEF_00268,SIG_SEC_09_2,SEC_09,Signal_Interlocking_Failure,Signal,1,1,2024-06-19 00:00:00,2024-06-23 00:00:00,RESOLVED,0,,No escalation to Grade 4 within 30 days (monitored through 2024-07-19),4.2,1
+DEF_00269,TRA_SEC_17_1,SEC_17,Rail_Weld_Flaw,Track,3,4,2024-06-19 00:00:00,2024-06-27 00:00:00,RESOLVED,1,2024-07-18 00:00:00,Escalated to Grade 4 on 2024-07-18 (+29 days),10.21,1
+DEF_00270,SIG_SEC_16_1,SEC_16,Track_Circuit_Glitch,Signal,1,1,2024-06-19 00:00:00,2024-06-24 00:00:00,RESOLVED,0,,No escalation to Grade 4 within 30 days (monitored through 2024-07-19),1.39,1
+DEF_00271,SIG_SEC_15_1,SEC_15,Point_Machine_Wear,Signal,2,2,2024-06-20 00:00:00,2024-06-25 00:00:00,RESOLVED,0,,No escalation to Grade 4 within 30 days (monitored through 2024-07-20),9.5,1
+DEF_00272,TRA_SEC_13_3,SEC_13,Track_Geometry_Rail_Wear,Track,1,1,2024-06-21 00:00:00,2024-06-26 00:00:00,RESOLVED,0,,No escalation to Grade 4 within 30 days (monitored through 2024-07-21),3.58,1
+DEF_00273,TRA_SEC_17_3,SEC_17,Rail_Weld_Flaw,Track,3,3,2024-06-23 00:00:00,2024-06-28 00:00:00,RESOLVED,0,,No escalation to Grade 4 within 30 days (monitored through 2024-07-23),3.9,1
+DEF_00274,SIG_SEC_04_4,SEC_04,Track_Circuit_Glitch,Signal,1,1,2024-06-23 00:00:00,2024-06-28 00:00:00,RESOLVED,0,,No escalation to Grade 4 within 30 days (monitored through 2024-07-23),10.02,1
+DEF_00275,TRA_SEC_13_2,SEC_13,Sleeper_Fastening_Defect,Track,1,1,2024-06-24 00:00:00,2024-06-25 00:00:00,RESOLVED,0,,No escalation to Grade 4 within 30 days (monitored through 2024-07-24),3.45,1
+DEF_00276,OHE_SEC_01_1,SEC_01,OHE_Stagger_Deviation,OHE,2,2,2024-06-25 00:00:00,2024-07-01 00:00:00,RESOLVED,0,,No escalation to Grade 4 within 30 days (monitored through 2024-07-25),5.63,1
+DEF_00277,TRA_SEC_12_3,SEC_12,Sleeper_Fastening_Defect,Track,2,4,2024-06-25 00:00:00,2024-06-28 00:00:00,RESOLVED,1,2024-07-24 00:00:00,Escalated to Grade 4 on 2024-07-24 (+29 days),8.27,1
+DEF_00278,SIG_SEC_17_3,SEC_17,Track_Circuit_Glitch,Signal,1,1,2024-06-26 00:00:00,2024-06-29 00:00:00,RESOLVED,0,,No escalation to Grade 4 within 30 days (monitored through 2024-07-26),16.21,1
+DEF_00279,TRA_SEC_13_3,SEC_13,Track_Geometry_Rail_Wear,Track,1,1,2024-06-26 00:00:00,2024-07-04 00:00:00,RESOLVED,0,,No escalation to Grade 4 within 30 days (monitored through 2024-07-26),9.22,1
+DEF_00280,OHE_SEC_03_1,SEC_03,Cantilever_Assembly_Wear,OHE,1,1,2024-06-28 00:00:00,2024-07-02 00:00:00,RESOLVED,0,,No escalation to Grade 4 within 30 days (monitored through 2024-07-28),1.94,1
+DEF_00281,TRA_SEC_08_1,SEC_08,Track_Geometry_Rail_Wear,Track,1,1,2024-06-28 00:00:00,2024-07-01 00:00:00,RESOLVED,0,,No escalation to Grade 4 within 30 days (monitored through 2024-07-28),6.96,1
+DEF_00282,SIG_SEC_16_4,SEC_16,Signal_Interlocking_Failure,Signal,1,1,2024-06-28 00:00:00,2024-07-09 00:00:00,RESOLVED,0,,No escalation to Grade 4 within 30 days (monitored through 2024-07-28),5.58,1
+DEF_00283,SIG_SEC_17_3,SEC_17,Track_Circuit_Glitch,Signal,1,1,2024-06-28 00:00:00,2024-07-01 00:00:00,RESOLVED,0,,No escalation to Grade 4 within 30 days (monitored through 2024-07-28),5.67,1
+DEF_00284,SIG_SEC_14_1,SEC_14,Point_Machine_Wear,Signal,2,2,2024-06-28 00:00:00,2024-06-30 00:00:00,RESOLVED,0,,No escalation to Grade 4 within 30 days (monitored through 2024-07-28),9.56,1
+DEF_00285,TRA_SEC_05_3,SEC_05,Rail_Weld_Flaw,Track,1,1,2024-06-30 00:00:00,2024-07-02 00:00:00,RESOLVED,0,,No escalation to Grade 4 within 30 days (monitored through 2024-07-30),6.78,1
+DEF_00286,SIG_SEC_07_3,SEC_07,Point_Machine_Wear,Signal,1,1,2024-06-30 00:00:00,2024-07-14 00:00:00,RESOLVED,0,,No escalation to Grade 4 within 30 days (monitored through 2024-07-30),10.53,1
+DEF_00287,SIG_SEC_03_3,SEC_03,Track_Circuit_Glitch,Signal,3,3,2024-06-30 00:00:00,2024-07-02 00:00:00,RESOLVED,0,,No escalation to Grade 4 within 30 days (monitored through 2024-07-30),12.82,1
+DEF_00288,OHE_SEC_14_1,SEC_14,Contact_Wire_Thinning,OHE,2,2,2024-06-30 00:00:00,2024-07-10 00:00:00,RESOLVED,0,,No escalation to Grade 4 within 30 days (monitored through 2024-07-30),7.35,1
+DEF_00289,TRA_SEC_11_2,SEC_11,Track_Geometry_Rail_Wear,Track,1,1,2024-06-30 00:00:00,2024-07-01 00:00:00,RESOLVED,0,,No escalation to Grade 4 within 30 days (monitored through 2024-07-30),6.53,1
+DEF_00290,TRA_SEC_03_1,SEC_03,Track_Geometry_Rail_Wear,Track,2,2,2024-07-01 00:00:00,2024-07-09 00:00:00,RESOLVED,0,,No escalation to Grade 4 within 30 days (monitored through 2024-07-31),9.98,1
+DEF_00291,TRA_SEC_09_3,SEC_09,Sleeper_Fastening_Defect,Track,1,1,2024-07-01 00:00:00,2024-07-05 00:00:00,RESOLVED,0,,No escalation to Grade 4 within 30 days (monitored through 2024-07-31),3.58,1
+DEF_00292,TRA_SEC_07_2,SEC_07,Sleeper_Fastening_Defect,Track,1,1,2024-07-02 00:00:00,2024-07-05 00:00:00,RESOLVED,0,,No escalation to Grade 4 within 30 days (monitored through 2024-08-01),5.88,1
+DEF_00293,SIG_SEC_04_4,SEC_04,Track_Circuit_Glitch,Signal,1,1,2024-07-02 00:00:00,2024-07-04 00:00:00,RESOLVED,0,,No escalation to Grade 4 within 30 days (monitored through 2024-08-01),4.09,1
+DEF_00294,TRA_SEC_13_1,SEC_13,Sleeper_Fastening_Defect,Track,3,3,2024-07-03 00:00:00,2024-07-05 00:00:00,RESOLVED,0,,No escalation to Grade 4 within 30 days (monitored through 2024-08-02),10.68,1
+DEF_00295,TRA_SEC_03_2,SEC_03,Sleeper_Fastening_Defect,Track,1,1,2024-07-03 00:00:00,2024-07-06 00:00:00,RESOLVED,0,,No escalation to Grade 4 within 30 days (monitored through 2024-08-02),10.62,1
+DEF_00296,TRA_SEC_02_3,SEC_02,Rail_Weld_Flaw,Track,2,2,2024-07-04 00:00:00,2024-07-05 00:00:00,RESOLVED,0,,No escalation to Grade 4 within 30 days (monitored through 2024-08-03),4.63,1
+DEF_00297,TRA_SEC_16_3,SEC_16,Track_Geometry_Rail_Wear,Track,2,2,2024-07-06 00:00:00,2024-07-10 00:00:00,RESOLVED,0,,No escalation to Grade 4 within 30 days (monitored through 2024-08-05),10.65,1
+DEF_00298,OHE_SEC_12_2,SEC_12,OHE_Stagger_Deviation,OHE,1,1,2024-07-06 00:00:00,2024-07-07 00:00:00,RESOLVED,0,,No escalation to Grade 4 within 30 days (monitored through 2024-08-05),4.17,1
+DEF_00299,SIG_SEC_17_2,SEC_17,Signal_Interlocking_Failure,Signal,1,1,2024-07-07 00:00:00,2024-07-12 00:00:00,RESOLVED,0,,No escalation to Grade 4 within 30 days (monitored through 2024-08-06),3.41,1
+DEF_00300,SIG_SEC_10_4,SEC_10,Signal_Interlocking_Failure,Signal,3,3,2024-07-07 00:00:00,2024-07-12 00:00:00,RESOLVED,0,,No escalation to Grade 4 within 30 days (monitored through 2024-08-06),4.78,1
+DEF_00301,TRA_SEC_05_1,SEC_05,Rail_Weld_Flaw,Track,1,1,2024-07-07 00:00:00,2024-07-08 00:00:00,RESOLVED,0,,No escalation to Grade 4 within 30 days (monitored through 2024-08-06),12.53,1
+DEF_00302,TRA_SEC_07_2,SEC_07,Rail_Weld_Flaw,Track,2,4,2024-07-07 00:00:00,2024-07-08 00:00:00,RESOLVED,1,2024-08-05 00:00:00,Escalated to Grade 4 on 2024-08-05 (+29 days),9.58,1
+DEF_00303,OHE_SEC_05_2,SEC_05,Contact_Wire_Thinning,OHE,1,4,2024-07-07 00:00:00,2024-07-11 00:00:00,RESOLVED,1,2024-08-01 00:00:00,Escalated to Grade 4 on 2024-08-01 (+25 days),6.67,1
+DEF_00304,OHE_SEC_16_1,SEC_16,OHE_Stagger_Deviation,OHE,1,1,2024-07-07 00:00:00,2024-07-10 00:00:00,RESOLVED,0,,No escalation to Grade 4 within 30 days (monitored through 2024-08-06),2.26,1
+DEF_00305,TRA_SEC_16_1,SEC_16,Sleeper_Fastening_Defect,Track,1,1,2024-07-08 00:00:00,2024-07-15 00:00:00,RESOLVED,0,,No escalation to Grade 4 within 30 days (monitored through 2024-08-07),5.39,1
+DEF_00306,TRA_SEC_16_2,SEC_16,Rail_Weld_Flaw,Track,2,2,2024-07-09 00:00:00,2024-07-11 00:00:00,RESOLVED,0,,No escalation to Grade 4 within 30 days (monitored through 2024-08-08),19.94,1
+DEF_00307,TRA_SEC_11_1,SEC_11,Sleeper_Fastening_Defect,Track,3,3,2024-07-09 00:00:00,2024-07-16 00:00:00,RESOLVED,0,,No escalation to Grade 4 within 30 days (monitored through 2024-08-08),7.85,1
+DEF_00308,OHE_SEC_06_1,SEC_06,OHE_Stagger_Deviation,OHE,3,3,2024-07-09 00:00:00,2024-07-10 00:00:00,RESOLVED,0,,No escalation to Grade 4 within 30 days (monitored through 2024-08-08),6.44,1
+DEF_00309,OHE_SEC_08_1,SEC_08,Cantilever_Assembly_Wear,OHE,1,1,2024-07-10 00:00:00,2024-07-13 00:00:00,RESOLVED,0,,No escalation to Grade 4 within 30 days (monitored through 2024-08-09),2.06,1
+DEF_00310,TRA_SEC_11_2,SEC_11,Track_Geometry_Rail_Wear,Track,2,4,2024-07-11 00:00:00,2024-07-15 00:00:00,RESOLVED,1,2024-07-31 00:00:00,Escalated to Grade 4 on 2024-07-31 (+20 days),8.9,1
+DEF_00311,SIG_SEC_11_3,SEC_11,Signal_Interlocking_Failure,Signal,1,1,2024-07-11 00:00:00,2024-07-21 00:00:00,RESOLVED,0,,No escalation to Grade 4 within 30 days (monitored through 2024-08-10),1.44,1
+DEF_00312,SIG_SEC_05_4,SEC_05,Signal_Interlocking_Failure,Signal,2,4,2024-07-11 00:00:00,2024-07-13 00:00:00,RESOLVED,1,2024-08-04 00:00:00,Escalated to Grade 4 on 2024-08-04 (+24 days),8.04,1
+DEF_00313,SIG_SEC_15_3,SEC_15,Signal_Interlocking_Failure,Signal,2,2,2024-07-11 00:00:00,2024-07-13 00:00:00,RESOLVED,0,,No escalation to Grade 4 within 30 days (monitored through 2024-08-10),6.79,1
+DEF_00314,TRA_SEC_03_1,SEC_03,Sleeper_Fastening_Defect,Track,2,2,2024-07-12 00:00:00,2024-07-14 00:00:00,RESOLVED,0,,No escalation to Grade 4 within 30 days (monitored through 2024-08-11),5.6,1
+DEF_00315,TRA_SEC_06_3,SEC_06,Sleeper_Fastening_Defect,Track,1,1,2024-07-12 00:00:00,2024-07-13 00:00:00,RESOLVED,0,,No escalation to Grade 4 within 30 days (monitored through 2024-08-11),8.02,1
+DEF_00316,TRA_SEC_02_2,SEC_02,Track_Geometry_Rail_Wear,Track,2,2,2024-07-12 00:00:00,2024-07-25 00:00:00,RESOLVED,0,,No escalation to Grade 4 within 30 days (monitored through 2024-08-11),4.92,1
+DEF_00317,TRA_SEC_07_2,SEC_07,Rail_Weld_Flaw,Track,2,2,2024-07-13 00:00:00,2024-07-15 00:00:00,RESOLVED,0,,No escalation to Grade 4 within 30 days (monitored through 2024-08-12),4.67,1
+DEF_00318,SIG_SEC_16_3,SEC_16,Track_Circuit_Glitch,Signal,1,1,2024-07-13 00:00:00,2024-07-15 00:00:00,RESOLVED,0,,No escalation to Grade 4 within 30 days (monitored through 2024-08-12),2.39,1
+DEF_00319,TRA_SEC_16_2,SEC_16,Sleeper_Fastening_Defect,Track,1,1,2024-07-13 00:00:00,2024-07-16 00:00:00,RESOLVED,0,,No escalation to Grade 4 within 30 days (monitored through 2024-08-12),1.86,1
+DEF_00320,TRA_SEC_15_1,SEC_15,Rail_Weld_Flaw,Track,3,3,2024-07-15 00:00:00,2024-07-20 00:00:00,RESOLVED,0,,No escalation to Grade 4 within 30 days (monitored through 2024-08-14),8.24,1
+DEF_00321,TRA_SEC_04_2,SEC_04,Track_Geometry_Rail_Wear,Track,1,4,2024-07-15 00:00:00,2024-07-16 00:00:00,RESOLVED,1,2024-07-20 00:00:00,Escalated to Grade 4 on 2024-07-20 (+5 days),15.92,1
+DEF_00322,OHE_SEC_05_2,SEC_05,Cantilever_Assembly_Wear,OHE,1,1,2024-07-15 00:00:00,2024-07-19 00:00:00,RESOLVED,0,,No escalation to Grade 4 within 30 days (monitored through 2024-08-14),6.27,1
+DEF_00323,TRA_SEC_08_1,SEC_08,Rail_Weld_Flaw,Track,1,1,2024-07-16 00:00:00,2024-07-17 00:00:00,RESOLVED,0,,No escalation to Grade 4 within 30 days (monitored through 2024-08-15),4.91,1
+DEF_00324,TRA_SEC_06_1,SEC_06,Track_Geometry_Rail_Wear,Track,2,4,2024-07-17 00:00:00,2024-07-25 00:00:00,RESOLVED,1,2024-07-29 00:00:00,Escalated to Grade 4 on 2024-07-29 (+12 days),21.75,1
+DEF_00325,SIG_SEC_04_4,SEC_04,Track_Circuit_Glitch,Signal,2,2,2024-07-17 00:00:00,2024-07-21 00:00:00,RESOLVED,0,,No escalation to Grade 4 within 30 days (monitored through 2024-08-16),8.47,1
+DEF_00326,SIG_SEC_03_4,SEC_03,Signal_Interlocking_Failure,Signal,1,1,2024-07-18 00:00:00,2024-07-19 00:00:00,RESOLVED,0,,No escalation to Grade 4 within 30 days (monitored through 2024-08-17),8.13,1
+DEF_00327,TRA_SEC_06_1,SEC_06,Track_Geometry_Rail_Wear,Track,2,2,2024-07-18 00:00:00,2024-07-19 00:00:00,RESOLVED,0,,No escalation to Grade 4 within 30 days (monitored through 2024-08-17),11.38,1
+DEF_00328,TRA_SEC_17_1,SEC_17,Sleeper_Fastening_Defect,Track,2,2,2024-07-22 00:00:00,2024-07-24 00:00:00,RESOLVED,0,,No escalation to Grade 4 within 30 days (monitored through 2024-08-21),7.84,1
+DEF_00329,TRA_SEC_11_1,SEC_11,Rail_Weld_Flaw,Track,1,1,2024-07-22 00:00:00,2024-07-26 00:00:00,RESOLVED,0,,No escalation to Grade 4 within 30 days (monitored through 2024-08-21),7.77,1
+DEF_00330,OHE_SEC_15_1,SEC_15,OHE_Stagger_Deviation,OHE,1,1,2024-07-22 00:00:00,2024-07-23 00:00:00,RESOLVED,0,,No escalation to Grade 4 within 30 days (monitored through 2024-08-21),7.91,1
+DEF_00331,SIG_SEC_11_4,SEC_11,Signal_Interlocking_Failure,Signal,1,1,2024-07-23 00:00:00,2024-07-26 00:00:00,RESOLVED,0,,No escalation to Grade 4 within 30 days (monitored through 2024-08-22),6.22,1
+DEF_00332,TRA_SEC_10_3,SEC_10,Track_Geometry_Rail_Wear,Track,2,2,2024-07-24 00:00:00,2024-07-27 00:00:00,RESOLVED,0,,No escalation to Grade 4 within 30 days (monitored through 2024-08-23),9.45,1
+DEF_00333,SIG_SEC_09_2,SEC_09,Point_Machine_Wear,Signal,1,1,2024-07-24 00:00:00,2024-07-25 00:00:00,RESOLVED,0,,No escalation to Grade 4 within 30 days (monitored through 2024-08-23),2.6,1
+DEF_00334,TRA_SEC_04_1,SEC_04,Track_Geometry_Rail_Wear,Track,2,2,2024-07-24 00:00:00,2024-07-28 00:00:00,RESOLVED,0,,No escalation to Grade 4 within 30 days (monitored through 2024-08-23),3.26,1
+DEF_00335,TRA_SEC_12_2,SEC_12,Track_Geometry_Rail_Wear,Track,1,1,2024-07-25 00:00:00,2024-07-26 00:00:00,RESOLVED,0,,No escalation to Grade 4 within 30 days (monitored through 2024-08-24),8.27,1
+DEF_00336,SIG_SEC_09_3,SEC_09,Signal_Interlocking_Failure,Signal,1,1,2024-07-26 00:00:00,2024-07-27 00:00:00,RESOLVED,0,,No escalation to Grade 4 within 30 days (monitored through 2024-08-25),7.61,1
+DEF_00337,SIG_SEC_07_2,SEC_07,Signal_Interlocking_Failure,Signal,2,2,2024-07-26 00:00:00,2024-08-04 00:00:00,RESOLVED,0,,No escalation to Grade 4 within 30 days (monitored through 2024-08-25),3.87,1
+DEF_00338,OHE_SEC_14_1,SEC_14,OHE_Stagger_Deviation,OHE,1,1,2024-07-26 00:00:00,2024-07-27 00:00:00,RESOLVED,0,,No escalation to Grade 4 within 30 days (monitored through 2024-08-25),2.0,1
+DEF_00339,TRA_SEC_10_2,SEC_10,Rail_Weld_Flaw,Track,1,1,2024-07-28 00:00:00,2024-08-01 00:00:00,RESOLVED,0,,No escalation to Grade 4 within 30 days (monitored through 2024-08-27),4.36,1
+DEF_00340,SIG_SEC_16_4,SEC_16,Point_Machine_Wear,Signal,1,1,2024-07-28 00:00:00,2024-07-29 00:00:00,RESOLVED,0,,No escalation to Grade 4 within 30 days (monitored through 2024-08-27),7.92,1
+DEF_00341,SIG_SEC_01_3,SEC_01,Point_Machine_Wear,Signal,2,2,2024-07-28 00:00:00,2024-08-01 00:00:00,RESOLVED,0,,No escalation to Grade 4 within 30 days (monitored through 2024-08-27),3.48,1
+DEF_00342,TRA_SEC_15_3,SEC_15,Track_Geometry_Rail_Wear,Track,2,2,2024-07-29 00:00:00,2024-08-02 00:00:00,RESOLVED,0,,No escalation to Grade 4 within 30 days (monitored through 2024-08-28),5.34,1
+DEF_00343,SIG_SEC_03_4,SEC_03,Signal_Interlocking_Failure,Signal,1,1,2024-07-29 00:00:00,2024-07-31 00:00:00,RESOLVED,0,,No escalation to Grade 4 within 30 days (monitored through 2024-08-28),5.21,1
+DEF_00344,OHE_SEC_02_2,SEC_02,Contact_Wire_Thinning,OHE,1,1,2024-07-29 00:00:00,2024-08-01 00:00:00,RESOLVED,0,,No escalation to Grade 4 within 30 days (monitored through 2024-08-28),4.7,1
+DEF_00345,TRA_SEC_01_2,SEC_01,Rail_Weld_Flaw,Track,2,2,2024-07-29 00:00:00,2024-07-31 00:00:00,RESOLVED,0,,No escalation to Grade 4 within 30 days (monitored through 2024-08-28),5.34,1
+DEF_00346,TRA_SEC_14_1,SEC_14,Track_Geometry_Rail_Wear,Track,1,1,2024-07-30 00:00:00,2024-07-31 00:00:00,RESOLVED,0,,No escalation to Grade 4 within 30 days (monitored through 2024-08-29),8.97,1
+DEF_00347,SIG_SEC_14_2,SEC_14,Track_Circuit_Glitch,Signal,1,1,2024-07-30 00:00:00,2024-08-05 00:00:00,RESOLVED,0,,No escalation to Grade 4 within 30 days (monitored through 2024-08-29),13.15,1
+DEF_00348,OHE_SEC_08_2,SEC_08,OHE_Stagger_Deviation,OHE,1,1,2024-07-30 00:00:00,2024-08-05 00:00:00,RESOLVED,0,,No escalation to Grade 4 within 30 days (monitored through 2024-08-29),3.53,1
+DEF_00349,TRA_SEC_07_3,SEC_07,Track_Geometry_Rail_Wear,Track,2,2,2024-07-30 00:00:00,2024-08-04 00:00:00,RESOLVED,0,,No escalation to Grade 4 within 30 days (monitored through 2024-08-29),3.21,1
+DEF_00350,SIG_SEC_06_3,SEC_06,Signal_Interlocking_Failure,Signal,1,1,2024-07-31 00:00:00,2024-08-05 00:00:00,RESOLVED,0,,No escalation to Grade 4 within 30 days (monitored through 2024-08-30),5.86,1
+DEF_00351,SIG_SEC_14_2,SEC_14,Track_Circuit_Glitch,Signal,1,1,2024-08-02 00:00:00,2024-08-08 00:00:00,RESOLVED,0,,No escalation to Grade 4 within 30 days (monitored through 2024-09-01),6.11,1
+DEF_00352,SIG_SEC_02_3,SEC_02,Signal_Interlocking_Failure,Signal,1,1,2024-08-02 00:00:00,2024-08-03 00:00:00,RESOLVED,0,,No escalation to Grade 4 within 30 days (monitored through 2024-09-01),3.22,1
+DEF_00353,SIG_SEC_17_1,SEC_17,Signal_Interlocking_Failure,Signal,2,2,2024-08-02 00:00:00,2024-08-03 00:00:00,RESOLVED,0,,No escalation to Grade 4 within 30 days (monitored through 2024-09-01),3.57,1
+DEF_00354,TRA_SEC_05_2,SEC_05,Track_Geometry_Rail_Wear,Track,3,4,2024-08-02 00:00:00,2024-08-10 00:00:00,RESOLVED,1,2024-08-23 00:00:00,Escalated to Grade 4 on 2024-08-23 (+21 days),11.12,1
+DEF_00355,TRA_SEC_07_3,SEC_07,Rail_Weld_Flaw,Track,2,2,2024-08-03 00:00:00,2024-08-11 00:00:00,RESOLVED,0,,No escalation to Grade 4 within 30 days (monitored through 2024-09-02),3.78,1
+DEF_00356,TRA_SEC_17_3,SEC_17,Sleeper_Fastening_Defect,Track,4,4,2024-08-03 00:00:00,2024-08-07 00:00:00,RESOLVED,0,,Pre-existing Grade 4 critical defect at observation date,19.02,1
+DEF_00357,TRA_SEC_11_2,SEC_11,Sleeper_Fastening_Defect,Track,3,3,2024-08-03 00:00:00,2024-08-07 00:00:00,RESOLVED,0,,No escalation to Grade 4 within 30 days (monitored through 2024-09-02),18.14,1
+DEF_00358,SIG_SEC_02_4,SEC_02,Track_Circuit_Glitch,Signal,1,1,2024-08-04 00:00:00,2024-08-08 00:00:00,RESOLVED,0,,No escalation to Grade 4 within 30 days (monitored through 2024-09-03),14.67,1
+DEF_00359,SIG_SEC_11_1,SEC_11,Point_Machine_Wear,Signal,1,1,2024-08-04 00:00:00,2024-08-12 00:00:00,RESOLVED,0,,No escalation to Grade 4 within 30 days (monitored through 2024-09-03),4.22,1
+DEF_00360,TRA_SEC_09_2,SEC_09,Sleeper_Fastening_Defect,Track,2,2,2024-08-05 00:00:00,2024-08-06 00:00:00,RESOLVED,0,,No escalation to Grade 4 within 30 days (monitored through 2024-09-04),12.35,1
+DEF_00361,TRA_SEC_14_2,SEC_14,Sleeper_Fastening_Defect,Track,1,1,2024-08-05 00:00:00,2024-08-06 00:00:00,RESOLVED,0,,No escalation to Grade 4 within 30 days (monitored through 2024-09-04),19.44,1
+DEF_00362,SIG_SEC_11_4,SEC_11,Point_Machine_Wear,Signal,1,1,2024-08-06 00:00:00,2024-08-08 00:00:00,RESOLVED,0,,No escalation to Grade 4 within 30 days (monitored through 2024-09-05),9.12,1
+DEF_00363,SIG_SEC_15_4,SEC_15,Track_Circuit_Glitch,Signal,3,3,2024-08-06 00:00:00,2024-08-09 00:00:00,RESOLVED,0,,No escalation to Grade 4 within 30 days (monitored through 2024-09-05),8.89,1
+DEF_00364,SIG_SEC_04_4,SEC_04,Track_Circuit_Glitch,Signal,1,1,2024-08-06 00:00:00,2024-08-08 00:00:00,RESOLVED,0,,No escalation to Grade 4 within 30 days (monitored through 2024-09-05),2.68,1
+DEF_00365,TRA_SEC_01_2,SEC_01,Sleeper_Fastening_Defect,Track,2,4,2024-08-07 00:00:00,2024-08-08 00:00:00,RESOLVED,1,2024-08-08 00:00:00,Escalated to Grade 4 on 2024-08-08 (+1 days),5.62,1
+DEF_00366,TRA_SEC_03_3,SEC_03,Sleeper_Fastening_Defect,Track,1,1,2024-08-08 00:00:00,2024-08-15 00:00:00,RESOLVED,0,,No escalation to Grade 4 within 30 days (monitored through 2024-09-07),3.81,1
+DEF_00367,OHE_SEC_09_2,SEC_09,Contact_Wire_Thinning,OHE,1,1,2024-08-09 00:00:00,2024-08-10 00:00:00,RESOLVED,0,,No escalation to Grade 4 within 30 days (monitored through 2024-09-08),1.96,1
+DEF_00368,OHE_SEC_13_1,SEC_13,Contact_Wire_Thinning,OHE,1,1,2024-08-09 00:00:00,2024-08-10 00:00:00,RESOLVED,0,,No escalation to Grade 4 within 30 days (monitored through 2024-09-08),3.08,1
+DEF_00369,TRA_SEC_04_1,SEC_04,Rail_Weld_Flaw,Track,3,4,2024-08-09 00:00:00,2024-08-12 00:00:00,RESOLVED,1,2024-08-10 00:00:00,Escalated to Grade 4 on 2024-08-10 (+1 days),28.47,1
+DEF_00370,SIG_SEC_01_3,SEC_01,Track_Circuit_Glitch,Signal,4,4,2024-08-10 00:00:00,2024-08-11 00:00:00,RESOLVED,0,,Pre-existing Grade 4 critical defect at observation date,12.91,1
+DEF_00371,TRA_SEC_13_3,SEC_13,Sleeper_Fastening_Defect,Track,1,1,2024-08-10 00:00:00,2024-08-12 00:00:00,RESOLVED,0,,No escalation to Grade 4 within 30 days (monitored through 2024-09-09),2.9,1
+DEF_00372,TRA_SEC_14_2,SEC_14,Sleeper_Fastening_Defect,Track,1,1,2024-08-10 00:00:00,2024-08-16 00:00:00,RESOLVED,0,,No escalation to Grade 4 within 30 days (monitored through 2024-09-09),5.82,1
+DEF_00373,OHE_SEC_09_1,SEC_09,Contact_Wire_Thinning,OHE,1,1,2024-08-10 00:00:00,2024-08-15 00:00:00,RESOLVED,0,,No escalation to Grade 4 within 30 days (monitored through 2024-09-09),7.94,1
+DEF_00374,TRA_SEC_17_2,SEC_17,Track_Geometry_Rail_Wear,Track,3,3,2024-08-10 00:00:00,2024-08-11 00:00:00,RESOLVED,0,,No escalation to Grade 4 within 30 days (monitored through 2024-09-09),3.99,1
+DEF_00375,OHE_SEC_14_2,SEC_14,Cantilever_Assembly_Wear,OHE,2,2,2024-08-10 00:00:00,2024-08-12 00:00:00,RESOLVED,0,,No escalation to Grade 4 within 30 days (monitored through 2024-09-09),6.31,1
+DEF_00376,SIG_SEC_07_2,SEC_07,Point_Machine_Wear,Signal,1,1,2024-08-11 00:00:00,2024-08-12 00:00:00,RESOLVED,0,,No escalation to Grade 4 within 30 days (monitored through 2024-09-10),6.78,1
+DEF_00377,SIG_SEC_04_3,SEC_04,Signal_Interlocking_Failure,Signal,1,1,2024-08-11 00:00:00,2024-08-12 00:00:00,RESOLVED,0,,No escalation to Grade 4 within 30 days (monitored through 2024-09-10),2.38,1
+DEF_00378,TRA_SEC_01_2,SEC_01,Sleeper_Fastening_Defect,Track,1,1,2024-08-12 00:00:00,2024-08-19 00:00:00,RESOLVED,0,,No escalation to Grade 4 within 30 days (monitored through 2024-09-11),7.66,1
+DEF_00379,SIG_SEC_09_2,SEC_09,Signal_Interlocking_Failure,Signal,1,1,2024-08-12 00:00:00,2024-08-16 00:00:00,RESOLVED,0,,No escalation to Grade 4 within 30 days (monitored through 2024-09-11),3.84,1
+DEF_00380,SIG_SEC_05_1,SEC_05,Point_Machine_Wear,Signal,1,1,2024-08-12 00:00:00,2024-08-18 00:00:00,RESOLVED,0,,No escalation to Grade 4 within 30 days (monitored through 2024-09-11),6.67,1
+DEF_00381,TRA_SEC_14_3,SEC_14,Sleeper_Fastening_Defect,Track,1,1,2024-08-12 00:00:00,2024-08-15 00:00:00,RESOLVED,0,,No escalation to Grade 4 within 30 days (monitored through 2024-09-11),4.69,1
+DEF_00382,OHE_SEC_13_2,SEC_13,Cantilever_Assembly_Wear,OHE,1,1,2024-08-12 00:00:00,2024-08-17 00:00:00,RESOLVED,0,,No escalation to Grade 4 within 30 days (monitored through 2024-09-11),4.13,1
+DEF_00383,SIG_SEC_07_4,SEC_07,Point_Machine_Wear,Signal,1,1,2024-08-13 00:00:00,2024-08-14 00:00:00,RESOLVED,0,,No escalation to Grade 4 within 30 days (monitored through 2024-09-12),2.35,1
+DEF_00384,SIG_SEC_13_1,SEC_13,Track_Circuit_Glitch,Signal,1,1,2024-08-13 00:00:00,2024-08-16 00:00:00,RESOLVED,0,,No escalation to Grade 4 within 30 days (monitored through 2024-09-12),3.2,1
+DEF_00385,TRA_SEC_17_1,SEC_17,Rail_Weld_Flaw,Track,1,1,2024-08-13 00:00:00,2024-08-18 00:00:00,RESOLVED,0,,No escalation to Grade 4 within 30 days (monitored through 2024-09-12),3.75,1
+DEF_00386,SIG_SEC_07_2,SEC_07,Signal_Interlocking_Failure,Signal,1,1,2024-08-13 00:00:00,2024-08-18 00:00:00,RESOLVED,0,,No escalation to Grade 4 within 30 days (monitored through 2024-09-12),1.85,1
+DEF_00387,TRA_SEC_03_2,SEC_03,Rail_Weld_Flaw,Track,1,1,2024-08-13 00:00:00,2024-08-15 00:00:00,RESOLVED,0,,No escalation to Grade 4 within 30 days (monitored through 2024-09-12),5.55,1
+DEF_00388,TRA_SEC_09_2,SEC_09,Track_Geometry_Rail_Wear,Track,1,1,2024-08-14 00:00:00,2024-08-17 00:00:00,RESOLVED,0,,No escalation to Grade 4 within 30 days (monitored through 2024-09-13),7.36,1
+DEF_00389,SIG_SEC_14_1,SEC_14,Point_Machine_Wear,Signal,1,1,2024-08-14 00:00:00,2024-08-15 00:00:00,RESOLVED,0,,No escalation to Grade 4 within 30 days (monitored through 2024-09-13),5.49,1
+DEF_00390,SIG_SEC_05_2,SEC_05,Track_Circuit_Glitch,Signal,1,1,2024-08-14 00:00:00,2024-08-17 00:00:00,RESOLVED,0,,No escalation to Grade 4 within 30 days (monitored through 2024-09-13),8.53,1
+DEF_00391,OHE_SEC_14_1,SEC_14,Contact_Wire_Thinning,OHE,1,1,2024-08-15 00:00:00,2024-08-20 00:00:00,RESOLVED,0,,No escalation to Grade 4 within 30 days (monitored through 2024-09-14),7.9,1
+DEF_00392,TRA_SEC_04_1,SEC_04,Sleeper_Fastening_Defect,Track,2,2,2024-08-15 00:00:00,2024-08-19 00:00:00,RESOLVED,0,,No escalation to Grade 4 within 30 days (monitored through 2024-09-14),8.27,1
+DEF_00393,SIG_SEC_11_3,SEC_11,Signal_Interlocking_Failure,Signal,1,1,2024-08-15 00:00:00,2024-08-20 00:00:00,RESOLVED,0,,No escalation to Grade 4 within 30 days (monitored through 2024-09-14),3.68,1
+DEF_00394,TRA_SEC_02_2,SEC_02,Rail_Weld_Flaw,Track,1,1,2024-08-16 00:00:00,2024-08-17 00:00:00,RESOLVED,0,,No escalation to Grade 4 within 30 days (monitored through 2024-09-15),8.38,1
+DEF_00395,SIG_SEC_07_4,SEC_07,Point_Machine_Wear,Signal,3,3,2024-08-16 00:00:00,2024-08-23 00:00:00,RESOLVED,0,,No escalation to Grade 4 within 30 days (monitored through 2024-09-15),4.51,1
+DEF_00396,TRA_SEC_01_1,SEC_01,Track_Geometry_Rail_Wear,Track,2,2,2024-08-16 00:00:00,2024-08-19 00:00:00,RESOLVED,0,,No escalation to Grade 4 within 30 days (monitored through 2024-09-15),6.04,1
+DEF_00397,SIG_SEC_01_1,SEC_01,Signal_Interlocking_Failure,Signal,2,2,2024-08-18 00:00:00,2024-08-22 00:00:00,RESOLVED,0,,No escalation to Grade 4 within 30 days (monitored through 2024-09-17),4.04,1
+DEF_00398,TRA_SEC_11_3,SEC_11,Sleeper_Fastening_Defect,Track,1,1,2024-08-18 00:00:00,2024-08-19 00:00:00,RESOLVED,0,,No escalation to Grade 4 within 30 days (monitored through 2024-09-17),8.46,1
+DEF_00399,SIG_SEC_13_4,SEC_13,Track_Circuit_Glitch,Signal,1,4,2024-08-18 00:00:00,2024-08-20 00:00:00,RESOLVED,1,2024-09-03 00:00:00,Escalated to Grade 4 on 2024-09-03 (+16 days),15.45,1
+DEF_00400,TRA_SEC_05_2,SEC_05,Rail_Weld_Flaw,Track,1,4,2024-08-18 00:00:00,2024-08-19 00:00:00,RESOLVED,1,2024-09-13 00:00:00,Escalated to Grade 4 on 2024-09-13 (+26 days),9.98,1
+DEF_00401,SIG_SEC_06_4,SEC_06,Point_Machine_Wear,Signal,2,2,2024-08-19 00:00:00,2024-09-01 00:00:00,RESOLVED,0,,No escalation to Grade 4 within 30 days (monitored through 2024-09-18),8.4,1
+DEF_00402,OHE_SEC_17_2,SEC_17,OHE_Stagger_Deviation,OHE,1,1,2024-08-19 00:00:00,2024-08-21 00:00:00,RESOLVED,0,,No escalation to Grade 4 within 30 days (monitored through 2024-09-18),7.37,1
+DEF_00403,SIG_SEC_16_1,SEC_16,Track_Circuit_Glitch,Signal,3,3,2024-08-19 00:00:00,2024-08-23 00:00:00,RESOLVED,0,,No escalation to Grade 4 within 30 days (monitored through 2024-09-18),8.72,1
+DEF_00404,SIG_SEC_12_1,SEC_12,Signal_Interlocking_Failure,Signal,2,2,2024-08-20 00:00:00,2024-08-21 00:00:00,RESOLVED,0,,No escalation to Grade 4 within 30 days (monitored through 2024-09-19),5.93,1
+DEF_00405,SIG_SEC_11_4,SEC_11,Signal_Interlocking_Failure,Signal,1,1,2024-08-20 00:00:00,2024-08-23 00:00:00,RESOLVED,0,,No escalation to Grade 4 within 30 days (monitored through 2024-09-19),2.13,1
+DEF_00406,TRA_SEC_15_1,SEC_15,Track_Geometry_Rail_Wear,Track,1,1,2024-08-20 00:00:00,2024-08-21 00:00:00,RESOLVED,0,,No escalation to Grade 4 within 30 days (monitored through 2024-09-19),9.58,1
+DEF_00407,SIG_SEC_15_2,SEC_15,Track_Circuit_Glitch,Signal,1,1,2024-08-20 00:00:00,2024-08-21 00:00:00,RESOLVED,0,,No escalation to Grade 4 within 30 days (monitored through 2024-09-19),1.55,1
+DEF_00408,TRA_SEC_06_1,SEC_06,Rail_Weld_Flaw,Track,3,3,2024-08-21 00:00:00,2024-08-22 00:00:00,RESOLVED,0,,No escalation to Grade 4 within 30 days (monitored through 2024-09-20),5.16,1
+DEF_00409,OHE_SEC_12_1,SEC_12,Contact_Wire_Thinning,OHE,1,1,2024-08-22 00:00:00,2024-08-23 00:00:00,RESOLVED,0,,No escalation to Grade 4 within 30 days (monitored through 2024-09-21),3.51,1
+DEF_00410,TRA_SEC_15_1,SEC_15,Track_Geometry_Rail_Wear,Track,1,1,2024-08-22 00:00:00,2024-08-31 00:00:00,RESOLVED,0,,No escalation to Grade 4 within 30 days (monitored through 2024-09-21),7.34,1
+DEF_00411,SIG_SEC_08_3,SEC_08,Signal_Interlocking_Failure,Signal,1,4,2024-08-22 00:00:00,2024-08-30 00:00:00,RESOLVED,1,2024-08-30 00:00:00,Escalated to Grade 4 on 2024-08-30 (+8 days),7.44,1
+DEF_00412,TRA_SEC_01_3,SEC_01,Rail_Weld_Flaw,Track,3,3,2024-08-22 00:00:00,2024-08-23 00:00:00,RESOLVED,0,,No escalation to Grade 4 within 30 days (monitored through 2024-09-21),10.42,1
+DEF_00413,SIG_SEC_02_4,SEC_02,Signal_Interlocking_Failure,Signal,2,2,2024-08-23 00:00:00,2024-08-26 00:00:00,RESOLVED,0,,No escalation to Grade 4 within 30 days (monitored through 2024-09-22),3.31,1
+DEF_00414,OHE_SEC_12_2,SEC_12,OHE_Stagger_Deviation,OHE,2,2,2024-08-24 00:00:00,2024-08-29 00:00:00,RESOLVED,0,,No escalation to Grade 4 within 30 days (monitored through 2024-09-23),4.49,1
+DEF_00415,TRA_SEC_10_3,SEC_10,Track_Geometry_Rail_Wear,Track,1,1,2024-08-26 00:00:00,2024-09-04 00:00:00,RESOLVED,0,,No escalation to Grade 4 within 30 days (monitored through 2024-09-25),4.81,1
+DEF_00416,SIG_SEC_16_4,SEC_16,Track_Circuit_Glitch,Signal,1,1,2024-08-28 00:00:00,2024-08-30 00:00:00,RESOLVED,0,,No escalation to Grade 4 within 30 days (monitored through 2024-09-27),4.25,1
+DEF_00417,OHE_SEC_11_2,SEC_11,Contact_Wire_Thinning,OHE,3,3,2024-08-28 00:00:00,2024-09-08 00:00:00,RESOLVED,0,,No escalation to Grade 4 within 30 days (monitored through 2024-09-27),3.47,1
+DEF_00418,TRA_SEC_06_3,SEC_06,Sleeper_Fastening_Defect,Track,2,2,2024-08-29 00:00:00,2024-09-09 00:00:00,RESOLVED,0,,No escalation to Grade 4 within 30 days (monitored through 2024-09-28),16.22,1
+DEF_00419,TRA_SEC_04_1,SEC_04,Track_Geometry_Rail_Wear,Track,1,1,2024-08-29 00:00:00,2024-08-30 00:00:00,RESOLVED,0,,No escalation to Grade 4 within 30 days (monitored through 2024-09-28),3.19,1
+DEF_00420,TRA_SEC_12_1,SEC_12,Rail_Weld_Flaw,Track,2,2,2024-08-30 00:00:00,2024-09-04 00:00:00,RESOLVED,0,,No escalation to Grade 4 within 30 days (monitored through 2024-09-29),5.98,1
+DEF_00421,TRA_SEC_07_2,SEC_07,Track_Geometry_Rail_Wear,Track,1,1,2024-08-30 00:00:00,2024-09-04 00:00:00,RESOLVED,0,,No escalation to Grade 4 within 30 days (monitored through 2024-09-29),7.36,1
+DEF_00422,SIG_SEC_05_1,SEC_05,Track_Circuit_Glitch,Signal,1,1,2024-08-30 00:00:00,2024-09-02 00:00:00,RESOLVED,0,,No escalation to Grade 4 within 30 days (monitored through 2024-09-29),9.49,1
+DEF_00423,TRA_SEC_14_2,SEC_14,Rail_Weld_Flaw,Track,1,1,2024-08-31 00:00:00,2024-09-01 00:00:00,RESOLVED,0,,No escalation to Grade 4 within 30 days (monitored through 2024-09-30),5.19,1
+DEF_00424,TRA_SEC_15_2,SEC_15,Rail_Weld_Flaw,Track,2,2,2024-09-01 00:00:00,2024-09-03 00:00:00,RESOLVED,0,,No escalation to Grade 4 within 30 days (monitored through 2024-10-01),6.31,1
+DEF_00425,TRA_SEC_05_1,SEC_05,Rail_Weld_Flaw,Track,2,2,2024-09-02 00:00:00,2024-09-05 00:00:00,RESOLVED,0,,No escalation to Grade 4 within 30 days (monitored through 2024-10-02),8.74,1
+DEF_00426,TRA_SEC_05_1,SEC_05,Rail_Weld_Flaw,Track,2,2,2024-09-03 00:00:00,2024-09-05 00:00:00,RESOLVED,0,,No escalation to Grade 4 within 30 days (monitored through 2024-10-03),16.81,1
+DEF_00427,SIG_SEC_01_3,SEC_01,Signal_Interlocking_Failure,Signal,1,1,2024-09-03 00:00:00,2024-09-07 00:00:00,RESOLVED,0,,No escalation to Grade 4 within 30 days (monitored through 2024-10-03),4.37,1
+DEF_00428,TRA_SEC_11_1,SEC_11,Sleeper_Fastening_Defect,Track,1,1,2024-09-03 00:00:00,2024-09-04 00:00:00,RESOLVED,0,,No escalation to Grade 4 within 30 days (monitored through 2024-10-03),3.66,1
+DEF_00429,TRA_SEC_12_2,SEC_12,Sleeper_Fastening_Defect,Track,1,1,2024-09-03 00:00:00,2024-09-04 00:00:00,RESOLVED,0,,No escalation to Grade 4 within 30 days (monitored through 2024-10-03),7.76,1
+DEF_00430,TRA_SEC_04_2,SEC_04,Rail_Weld_Flaw,Track,1,1,2024-09-04 00:00:00,2024-09-07 00:00:00,RESOLVED,0,,No escalation to Grade 4 within 30 days (monitored through 2024-10-04),8.3,1
+DEF_00431,SIG_SEC_01_1,SEC_01,Track_Circuit_Glitch,Signal,4,4,2024-09-04 00:00:00,2024-09-05 00:00:00,RESOLVED,0,,Pre-existing Grade 4 critical defect at observation date,11.19,1
+DEF_00432,SIG_SEC_10_4,SEC_10,Track_Circuit_Glitch,Signal,3,4,2024-09-05 00:00:00,2024-09-08 00:00:00,RESOLVED,1,2024-09-11 00:00:00,Escalated to Grade 4 on 2024-09-11 (+6 days),7.11,1
+DEF_00433,TRA_SEC_07_1,SEC_07,Track_Geometry_Rail_Wear,Track,1,1,2024-09-06 00:00:00,2024-09-07 00:00:00,RESOLVED,0,,No escalation to Grade 4 within 30 days (monitored through 2024-10-06),3.82,1
+DEF_00434,TRA_SEC_04_1,SEC_04,Track_Geometry_Rail_Wear,Track,2,2,2024-09-06 00:00:00,2024-09-08 00:00:00,RESOLVED,0,,No escalation to Grade 4 within 30 days (monitored through 2024-10-06),3.29,1
+DEF_00435,OHE_SEC_09_1,SEC_09,Contact_Wire_Thinning,OHE,1,1,2024-09-07 00:00:00,2024-09-10 00:00:00,RESOLVED,0,,No escalation to Grade 4 within 30 days (monitored through 2024-10-07),9.64,1
+DEF_00436,TRA_SEC_15_1,SEC_15,Sleeper_Fastening_Defect,Track,1,4,2024-09-07 00:00:00,2024-09-09 00:00:00,RESOLVED,1,2024-09-17 00:00:00,Escalated to Grade 4 on 2024-09-17 (+10 days),7.99,1
+DEF_00437,TRA_SEC_09_1,SEC_09,Track_Geometry_Rail_Wear,Track,2,2,2024-09-08 00:00:00,2024-09-22 00:00:00,RESOLVED,0,,No escalation to Grade 4 within 30 days (monitored through 2024-10-08),2.98,1
+DEF_00438,TRA_SEC_14_2,SEC_14,Track_Geometry_Rail_Wear,Track,1,1,2024-09-08 00:00:00,2024-09-09 00:00:00,RESOLVED,0,,No escalation to Grade 4 within 30 days (monitored through 2024-10-08),5.15,1
+DEF_00439,SIG_SEC_08_1,SEC_08,Point_Machine_Wear,Signal,1,1,2024-09-09 00:00:00,2024-09-12 00:00:00,RESOLVED,0,,No escalation to Grade 4 within 30 days (monitored through 2024-10-09),11.31,1
+DEF_00440,SIG_SEC_07_2,SEC_07,Point_Machine_Wear,Signal,4,4,2024-09-09 00:00:00,2024-09-10 00:00:00,RESOLVED,0,,Pre-existing Grade 4 critical defect at observation date,13.42,1
+DEF_00441,SIG_SEC_02_1,SEC_02,Signal_Interlocking_Failure,Signal,1,1,2024-09-10 00:00:00,2024-09-12 00:00:00,RESOLVED,0,,No escalation to Grade 4 within 30 days (monitored through 2024-10-10),4.94,1
+DEF_00442,TRA_SEC_13_1,SEC_13,Sleeper_Fastening_Defect,Track,1,1,2024-09-10 00:00:00,2024-09-15 00:00:00,RESOLVED,0,,No escalation to Grade 4 within 30 days (monitored through 2024-10-10),2.94,1
+DEF_00443,TRA_SEC_17_3,SEC_17,Track_Geometry_Rail_Wear,Track,1,1,2024-09-11 00:00:00,2024-09-14 00:00:00,RESOLVED,0,,No escalation to Grade 4 within 30 days (monitored through 2024-10-11),9.0,1
+DEF_00444,OHE_SEC_02_2,SEC_02,Cantilever_Assembly_Wear,OHE,1,1,2024-09-11 00:00:00,2024-09-13 00:00:00,RESOLVED,0,,No escalation to Grade 4 within 30 days (monitored through 2024-10-11),6.01,1
+DEF_00445,OHE_SEC_12_2,SEC_12,Cantilever_Assembly_Wear,OHE,3,3,2024-09-11 00:00:00,2024-09-16 00:00:00,RESOLVED,0,,No escalation to Grade 4 within 30 days (monitored through 2024-10-11),11.39,1
+DEF_00446,TRA_SEC_02_3,SEC_02,Sleeper_Fastening_Defect,Track,3,4,2024-09-12 00:00:00,2024-09-16 00:00:00,RESOLVED,1,2024-09-20 00:00:00,Escalated to Grade 4 on 2024-09-20 (+8 days),8.82,1
+DEF_00447,TRA_SEC_15_2,SEC_15,Track_Geometry_Rail_Wear,Track,1,1,2024-09-12 00:00:00,2024-09-13 00:00:00,RESOLVED,0,,No escalation to Grade 4 within 30 days (monitored through 2024-10-12),5.98,1
+DEF_00448,TRA_SEC_04_1,SEC_04,Sleeper_Fastening_Defect,Track,1,1,2024-09-14 00:00:00,2024-09-15 00:00:00,RESOLVED,0,,No escalation to Grade 4 within 30 days (monitored through 2024-10-14),3.69,1
+DEF_00449,SIG_SEC_08_2,SEC_08,Signal_Interlocking_Failure,Signal,2,2,2024-09-16 00:00:00,2024-09-20 00:00:00,RESOLVED,0,,No escalation to Grade 4 within 30 days (monitored through 2024-10-16),4.29,1
+DEF_00450,SIG_SEC_12_4,SEC_12,Point_Machine_Wear,Signal,1,1,2024-09-16 00:00:00,2024-09-18 00:00:00,RESOLVED,0,,No escalation to Grade 4 within 30 days (monitored through 2024-10-16),2.03,1
+DEF_00451,OHE_SEC_11_1,SEC_11,Contact_Wire_Thinning,OHE,1,1,2024-09-17 00:00:00,2024-09-30 00:00:00,RESOLVED,0,,No escalation to Grade 4 within 30 days (monitored through 2024-10-17),16.42,1
+DEF_00452,OHE_SEC_07_1,SEC_07,OHE_Stagger_Deviation,OHE,1,1,2024-09-17 00:00:00,2024-09-19 00:00:00,RESOLVED,0,,No escalation to Grade 4 within 30 days (monitored through 2024-10-17),2.8,1
+DEF_00453,OHE_SEC_15_2,SEC_15,Cantilever_Assembly_Wear,OHE,3,4,2024-09-17 00:00:00,2024-09-18 00:00:00,RESOLVED,1,2024-09-23 00:00:00,Escalated to Grade 4 on 2024-09-23 (+6 days),17.69,1
+DEF_00454,TRA_SEC_07_2,SEC_07,Track_Geometry_Rail_Wear,Track,1,1,2024-09-17 00:00:00,2024-09-20 00:00:00,RESOLVED,0,,No escalation to Grade 4 within 30 days (monitored through 2024-10-17),18.47,1
+DEF_00455,TRA_SEC_05_1,SEC_05,Track_Geometry_Rail_Wear,Track,2,2,2024-09-17 00:00:00,2024-09-22 00:00:00,RESOLVED,0,,No escalation to Grade 4 within 30 days (monitored through 2024-10-17),4.77,1
+DEF_00456,TRA_SEC_03_2,SEC_03,Track_Geometry_Rail_Wear,Track,1,1,2024-09-18 00:00:00,2024-09-22 00:00:00,RESOLVED,0,,No escalation to Grade 4 within 30 days (monitored through 2024-10-18),5.04,1
+DEF_00457,TRA_SEC_13_1,SEC_13,Track_Geometry_Rail_Wear,Track,3,3,2024-09-18 00:00:00,2024-09-22 00:00:00,RESOLVED,0,,No escalation to Grade 4 within 30 days (monitored through 2024-10-18),9.65,1
+DEF_00458,SIG_SEC_11_4,SEC_11,Signal_Interlocking_Failure,Signal,1,1,2024-09-18 00:00:00,2024-09-19 00:00:00,RESOLVED,0,,No escalation to Grade 4 within 30 days (monitored through 2024-10-18),6.52,1
+DEF_00459,SIG_SEC_04_2,SEC_04,Track_Circuit_Glitch,Signal,2,2,2024-09-19 00:00:00,2024-09-23 00:00:00,RESOLVED,0,,No escalation to Grade 4 within 30 days (monitored through 2024-10-19),3.8,1
+DEF_00460,SIG_SEC_03_1,SEC_03,Track_Circuit_Glitch,Signal,2,2,2024-09-20 00:00:00,2024-09-22 00:00:00,RESOLVED,0,,No escalation to Grade 4 within 30 days (monitored through 2024-10-20),13.6,1
+DEF_00461,TRA_SEC_14_3,SEC_14,Sleeper_Fastening_Defect,Track,3,3,2024-09-20 00:00:00,2024-09-22 00:00:00,RESOLVED,0,,No escalation to Grade 4 within 30 days (monitored through 2024-10-20),6.08,1
+DEF_00462,TRA_SEC_01_2,SEC_01,Rail_Weld_Flaw,Track,1,1,2024-09-21 00:00:00,2024-10-01 00:00:00,RESOLVED,0,,No escalation to Grade 4 within 30 days (monitored through 2024-10-21),5.52,1
+DEF_00463,SIG_SEC_12_1,SEC_12,Signal_Interlocking_Failure,Signal,1,1,2024-09-21 00:00:00,2024-09-22 00:00:00,RESOLVED,0,,No escalation to Grade 4 within 30 days (monitored through 2024-10-21),2.67,1
+DEF_00464,SIG_SEC_11_4,SEC_11,Track_Circuit_Glitch,Signal,1,1,2024-09-21 00:00:00,2024-09-22 00:00:00,RESOLVED,0,,No escalation to Grade 4 within 30 days (monitored through 2024-10-21),4.18,1
+DEF_00465,SIG_SEC_08_4,SEC_08,Point_Machine_Wear,Signal,1,1,2024-09-21 00:00:00,2024-09-22 00:00:00,RESOLVED,0,,No escalation to Grade 4 within 30 days (monitored through 2024-10-21),4.32,1
+DEF_00466,SIG_SEC_08_2,SEC_08,Point_Machine_Wear,Signal,1,1,2024-09-21 00:00:00,2024-09-30 00:00:00,RESOLVED,0,,No escalation to Grade 4 within 30 days (monitored through 2024-10-21),5.3,1
+DEF_00467,OHE_SEC_14_2,SEC_14,Cantilever_Assembly_Wear,OHE,1,1,2024-09-22 00:00:00,2024-09-28 00:00:00,RESOLVED,0,,No escalation to Grade 4 within 30 days (monitored through 2024-10-22),8.96,1
+DEF_00468,SIG_SEC_09_3,SEC_09,Track_Circuit_Glitch,Signal,1,1,2024-09-22 00:00:00,2024-09-27 00:00:00,RESOLVED,0,,No escalation to Grade 4 within 30 days (monitored through 2024-10-22),4.21,1
+DEF_00469,OHE_SEC_14_2,SEC_14,Cantilever_Assembly_Wear,OHE,1,1,2024-09-23 00:00:00,2024-09-24 00:00:00,RESOLVED,0,,No escalation to Grade 4 within 30 days (monitored through 2024-10-23),9.39,1
+DEF_00470,SIG_SEC_12_2,SEC_12,Point_Machine_Wear,Signal,2,4,2024-09-23 00:00:00,2024-10-01 00:00:00,RESOLVED,1,2024-10-08 00:00:00,Escalated to Grade 4 on 2024-10-08 (+15 days),7.82,1
+DEF_00471,TRA_SEC_08_3,SEC_08,Track_Geometry_Rail_Wear,Track,1,1,2024-09-24 00:00:00,2024-10-05 00:00:00,RESOLVED,0,,No escalation to Grade 4 within 30 days (monitored through 2024-10-24),14.7,1
+DEF_00472,TRA_SEC_12_2,SEC_12,Sleeper_Fastening_Defect,Track,1,1,2024-09-25 00:00:00,2024-09-28 00:00:00,RESOLVED,0,,No escalation to Grade 4 within 30 days (monitored through 2024-10-25),1.89,1
+DEF_00473,TRA_SEC_15_3,SEC_15,Track_Geometry_Rail_Wear,Track,1,1,2024-09-27 00:00:00,2024-10-03 00:00:00,RESOLVED,0,,No escalation to Grade 4 within 30 days (monitored through 2024-10-27),13.75,1
+DEF_00474,TRA_SEC_17_2,SEC_17,Rail_Weld_Flaw,Track,1,4,2024-09-27 00:00:00,2024-09-28 00:00:00,RESOLVED,1,2024-10-02 00:00:00,Escalated to Grade 4 on 2024-10-02 (+5 days),14.31,1
+DEF_00475,OHE_SEC_10_2,SEC_10,Cantilever_Assembly_Wear,OHE,3,3,2024-09-27 00:00:00,2024-10-13 00:00:00,RESOLVED,0,,No escalation to Grade 4 within 30 days (monitored through 2024-10-27),20.37,1
+DEF_00476,TRA_SEC_11_1,SEC_11,Track_Geometry_Rail_Wear,Track,1,1,2024-09-27 00:00:00,2024-10-04 00:00:00,RESOLVED,0,,No escalation to Grade 4 within 30 days (monitored through 2024-10-27),6.57,1
+DEF_00477,SIG_SEC_11_4,SEC_11,Signal_Interlocking_Failure,Signal,1,4,2024-09-28 00:00:00,2024-09-30 00:00:00,RESOLVED,1,2024-10-17 00:00:00,Escalated to Grade 4 on 2024-10-17 (+19 days),19.82,1
+DEF_00478,OHE_SEC_05_2,SEC_05,OHE_Stagger_Deviation,OHE,1,1,2024-09-29 00:00:00,2024-10-01 00:00:00,RESOLVED,0,,No escalation to Grade 4 within 30 days (monitored through 2024-10-29),7.86,1
+DEF_00479,TRA_SEC_02_3,SEC_02,Track_Geometry_Rail_Wear,Track,1,1,2024-09-30 00:00:00,2024-10-02 00:00:00,RESOLVED,0,,No escalation to Grade 4 within 30 days (monitored through 2024-10-30),5.48,1
+DEF_00480,TRA_SEC_10_1,SEC_10,Rail_Weld_Flaw,Track,3,3,2024-09-30 00:00:00,2024-10-05 00:00:00,RESOLVED,0,,No escalation to Grade 4 within 30 days (monitored through 2024-10-30),6.16,1
+DEF_00481,SIG_SEC_06_2,SEC_06,Point_Machine_Wear,Signal,2,4,2024-09-30 00:00:00,2024-10-04 00:00:00,RESOLVED,1,2024-10-27 00:00:00,Escalated to Grade 4 on 2024-10-27 (+27 days),10.03,1
+DEF_00482,SIG_SEC_14_1,SEC_14,Signal_Interlocking_Failure,Signal,1,1,2024-09-30 00:00:00,2024-10-02 00:00:00,RESOLVED,0,,No escalation to Grade 4 within 30 days (monitored through 2024-10-30),4.79,1
+DEF_00483,SIG_SEC_04_4,SEC_04,Signal_Interlocking_Failure,Signal,1,1,2024-09-30 00:00:00,2024-10-01 00:00:00,RESOLVED,0,,No escalation to Grade 4 within 30 days (monitored through 2024-10-30),4.55,1
+DEF_00484,TRA_SEC_14_3,SEC_14,Sleeper_Fastening_Defect,Track,1,4,2024-09-30 00:00:00,2024-10-02 00:00:00,RESOLVED,1,2024-10-06 00:00:00,Escalated to Grade 4 on 2024-10-06 (+6 days),13.78,1
+DEF_00485,TRA_SEC_11_1,SEC_11,Rail_Weld_Flaw,Track,1,1,2024-09-30 00:00:00,2024-10-02 00:00:00,RESOLVED,0,,No escalation to Grade 4 within 30 days (monitored through 2024-10-30),3.02,1
+DEF_00486,SIG_SEC_03_4,SEC_03,Track_Circuit_Glitch,Signal,1,1,2024-09-30 00:00:00,2024-10-09 00:00:00,RESOLVED,0,,No escalation to Grade 4 within 30 days (monitored through 2024-10-30),1.95,1
+DEF_00487,TRA_SEC_06_3,SEC_06,Sleeper_Fastening_Defect,Track,1,1,2024-09-30 00:00:00,2024-10-02 00:00:00,RESOLVED,0,,No escalation to Grade 4 within 30 days (monitored through 2024-10-30),4.98,1
+DEF_00488,SIG_SEC_10_1,SEC_10,Track_Circuit_Glitch,Signal,2,2,2024-10-01 00:00:00,2024-10-03 00:00:00,RESOLVED,0,,No escalation to Grade 4 within 30 days (monitored through 2024-10-31),9.45,0
+DEF_00489,SIG_SEC_08_4,SEC_08,Track_Circuit_Glitch,Signal,1,1,2024-10-02 00:00:00,2024-10-04 00:00:00,RESOLVED,0,,No escalation to Grade 4 within 30 days (monitored through 2024-11-01),1.36,0
+DEF_00490,SIG_SEC_17_3,SEC_17,Signal_Interlocking_Failure,Signal,1,1,2024-10-02 00:00:00,2024-10-07 00:00:00,RESOLVED,0,,No escalation to Grade 4 within 30 days (monitored through 2024-11-01),6.71,0
+DEF_00491,SIG_SEC_01_1,SEC_01,Track_Circuit_Glitch,Signal,1,1,2024-10-04 00:00:00,2024-10-10 00:00:00,RESOLVED,0,,No escalation to Grade 4 within 30 days (monitored through 2024-11-03),4.39,0
+DEF_00492,TRA_SEC_04_1,SEC_04,Track_Geometry_Rail_Wear,Track,1,1,2024-10-04 00:00:00,2024-10-05 00:00:00,RESOLVED,0,,No escalation to Grade 4 within 30 days (monitored through 2024-11-03),4.32,0
+DEF_00493,SIG_SEC_07_2,SEC_07,Point_Machine_Wear,Signal,1,1,2024-10-04 00:00:00,2024-10-05 00:00:00,RESOLVED,0,,No escalation to Grade 4 within 30 days (monitored through 2024-11-03),5.86,0
+DEF_00494,SIG_SEC_01_2,SEC_01,Point_Machine_Wear,Signal,1,1,2024-10-04 00:00:00,2024-10-05 00:00:00,RESOLVED,0,,No escalation to Grade 4 within 30 days (monitored through 2024-11-03),3.07,0
+DEF_00495,TRA_SEC_10_2,SEC_10,Track_Geometry_Rail_Wear,Track,1,1,2024-10-04 00:00:00,2024-10-17 00:00:00,RESOLVED,0,,No escalation to Grade 4 within 30 days (monitored through 2024-11-03),6.51,0
+DEF_00496,SIG_SEC_03_4,SEC_03,Point_Machine_Wear,Signal,2,2,2024-10-05 00:00:00,2024-10-06 00:00:00,RESOLVED,0,,No escalation to Grade 4 within 30 days (monitored through 2024-11-04),19.5,0
+DEF_00497,TRA_SEC_04_2,SEC_04,Sleeper_Fastening_Defect,Track,1,1,2024-10-06 00:00:00,2024-10-09 00:00:00,RESOLVED,0,,No escalation to Grade 4 within 30 days (monitored through 2024-11-05),2.96,0
+DEF_00498,SIG_SEC_15_1,SEC_15,Track_Circuit_Glitch,Signal,1,1,2024-10-06 00:00:00,2024-10-10 00:00:00,RESOLVED,0,,No escalation to Grade 4 within 30 days (monitored through 2024-11-05),5.6,0
+DEF_00499,SIG_SEC_14_4,SEC_14,Point_Machine_Wear,Signal,2,2,2024-10-06 00:00:00,2024-10-19 00:00:00,RESOLVED,0,,No escalation to Grade 4 within 30 days (monitored through 2024-11-05),4.7,0
+DEF_00500,OHE_SEC_15_1,SEC_15,OHE_Stagger_Deviation,OHE,2,2,2024-10-08 00:00:00,2024-10-13 00:00:00,RESOLVED,0,,No escalation to Grade 4 within 30 days (monitored through 2024-11-07),6.82,0
