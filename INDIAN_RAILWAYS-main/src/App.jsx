@@ -16,6 +16,7 @@ import BdmsLifecycleTracker from './components/BdmsLifecycleTracker';
 import AuditTrail from './components/AuditTrail';
 import LivePortalMode from './components/LivePortalMode';
 import MlEvidencePanel from './components/MlEvidencePanel';
+import ControlCopilot from './components/ControlCopilot';
 import {
   fetchHealth,
   fetchArchitecture,
@@ -484,6 +485,12 @@ export default function App() {
           </p>
         </div>
       </footer>
+
+      {/* Floating Circular Hanging Control Copilot */}
+      <ControlCopilot
+        sectionId={weeklyPlan?.schedule?.[0]?.section_id || "SEC_0001"}
+        blockId={null}
+      />
     </>
   );
 }

@@ -1,0 +1,41 @@
+# .dockerignore — applied when build context is the project root.
+# Keeps images lean and prevents secrets / build artifacts leaking into layers.
+
+# Version control
+.git
+.gitignore
+
+# Node artifacts (frontend and gateway)
+INDIAN_RAILWAYS-main/node_modules
+INDIAN_RAILWAYS-main/dist
+gateway/node_modules
+
+# Python artifacts
+**/__pycache__
+**/*.pyc
+**/*.pyo
+**/*.pyd
+**/.pytest_cache
+**/.mypy_cache
+bandhan_ml/saved_models/*.joblib   # rebuilt inside container if needed
+
+# Secrets — must never be baked into an image layer
+.env
+*.env
+.env.*
+!.env.example
+
+# IDE / editor
+.vscode
+.idea
+*.swp
+*.swo
+
+# Test output / coverage
+coverage
+.coverage
+htmlcov
+
+# OS
+.DS_Store
+Thumbs.db

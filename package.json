@@ -1,0 +1,21 @@
+{
+  "name": "prototype_indian_railway",
+  "version": "1.0.0",
+  "description": "From this folder, use two terminals:",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Sk16er/Prototype_indian_railway.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/Sk16er/Prototype_indian_railway/issues"
+  },
+  "homepage": "https://github.com/Sk16er/Prototype_indian_railway#readme"
+}

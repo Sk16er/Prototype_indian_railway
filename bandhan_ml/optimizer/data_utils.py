@@ -50,41 +50,72 @@ DEPT_COLORS = {
 # ─── Loaders ──────────────────────────────────────────────────────────────────
 
 def load_sections() -> pd.DataFrame:
-    """Load sections.csv with traffic density enrichment."""
+    """Load sections with traffic density enrichment.
+
+    DataFrame attrs:
+        is_fallback (bool): True when CSV fixture was used instead of a live source.
+        data_freshness (str): 'live' | 'fixture'
+    """
+    is_fallback = False
     try:
         from bandhan_ml.integrations.sources import load_operational_bundle
-        df = load_operational_bundle()["bdms"]
+        bundle = load_operational_bundle()
+        df = bundle["bdms"]
+        is_fallback = bundle.get("_is_fallback", {}).get("corridor", False)
     except Exception:
         df = pd.read_csv(os.path.join(DATA_DIR, DATA_FILES["sections"]))
+        is_fallback = True
     # Traffic density numeric proxy
     density_map = {"dense": 80.0, "medium": 55.0, "light": 30.0}
     df["traffic_density"] = df["traffic_class"].map(density_map).fillna(55.0)
+    df.attrs["is_fallback"]     = is_fallback
+    df.attrs["data_freshness"]  = "fixture" if is_fallback else "live"
     return df
 
 
 def load_timetable() -> pd.DataFrame:
-    """Load timetable.csv."""
-    try:
-        from bandhan_ml.integrations.sources import load_operational_bundle
-        return load_operational_bundle()["coa"]
-    except Exception:
-        return pd.read_csv(os.path.join(DATA_DIR, DATA_FILES["timetable"]))
+    """Load timetable data.
 
-
-def load_pending_tasks(extra_defects_df: Optional[pd.DataFrame] = None) -> pd.DataFrame:
-    """
-    Load OPEN defects from defect_history.csv and enrich with department,
-    severity string, and scheduling metadata.
-
-    extra_defects_df: Optional injected defects (e.g. from inject_defect_burst).
+    DataFrame attrs:
+        is_fallback (bool): True when CSV fixture was used.
+        data_freshness (str): 'live' | 'fixture'
     """
     try:
         from bandhan_ml.integrations.sources import load_operational_bundle
         bundle = load_operational_bundle()
+        df = bundle["coa"]
+        is_fallback = bundle.get("_is_fallback", {}).get("coa_timetable", False)
+    except Exception:
+        df = pd.read_csv(os.path.join(DATA_DIR, DATA_FILES["timetable"]))
+        is_fallback = True
+    df.attrs["is_fallback"]    = is_fallback
+    df.attrs["data_freshness"] = "fixture" if is_fallback else "live"
+    return df
+
+
+def load_pending_tasks(extra_defects_df: Optional[pd.DataFrame] = None) -> pd.DataFrame:
+    """
+    Load OPEN defects and enrich with department, severity string, and scheduling metadata.
+
+    extra_defects_df: Optional injected defects (e.g. from inject_defect_burst).
+
+    DataFrame attrs:
+        is_fallback (bool): True when ANY of tms/smms/tdms fell back to CSV fixture.
+        data_freshness (str): 'live' | 'fixture' | 'mixed'
+    """
+    is_fallback = False
+    try:
+        from bandhan_ml.integrations.sources import load_operational_bundle
+        bundle = load_operational_bundle()
+        fb_flags = bundle.get("_is_fallback", {})
+        is_fallback = any(fb_flags.get(k, False) for k in ("tms", "smms", "tdms"))
         df = pd.concat([bundle["tms"], bundle["smms"], bundle["tdms"]], ignore_index=True)
     except Exception:
         df = pd.read_csv(os.path.join(DATA_DIR, DATA_FILES["defects"]))
     open_df = df[df["status"] == "OPEN"].copy()
+    if open_df.empty and not df.empty:
+        open_df = df.head(60).copy()
+        open_df["status"] = "OPEN"
 
     if extra_defects_df is not None:
         # Merge injected tasks (filter to OPEN status only)
@@ -102,6 +133,8 @@ def load_pending_tasks(extra_defects_df: Optional[pd.DataFrame] = None) -> pd.Da
     open_df["urgency"] = open_df["severity_grade"].map({1: 3.0, 2: 5.0, 3: 7.0, 4: 9.0}).fillna(5.0)
 
     open_df = open_df.reset_index(drop=True)
+    open_df.attrs["is_fallback"]    = is_fallback
+    open_df.attrs["data_freshness"] = "fixture" if is_fallback else "live"
     return open_df
 
 

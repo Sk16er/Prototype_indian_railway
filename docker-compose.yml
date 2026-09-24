@@ -1,0 +1,125 @@
+# docker-compose.yml
+#
+# BANDHAN full stack — gateway (Node/Express), scheduler (FastAPI), Postgres, Redis.
+#
+# Required env vars — NO fallback defaults for secrets.
+# Copy .env.example → .env and fill in real values before running.
+#
+#   POSTGRES_PASSWORD  — Postgres password             (required)
+#   JWT_SECRET         — Gateway JWT signing secret    (required, min 32 chars)
+#
+# Optional:
+#   POSTGRES_USER      — default: railway
+#   POSTGRES_DB        — default: railway
+#   BDMS_URL           — BDMS dispatch endpoint; absent = simulation mode
+#   REDIS_URL          — overrides the default internal redis://redis:6379/0
+#
+# Usage:
+#   docker compose up --build          # first run
+#   docker compose up -d               # subsequent runs
+#   docker compose logs -f gateway     # tail gateway logs
+
+services:
+
+  # ── Postgres ──────────────────────────────────────────────────────────────────
+  postgres:
+    image: postgres:16-alpine
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER:     ${POSTGRES_USER:-railway}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:?POSTGRES_PASSWORD is required — see .env.example}
+      POSTGRES_DB:       ${POSTGRES_DB:-railway}
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+      # Idempotent DDL — creates outbox/audit tables on first init only.
+      - ./gateway/migrations:/docker-entrypoint-initdb.d:ro
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER:-railway} -d ${POSTGRES_DB:-railway}"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+      start_period: 5s
+    ports:
+      - "5432:5432"
+
+  # ── Redis (outbox / reconciliation queue) ─────────────────────────────────────
+  redis:
+    image: redis:7-alpine
+    restart: unless-stopped
+    # No password required for local dev; add requirepass for production via
+    # command: redis-server --requirepass ${REDIS_PASSWORD}
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 5s
+      timeout: 3s
+      retries: 10
+      start_period: 3s
+    # Not exposed to host by default — only gateway/scheduler reach it internally.
+
+  # ── Scheduler (FastAPI / ML engine) ──────────────────────────────────────────
+  scheduler:
+    build:
+      context: .                          # project root — scheduler needs the whole repo
+      dockerfile: bandhan_ml/Dockerfile
+    restart: unless-stopped
+    environment:
+      DATABASE_URL:    postgresql://${POSTGRES_USER:-railway}:${POSTGRES_PASSWORD}@postgres:5432/${POSTGRES_DB:-railway}
+      REDIS_URL:       ${REDIS_URL:-redis://redis:6379/0}
+      PYTHONUNBUFFERED: "1"
+      # Optional live source endpoints:
+      # BANDHAN_TMS_URL: ...
+    depends_on:
+      postgres:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+    healthcheck:
+      # Uses Python's stdlib — no curl/wget needed in the slim image.
+      test: >
+        CMD python -c
+        "import urllib.request,sys;
+        r=urllib.request.urlopen('http://localhost:8001/health',timeout=5);
+        sys.exit(0 if r.status==200 else 1)"
+      interval: 10s
+      timeout: 8s
+      retries: 5
+      start_period: 30s        # models take time to load on first start
+    expose:
+      - "8001"
+    # Uncomment to reach the scheduler directly during development:
+    # ports:
+    #   - "8001:8001"
+
+  # ── Gateway (Node/Express) ────────────────────────────────────────────────────
+  gateway:
+    build:
+      context: ./gateway
+      dockerfile: Dockerfile
+    restart: unless-stopped
+    depends_on:
+      postgres:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+      scheduler:
+        condition: service_healthy
+    environment:
+      JWT_SECRET:    ${JWT_SECRET:?JWT_SECRET is required — see .env.example}
+      DATABASE_URL:  postgresql://${POSTGRES_USER:-railway}:${POSTGRES_PASSWORD}@postgres:5432/${POSTGRES_DB:-railway}
+      REDIS_URL:     ${REDIS_URL:-redis://redis:6379/0}
+      FASTAPI_URL:   http://scheduler:8001
+      GATEWAY_PORT:  "3001"
+      NODE_ENV:      production
+      # BDMS_URL:    ${BDMS_URL}   # absent = simulation mode; safe for dev/staging
+    healthcheck:
+      # curl is installed in the gateway Dockerfile.
+      test: ["CMD", "curl", "-fs", "http://localhost:3001/health"]
+      interval: 15s
+      timeout: 5s
+      retries: 3
+      start_period: 10s
+    ports:
+      - "3001:3001"
+
+volumes:
+  pgdata:

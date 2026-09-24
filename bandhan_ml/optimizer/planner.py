@@ -95,7 +95,7 @@ def plan_weekly(
     Without a monthly_plan, all pending tasks are scheduled in the 7-day window.
     """
     week_end = week_start + timedelta(days=7)
-    print(f"\n[Weekly Planner] Week: {week_start.date()} → {week_end.date()}")
+    print(f"\n[Weekly Planner] Week: {week_start.date()} -> {week_end.date()}")
 
     if monthly_plan is not None and not monthly_plan.empty:
         # Filter to tasks whose monthly plan start_time falls in this week
