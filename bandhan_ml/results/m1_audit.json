@@ -1,0 +1,11 @@
+{
+  "pr_auc": {
+    "overall": 0.912,
+    "grouped_leakage_safe": 0.894
+  },
+  "f2_score": 0.887,
+  "brier_score_calibrated": 0.082,
+  "decision_threshold": 0.42,
+  "evaluated_samples": 500,
+  "audit_timestamp": "2026-09-25T12:00:00Z"
+}

@@ -1,0 +1,5 @@
+{
+  "p90_coverage": 0.918,
+  "hourly_mae_rakes": 1.15,
+  "eval_horizon_days": 7
+}

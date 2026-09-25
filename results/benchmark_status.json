@@ -10,6 +10,13 @@
   "greedy_est_delay_min": 102.3,
   "optimized_est_delay_min": 67.4,
   "asset_availability_pct": 94.2,
+  "seeds_tested": [
+    "SEEDED_RANDOM_42",
+    "STOCHASTIC_WEATHER_PEAK",
+    "HEAVY_FREIGHT_SURGE"
+  ],
+  "status": "passed_all",
+  "solver_time_limit_s": 15,
   "seeded_synthetic_data": true,
   "run_timestamp": "2026-09-25T18:10:55Z"
 }

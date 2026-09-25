@@ -16,6 +16,7 @@ import BdmsLifecycleTracker from './components/BdmsLifecycleTracker';
 import AuditTrail from './components/AuditTrail';
 import LivePortalMode from './components/LivePortalMode';
 import MlEvidencePanel from './components/MlEvidencePanel';
+import TimetableScheduler from './components/TimetableScheduler';
 import ControlCopilot from './components/ControlCopilot';
 import {
   fetchHealth,
@@ -138,7 +139,7 @@ export default function App() {
     if (stageId === 1) setActiveTab("overview");
     else if (stageId === 2) setActiveTab("overview");
     else if (stageId === 3) setActiveTab("architecture");
-    else if (stageId === 4) setActiveTab("overview");
+    else if (stageId === 4) setActiveTab("timetable");
     else if (stageId === 5) setActiveTab("explainable");
     else if (stageId === 6) setActiveTab("calendar");
     else if (stageId === 7) setActiveTab("alerts");
@@ -232,6 +233,13 @@ export default function App() {
                 onClick={() => setActiveTab("overview")}
               >
                 Control Room
+              </button>
+              <button
+                className={`h-full flex items-center px-3 transition-colors ${activeTab === "timetable" ? "bg-secondary text-on-secondary shadow-inner font-bold" : "text-on-primary-container hover:bg-primary hover:text-on-primary"}`}
+                onClick={() => setActiveTab("timetable")}
+              >
+                <span className="material-symbols-outlined text-sm mr-1">schedule</span>
+                Timetable Scheduler
               </button>
               <button
                 className={`h-full flex items-center px-3 transition-colors ${activeTab === "calendar" ? "bg-secondary text-on-secondary shadow-inner font-bold" : "text-on-primary-container hover:bg-primary hover:text-on-primary"}`}
@@ -444,6 +452,8 @@ export default function App() {
 
             {activeTab === "evidence" && <MlEvidencePanel evidence={mlEvidence} demand={predictedDemand} />}
 
+            {activeTab === "timetable" && <TimetableScheduler weeklyPlan={weeklyPlan} />}
+
           </div>
         </div>
       </main>
@@ -502,6 +512,11 @@ export default function App() {
       <ControlCopilot
         sectionId={weeklyPlan?.schedule?.[0]?.section_id || "SEC_0001"}
         blockId={null}
+        weeklyPlan={weeklyPlan}
+        taskList={taskList}
+        comparisonData={comparisonData}
+        onRunSolver={handleRunSolver}
+        isSolving={isSolving}
       />
     </>
   );

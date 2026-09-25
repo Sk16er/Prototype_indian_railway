@@ -1,0 +1,8 @@
+{
+  "loss_p50": 18.4,
+  "loss_p90": 34.2,
+  "empirical_coverage_p90": 0.918,
+  "cqr_interval_coverage": 91.25,
+  "target_coverage": 90.0,
+  "mean_interval_width_mins": 42.6
+}

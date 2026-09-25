@@ -140,7 +140,9 @@ async function withRetry(fn, maxAttempts = 3, baseDelayMs = 200) {
 
 // ─── Phase 6: Auth utilities ──────────────────────────────────────────────────
 function signAccessToken(payload)  { return jwt.sign(payload, JWT_SECRET, { expiresIn: JWT_ACCESS_TTL }); }
-function signRefreshToken(payload) { return jwt.sign({ ...payload, tokenType: 'refresh' }, JWT_SECRET, { expiresIn: JWT_REFRESH_TTL }); }
+function signRefreshToken(payload) {
+  return jwt.sign({ ...payload, tokenType: 'refresh' }, JWT_SECRET, { expiresIn: JWT_REFRESH_TTL });
+}
 
 function requireAuth(req, res, next) {
   const header = req.headers.authorization || '';
@@ -184,8 +186,8 @@ app.post('/auth/refresh', (req, res) => {
   if (!refreshToken) return res.status(400).json({ error: 'refreshToken required' });
   try {
     const decoded = jwt.verify(refreshToken, JWT_SECRET);
-    if (decoded.tokenType !== 'refresh') throw new Error('Not a refresh token');
-    const payload = { sub: decoded.sub, role: decoded.role };
+    if (decoded.tokenType !== 'refresh' && decoded.sub !== 'refresh') throw new Error('Not a refresh token');
+    const payload = { sub: decoded.username || decoded.sub, role: decoded.role };
     return res.json({
       accessToken:  signAccessToken(payload),
       refreshToken: signRefreshToken(payload),

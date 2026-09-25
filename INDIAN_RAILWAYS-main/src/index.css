@@ -620,11 +620,15 @@
   margin-bottom: 8px;
   text-transform: uppercase;
 }
-.copilot-intent-why_rejected  { background: #ffdad6; color: #410002; }
-.copilot-intent-nearest_window { background: #d5e3ff; color: #001e40; }
-.copilot-intent-what_if        { background: #fff3cd; color: #5a3a00; }
-.copilot-intent-context        { background: #e8f5e9; color: #1b5e20; }
-.copilot-intent-off_topic      { background: #f5f5f5; color: #555; }
+.copilot-intent-optimize_schedule { background: #dcfce7; color: #14532d; border: 1px solid #86efac; }
+.copilot-intent-high_risk_defects { background: #fee2e2; color: #7f1d1d; border: 1px solid #fca5a5; }
+.copilot-intent-freeze_lock       { background: #e0e7ff; color: #312e81; border: 1px solid #a5b4fc; }
+.copilot-intent-why_rejected      { background: #ffdad6; color: #410002; }
+.copilot-intent-nearest_window    { background: #d5e3ff; color: #001e40; }
+.copilot-intent-what_if           { background: #fff3cd; color: #5a3a00; }
+.copilot-intent-section_context   { background: #e8f5e9; color: #1b5e20; }
+.copilot-intent-context           { background: #e8f5e9; color: #1b5e20; }
+.copilot-intent-off_topic         { background: #f5f5f5; color: #555; }
 
 .copilot-evidence {
   background: #f0f4ff;
@@ -750,3 +754,145 @@
   border-top: 1px solid #dae2fd;
   letter-spacing: 0.3px;
 }
+
+/* ── Bhashini Bilingual Chatbot Styles ── */
+.copilot-bhashini-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 6px 12px;
+  background: #f4f7ff;
+  border-bottom: 1px solid #dae2fd;
+  font-size: 11px;
+}
+.copilot-bhashini-brand {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-weight: 700;
+  color: #002244;
+  letter-spacing: 0.2px;
+}
+.copilot-bhashini-flag {
+  font-size: 13px;
+}
+.copilot-bhashini-status-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #16a34a;
+  box-shadow: 0 0 4px #16a34a;
+  animation: copilot-status-pulse 2s infinite;
+}
+.copilot-lang-switches {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  background: #e2e8f0;
+  padding: 2px;
+  border-radius: 14px;
+}
+.copilot-lang-btn {
+  border: none;
+  background: transparent;
+  color: #475569;
+  font-size: 11px;
+  font-weight: 600;
+  padding: 2px 8px;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+.copilot-lang-btn:hover {
+  color: #002244;
+}
+.copilot-lang-btn-active {
+  background: #002244;
+  color: #fff !important;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.15);
+}
+
+.copilot-bilingual-card {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.copilot-bilingual-section {
+  padding: 6px 8px;
+  border-radius: 6px;
+  background: #ffffff;
+  border-left: 3px solid #003366;
+}
+.copilot-bilingual-section-hi {
+  border-left-color: #fe9832;
+  background: #fffdfa;
+  font-family: 'Noto Sans Devanagari', 'Inter', system-ui, sans-serif;
+}
+.copilot-bilingual-label {
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 2px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.copilot-bilingual-label-en {
+  color: #003366;
+}
+.copilot-bilingual-label-hi {
+  color: #b45309;
+}
+.copilot-speak-btn {
+  background: none;
+  border: none;
+  color: #64748b;
+  cursor: pointer;
+  padding: 1px 4px;
+  border-radius: 4px;
+  font-size: 12px;
+  transition: color 0.15s;
+}
+.copilot-speak-btn:hover {
+  color: #003366;
+  background: rgba(0, 51, 102, 0.08);
+}
+
+.copilot-bhashini-tag {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 8px;
+  padding-top: 6px;
+  border-top: 1px dashed #dae2fd;
+  font-size: 9.5px;
+  color: #64748b;
+}
+
+.copilot-mic-btn {
+  background: #f1f5f9;
+  border: 1px solid #cbd5e1;
+  color: #334155;
+  border-radius: 8px;
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  align-self: flex-end;
+  font-size: 18px;
+  transition: all 0.15s ease;
+}
+.copilot-mic-btn:hover {
+  background: #e2e8f0;
+  color: #003366;
+}
+.copilot-mic-active {
+  background: #fee2e2 !important;
+  border-color: #ef4444 !important;
+  color: #b91c1c !important;
+  animation: copilot-status-pulse 1.2s infinite;
+}
+

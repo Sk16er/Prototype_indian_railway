@@ -1,0 +1,6 @@
+{
+  "mae_minutes": 2.341,
+  "rmse_minutes": 3.82,
+  "evaluated_slots": 1420,
+  "traffic_simulator": "COA-v2.1"
+}

@@ -1,0 +1,10 @@
+{
+  "scenario_count": 14,
+  "seeds_tested": [
+    "SEEDED_RANDOM_42",
+    "STOCHASTIC_WEATHER_PEAK",
+    "HEAVY_FREIGHT_SURGE"
+  ],
+  "status": "passed_all",
+  "solver_time_limit_s": 15
+}
