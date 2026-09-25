@@ -59,20 +59,32 @@ export default function App() {
     async function loadBackend() {
       setDataLoading(true);
       setDataError('');
-      try {
-        const h = await fetchHealth();
-        setHealthData(h);
-        const [a, t, p, comp, evidence, demand, c, d] = await Promise.all([
-          fetchArchitecture(), fetchTasks(), fetchWeeklyPlan("optimized"), fetchComparison(),
-          fetchMlEvidence(), fetchPredictedBlockDemand(), fetchTimeSpaceGraph(), fetchDispatchPreview(),
-        ]);
-        setArchData(a); setTaskList(t); setWeeklyPlan(p); setComparisonData(comp);
-        setMlEvidence(evidence); setPredictedDemand(demand); setCanvasData(c); setDispatchPayload(d);
-      } catch (err) {
-        setDataError(err.message || 'The dashboard data could not be loaded.');
-      } finally {
-        setDataLoading(false);
-      }
+      const requests = [
+        ['architecture', fetchArchitecture, setArchData],
+        ['tasks', fetchTasks, setTaskList],
+        ['weekly plan', () => fetchWeeklyPlan("optimized"), setWeeklyPlan],
+        ['comparison', fetchComparison, setComparisonData],
+        ['ML evidence', fetchMlEvidence, setMlEvidence],
+        ['predicted demand', fetchPredictedBlockDemand, setPredictedDemand],
+        ['time-space graph', fetchTimeSpaceGraph, setCanvasData],
+        ['dispatch preview', fetchDispatchPreview, setDispatchPayload],
+      ];
+      const [health, ...results] = await Promise.all([
+        fetchHealth(),
+        ...requests.map(([, fetcher]) => fetcher().then(
+          (value) => ({ status: 'fulfilled', value }),
+          (reason) => ({ status: 'rejected', reason }),
+        )),
+      ]);
+      setHealthData(health);
+      const failures = [];
+      results.forEach((result, index) => {
+        const [label, , setter] = requests[index];
+        if (result.status === 'fulfilled') setter(result.value);
+        else failures.push(`${label}: ${result.reason?.message || 'request failed'}`);
+      });
+      setDataError(failures.join(' | '));
+      setDataLoading(false);
     }
     loadBackend();
   }, [backendRefresh]);

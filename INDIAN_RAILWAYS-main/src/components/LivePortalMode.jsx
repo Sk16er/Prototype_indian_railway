@@ -82,12 +82,12 @@ export default function LivePortalMode({ onNavigate, onRefresh, refreshing = fal
   const [actionMessage, setActionMessage] = useState("");
 
   const navItems = [
-    { key: "active-possessions", label: "Active Possessions" },
-    { key: "block-sanctions", label: "Block Sanctions & Approvals" },
-    { key: "rolling-block", label: "Rolling Block Programme" },
-    { key: "engineering-machines", label: "Engineering Machines & USFD" },
-    { key: "ohe-power-cut", label: "OHE Power Cut / S&T Joint Blocks" },
-    { key: "corridor-punctuality", label: "Corridor Punctuality Impact" },
+    { key: "active-possessions", label: "Active Blocks", description: "Active Possessions", target: "live-ledger", status: "Live" },
+    { key: "block-sanctions", label: "Sanctions & Approvals", description: "Block Sanctions & Approvals", target: "live-ledger", status: "All sample blocks" },
+    { key: "rolling-block", label: "Rolling Plan", description: "Rolling Block Programme", tab: "calendar" },
+    { key: "engineering-machines", label: "Engineering & USFD", description: "Engineering Machines & USFD", target: "live-usfd-alerts" },
+    { key: "ohe-power-cut", label: "OHE / S&T Blocks", description: "OHE Power Cut / S&T Joint Blocks", target: "live-joint-matrix" },
+    { key: "corridor-punctuality", label: "Corridor Impact", description: "Corridor Punctuality Impact", target: "live-corridor-impact" },
   ];
 
   const kpis = [
@@ -120,6 +120,16 @@ export default function LivePortalMode({ onNavigate, onRefresh, refreshing = fal
     return statusMatches && row.groups.includes(activeNav);
   });
 
+  const handlePortalNavigation = (item) => {
+    setActiveNav(item.key);
+    setStatusFilter(item.status || "All sample blocks");
+    if (item.tab) {
+      onNavigate?.(item.tab);
+      return;
+    }
+    document.getElementById(item.target)?.scrollIntoView({ behavior: "smooth", block: "center" });
+  };
+
   const zoналRankings = [
     { zone: "Northern Railway (NR)", pct: 94.2, blocks: 38, color: "bg-primary", tc: "text-primary" },
     { zone: "Western Railway (WR)", pct: 92.0, blocks: 31, color: "bg-on-tertiary-container", tc: "text-on-tertiary-container" },
@@ -137,22 +147,16 @@ export default function LivePortalMode({ onNavigate, onRefresh, refreshing = fal
     <div className="flex flex-col w-full">
 
       {/* Sub-Nav */}
-      <div className="bg-primary-container rounded-xl mb-gutter-lg shadow-md">
-        <div className="flex items-center justify-between px-gutter-md py-2 flex-wrap gap-2">
-          <div className="flex items-center flex-wrap gap-1 font-label-md text-label-md">
-            {navItems.map((item) => (
-              <button key={item.key} onClick={() => { setActiveNav(item.key); setStatusFilter("All sample blocks"); }} aria-current={activeNav === item.key ? "page" : undefined}
-                className={`flex items-center px-gutter-md py-2 rounded transition-colors ${activeNav === item.key ? "bg-secondary text-on-secondary shadow-inner font-bold" : "text-on-primary-container hover:bg-primary hover:text-on-primary"}`}>
-                {item.label}
-              </button>
-            ))}
-          </div>
-          <div className="flex items-center gap-gutter-sm text-on-primary font-label-sm text-label-sm bg-primary px-gutter-md py-1 rounded flex-shrink-0">
-            <span className="w-2 h-2 rounded-full bg-secondary-container animate-ping"></span>
-            <span className="tracking-wider uppercase font-bold text-secondary-fixed">Live Portal Mode</span>
-          </div>
+      <nav aria-label="Live portal sections" className="bg-primary-container rounded-lg mb-gutter-lg shadow-md p-2">
+        <div className="grid grid-cols-2 sm:grid-cols-3 xl:grid-cols-6 gap-1">
+          {navItems.map((item) => (
+            <button type="button" key={item.key} title={item.description} onClick={() => handlePortalNavigation(item)} aria-current={activeNav === item.key ? "location" : undefined}
+              className={`flex min-h-10 items-center justify-center text-center px-2 py-2 rounded transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-secondary-fixed ${activeNav === item.key ? "bg-secondary text-on-secondary shadow-inner font-bold" : "text-on-primary-container hover:bg-primary hover:text-on-primary"}`}>
+              <span className="text-label-sm leading-tight">{item.label}</span>
+            </button>
+          ))}
         </div>
-      </div>
+      </nav>
 
       {/* Control Strip */}
       <section className="mb-gutter-lg">
@@ -231,7 +235,7 @@ export default function LivePortalMode({ onNavigate, onRefresh, refreshing = fal
       {/* Operational Grid */}
       <div className="grid grid-cols-1 xl:grid-cols-12 gap-gutter-lg mb-gutter-xl">
         <div className="xl:col-span-5 flex flex-col gap-gutter-lg">
-          <div className="bg-surface-container-lowest p-gutter-lg rounded-xl shadow-sm flex flex-col">
+          <div id="live-corridor-impact" className="bg-surface-container-lowest p-gutter-lg rounded-xl shadow-sm flex flex-col">
             <div className="flex items-center justify-between mb-gutter-md">
               <div className="flex items-center gap-gutter-xs">
                 <span className="material-symbols-outlined text-primary-container text-2xl">route</span>
@@ -307,7 +311,7 @@ export default function LivePortalMode({ onNavigate, onRefresh, refreshing = fal
             </div>
           </div>
 
-          <div className="bg-surface-container-lowest p-gutter-lg rounded-xl shadow-sm">
+          <div id="live-usfd-alerts" className="bg-surface-container-lowest p-gutter-lg rounded-xl shadow-sm">
             <div className="flex items-center justify-between mb-gutter-sm">
               <div className="flex items-center gap-2">
                 <span className="material-symbols-outlined text-error text-2xl">warning</span>
@@ -334,7 +338,7 @@ export default function LivePortalMode({ onNavigate, onRefresh, refreshing = fal
         </div>
 
         <div className="xl:col-span-7 flex flex-col">
-          <div className="bg-surface-container-lowest p-gutter-lg rounded-xl shadow-sm flex flex-col h-full">
+          <div id="live-ledger" className="bg-surface-container-lowest p-gutter-lg rounded-xl shadow-sm flex flex-col h-full">
             <div className="flex flex-col md:flex-row md:items-center justify-between gap-gutter-sm mb-gutter-md">
               <div>
                 <div className="flex items-center gap-2">
@@ -379,7 +383,7 @@ export default function LivePortalMode({ onNavigate, onRefresh, refreshing = fal
       </div>
 
       {/* Bottom Matrix */}
-      <section className="grid grid-cols-1 lg:grid-cols-12 gap-gutter-lg mb-gutter-xl">
+      <section id="live-joint-matrix" className="grid grid-cols-1 lg:grid-cols-12 gap-gutter-lg mb-gutter-xl">
         <div className="lg:col-span-8 bg-surface-container-lowest p-gutter-lg rounded-xl shadow-sm">
           <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-gutter-sm mb-gutter-md">
             <div>

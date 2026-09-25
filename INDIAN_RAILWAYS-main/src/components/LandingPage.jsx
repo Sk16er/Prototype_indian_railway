@@ -124,10 +124,9 @@ export default function LandingPage({ onAuthenticated }) {
     setIsLoading(true);
     try {
       await login('judge.demo', 'BandhanDemo2026!');
-      setSuccessMessage('Demo authentication confirmed. Opening the judge dashboard.');
-      setTimeout(() => onAuthenticated?.(), 500);
+      onAuthenticated?.();
     } catch (err) {
-      setErrorMessage(err.message || 'Demo login failed. Start the gateway and try again.');
+      setErrorMessage(err.message || 'Demo login failed. Confirm the FastAPI scheduler is running on port 8001.');
     } finally {
       setIsLoading(false);
     }
@@ -435,7 +434,7 @@ export default function LandingPage({ onAuthenticated }) {
                     <span className="block mt-1">Username: <code>judge.demo</code> · Password: <code>BandhanDemo2026!</code></span>
                     <span className="block mt-1 text-slate-600">Demo-only account for this prototype. Backend required.</span>
                   </div>
-                  <button type="button" onClick={handleDemoLogin} disabled={isLoading} className="shrink-0 bg-[#8f4e00] text-white px-3 py-2 rounded font-bold disabled:opacity-60">Demo Login</button>
+                  <button type="button" onClick={handleDemoLogin} disabled={isLoading} aria-busy={isLoading} className="shrink-0 bg-[#8f4e00] text-white px-3 py-2 rounded font-bold disabled:opacity-60">{isLoading ? 'Signing in...' : 'Demo Login'}</button>
                 </div>
               </div>
 

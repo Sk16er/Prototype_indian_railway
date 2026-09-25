@@ -15,7 +15,7 @@ function metricValue(value, suffix = '') {
 }
 
 export default function MlEvidencePanel({ evidence, demand }) {
-  if (!evidence) return <div className="p-6 bg-surface-container-low rounded-xl">Evidence endpoint unavailable. Start the scheduler API.</div>;
+  if (!evidence) return <div className="p-6 bg-surface-container-low rounded-xl" role="status">ML evidence did not load. Check the dashboard endpoint error above and use Refresh Feeds to retry. The scheduler may still be available for other features.</div>;
   const metrics = evidence.metrics || {};
   const m1 = metrics.m1_audit || {};
   const m2 = metrics.m2_metrics || {};
