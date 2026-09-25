@@ -1,0 +1,15 @@
+{
+  "scenario_count": 48,
+  "baseline_possessions": 31,
+  "greedy_smart_possessions": 28,
+  "optimized_possessions": 26,
+  "baseline_avg_gap_fit": 0.412,
+  "greedy_avg_gap_fit": 0.598,
+  "optimized_avg_gap_fit": 0.687,
+  "baseline_est_delay_min": 148.7,
+  "greedy_est_delay_min": 102.3,
+  "optimized_est_delay_min": 67.4,
+  "asset_availability_pct": 94.2,
+  "seeded_synthetic_data": true,
+  "run_timestamp": "2026-09-25T18:10:55Z"
+}
