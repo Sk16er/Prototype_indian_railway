@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { fetchWeeklyPlan } from '../api';
+import { fetchReplan } from '../api';
 
 export default function ReplanningCenter({ weeklyPlan, onReplan }) {
   const [eventType, setEventType] = useState("defect_burst");
@@ -17,20 +17,7 @@ export default function ReplanningCenter({ weeklyPlan, onReplan }) {
     setError(null);
     setReplanResult(null);
     try {
-      const res = await fetch("http://localhost:8001/plan/replan", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          event_type: eventType,
-          event_section: sectionId,
-          num_new_defects: numDefects,
-          surge_factor: surgeFactor,
-          freeze_window_hrs: 24,
-          time_limit_s: 15,
-        }),
-      });
-      if (!res.ok) throw new Error(`API error: ${res.status}`);
-      const data = await res.json();
+      const data = await fetchReplan(eventType, sectionId, { numDefects, surgeFactor });
       setReplanResult(data);
       if (onReplan) onReplan(eventType === "defect_burst" ? "optimized" : "optimized", "replan");
     } catch (err) {

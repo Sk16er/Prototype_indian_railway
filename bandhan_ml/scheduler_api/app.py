@@ -7,6 +7,10 @@ Run with: ``uvicorn bandhan_ml.scheduler_api.app:app --port 8001``
 import re
 import os
 import sys
+import base64
+import hashlib
+import hmac
+import time
 if sys.platform == "win32":
     import io
     if hasattr(sys.stdout, "buffer"):
@@ -21,8 +25,9 @@ from typing import Any, Dict
 import joblib
 import pandas as pd
 import json
-from fastapi import FastAPI, HTTPException
+from fastapi import FastAPI, HTTPException, Request
 from fastapi.middleware.cors import CORSMiddleware
+from fastapi.responses import JSONResponse
 from fastapi.staticfiles import StaticFiles
 
 ROOT = Path(__file__).resolve().parents[2]
@@ -60,6 +65,69 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"],
 )
+
+_DEMO_USERNAME = os.getenv("DEMO_USERNAME", "judge.demo")
+_DEMO_PASSWORD = os.getenv("DEMO_PASSWORD", "BandhanDemo2026!")
+_TOKEN_SECRET = os.getenv("BANDHAN_AUTH_SECRET", "bandhan-local-demo-secret-change-before-deployment").encode()
+
+
+def _sign_demo_token(token_type: str, ttl_seconds: int) -> str:
+    payload = base64.urlsafe_b64encode(json.dumps({
+        "sub": _DEMO_USERNAME, "role": "planner", "demo": True,
+        "type": token_type, "exp": int(time.time()) + ttl_seconds,
+    }, separators=(",", ":")).encode()).decode().rstrip("=")
+    signature = hmac.new(_TOKEN_SECRET, payload.encode(), hashlib.sha256).hexdigest()
+    return f"{payload}.{signature}"
+
+
+def _valid_demo_token(token: str, expected_type: str = "access") -> bool:
+    try:
+        payload, signature = token.split(".", 1)
+        expected = hmac.new(_TOKEN_SECRET, payload.encode(), hashlib.sha256).hexdigest()
+        if not hmac.compare_digest(signature, expected):
+            return False
+        data = json.loads(base64.urlsafe_b64decode(payload + "=" * (-len(payload) % 4)))
+        return data.get("sub") == _DEMO_USERNAME and data.get("type") == expected_type and data.get("exp", 0) > time.time()
+    except (ValueError, TypeError, json.JSONDecodeError):
+        return False
+
+
+@app.middleware("http")
+async def require_demo_session(request: Request, call_next):
+    protected = request.url.path == "/architecture" or request.url.path.startswith("/plan/")
+    if protected and request.method != "OPTIONS":
+        authorization = request.headers.get("authorization", "")
+        token = authorization.removeprefix("Bearer ")
+        if not authorization.startswith("Bearer ") or not _valid_demo_token(token):
+            return JSONResponse(status_code=401, content={"detail": "Authentication required. Sign in with the demo account."})
+    return await call_next(request)
+
+
+@app.post("/auth/login")
+def auth_login(payload: Dict[str, Any]):
+    username = payload.get("username")
+    password = payload.get("password")
+    if not isinstance(username, str) or not isinstance(password, str) or not hmac.compare_digest(username, _DEMO_USERNAME) or not hmac.compare_digest(password, _DEMO_PASSWORD):
+        raise HTTPException(status_code=401, detail="Invalid credentials. Use the labelled Demo Login account for this prototype.")
+    return {
+        "accessToken": _sign_demo_token("access", 3600),
+        "refreshToken": _sign_demo_token("refresh", 28800),
+        "expiresIn": 3600,
+        "demo": True,
+    }
+
+
+@app.post("/auth/refresh")
+def auth_refresh(payload: Dict[str, Any]):
+    refresh_token = payload.get("refreshToken", "")
+    if not isinstance(refresh_token, str) or not _valid_demo_token(refresh_token, "refresh"):
+        raise HTTPException(status_code=401, detail="Invalid or expired refresh token.")
+    return {
+        "accessToken": _sign_demo_token("access", 3600),
+        "refreshToken": _sign_demo_token("refresh", 28800),
+        "expiresIn": 3600,
+        "demo": True,
+    }
 
 _lock = Lock()
 _state: Dict[str, Any] = {"weekly": None, "monthly": None, "diff": pd.DataFrame(), "tasks": None, "comparison": None}

@@ -9,3 +9,5 @@ joblib>=1.1
 scipy>=1.8
 ortools>=9.8
 httpx>=0.24
+xgboost>=2.0
+lightgbm>=4.0

@@ -30,7 +30,7 @@ function KpiCard({ label, value, sub, barColor, barWidth, icon }) {
   );
 }
 
-function BlockRow({ row }) {
+function BlockRow({ row, onAction }) {
   return (
     <tr className="hover:bg-surface-container-low transition-colors">
       <td className="py-3 px-3">
@@ -67,17 +67,19 @@ function BlockRow({ row }) {
       </td>
       <td className="py-3 px-3 text-right">
         <div className="flex flex-col items-end gap-1">
-          <button className={`font-label-sm text-label-sm uppercase px-2 py-1 rounded shadow-sm ${row.btn1Cls}`}>{row.btn1}</button>
-          <button className={`font-label-sm text-label-sm font-bold ${row.btn2Cls}`}>{row.btn2}</button>
+          <button type="button" onClick={() => onAction?.(`${row.btn1}: ${row.id}`)} className={`font-label-sm text-label-sm uppercase px-2 py-1 rounded shadow-sm ${row.btn1Cls}`}>{row.btn1}</button>
+          <button type="button" onClick={() => onAction?.(`${row.btn2}: ${row.id}`)} className={`font-label-sm text-label-sm font-bold ${row.btn2Cls}`}>{row.btn2}</button>
         </div>
       </td>
     </tr>
   );
 }
 
-export default function LivePortalMode() {
+export default function LivePortalMode({ onNavigate, onRefresh, refreshing = false }) {
   const [activeNav, setActiveNav] = useState("active-possessions");
   const [handback, setHandback] = useState([false, false, false, false]);
+  const [statusFilter, setStatusFilter] = useState("Live");
+  const [actionMessage, setActionMessage] = useState("");
 
   const navItems = [
     { key: "active-possessions", label: "Active Possessions" },
@@ -97,10 +99,10 @@ export default function LivePortalMode() {
   ];
 
   const blockRows = [
-    { id: "BLK-NR-DLI-2025-084", section: "GZB - ALJN Section", km: "KM 118+400 to 132+800 [Dn Main]", cat: "BCM + CSM Tamping", catBg: "bg-primary text-on-primary", machine: "Deep Screening BCM-883", gang: "Machine Gang #09 (14 Staff)", window: "10:30 - 14:30 (4h 00m)", timePing: true, timeColor: "text-on-tertiary-container", timeIcon: "", remaining: "2h 15m remaining", remColor: "text-secondary", progColor: "bg-on-tertiary-container", progWidth: "44%", train: "12301 Rajdhani Exp", trainDetail: "Diverted via 3rd Loop Line", tsr: "Kavach TSR 30 Clamped", tsrColor: "text-on-tertiary-container", officer: "Sr. DEN (Co.) / CPTM", memo: "S&T Memo T-351 Received", badge: "TRD OHE Cut Active", badgeBg: "bg-surface-container-highest text-primary", btn1: "Inspect Live", btn1Cls: "bg-primary hover:bg-primary-container text-on-primary", btn2: "+30m Extension", btn2Cls: "text-secondary hover:underline" },
-    { id: "BLK-WR-BCT-2025-112", section: "BCT - ST Corridor", km: "KM 128/4 to 129/2 [Up Through]", cat: "Track Relaying (TRT)", catBg: "bg-secondary text-on-secondary", machine: "TRT-06 Heavy Sleeper Laying", gang: "Engg Div Gang 12", window: "11:00 - 15:30 (4h 30m)", timePing: true, timeColor: "text-on-tertiary-container", timeIcon: "", remaining: "3h 48m remaining", remColor: "text-secondary", progColor: "bg-on-tertiary-container", progWidth: "22%", train: "12951 Tejas Rajdhani", trainDetail: "Handled on Up Slow Line", tsr: "TSR 45 KMPH Imposed", tsrColor: "text-on-tertiary-container", officer: "Sr. DOM / Sr. DEN WR", memo: "S&T Cable Shunt Done", badge: "Joint TRD Clear", badgeBg: "bg-surface-container-highest text-primary", btn1: "Inspect Live", btn1Cls: "bg-primary hover:bg-primary-container text-on-primary", btn2: "Handback Ready", btn2Cls: "text-error hover:underline" },
-    { id: "BLK-ECR-DDU-2025-045", section: "Pt. Deen Dayal Upadhyaya Yard", km: "Grid Siding Lines 4 & 5", cat: "25kV OHE Wiring + S&T", catBg: "bg-tertiary-container text-on-tertiary", machine: "Tower Wagon TW-44 & Gang", gang: "TRD Catenary Overhaul", window: "08:00 - 12:00 (4h 00m)", timePing: false, timeColor: "text-error", timeIcon: "hourglass_bottom", remaining: "18 mins remaining", remColor: "text-error", progColor: "bg-error", progWidth: "92%", train: "BOXN Coal Rakes", trainDetail: "Held back at Chandauli Loop", tsr: "Zero Passenger Impact", tsrColor: "text-on-surface-variant", officer: "Sr. DEE (TRD) Approved", memo: "Disconnection Memo Live", badge: "Earth Clamp Active", badgeBg: "bg-error-container text-on-error-container font-bold", btn1: "Cancel / Relinquish", btn1Cls: "bg-error hover:bg-on-error-container text-on-error", btn2: "Test Charge 25kV", btn2Cls: "text-primary hover:underline" },
-    { id: "BLK-NCR-JHS-2025-019", section: "Gwalior - Jhansi Section", km: "KM 1221/10 to 1224/00 [Up Line]", cat: "Point Machine & EI", catBg: "bg-primary-container text-on-primary-container", machine: "Dual Detection Track Circuit", gang: "S&T Wing Gwalior", window: "13:00 - 16:00 (3h 00m)", timePing: false, timeColor: "text-on-surface-variant", timeIcon: "schedule", remaining: "Starts in 1h 18m", remColor: "text-outline", progColor: "bg-outline", progWidth: "0%", train: "Vande Bharat Exp 20172", trainDetail: "Run on Line 2 without detention", tsr: "Pre-Simulated in COA", tsrColor: "text-on-tertiary-container", officer: "Dy. CSTE (Works)", memo: "Pending Dy. DOM Authorization", badge: "Staging Ready", badgeBg: "bg-surface-container-high text-on-surface", btn1: "Finalize Sanction", btn1Cls: "bg-surface-container-high text-primary hover:bg-surface-container-highest", btn2: "Revise Window", btn2Cls: "text-outline hover:underline" },
+    { id: "BLK-NR-DLI-2025-084", demoStatus: "Live", groups: ["active-possessions", "block-sanctions", "engineering-machines", "corridor-punctuality"], section: "GZB - ALJN Section", km: "KM 118+400 to 132+800 [Dn Main]", cat: "BCM + CSM Tamping", catBg: "bg-primary text-on-primary", machine: "Deep Screening BCM-883", gang: "Machine Gang #09 (14 Staff)", window: "10:30 - 14:30 (4h 00m)", timePing: true, timeColor: "text-on-tertiary-container", timeIcon: "", remaining: "2h 15m remaining", remColor: "text-secondary", progColor: "bg-on-tertiary-container", progWidth: "44%", train: "12301 Rajdhani Exp", trainDetail: "Diverted via 3rd Loop Line", tsr: "Kavach TSR 30 Clamped", tsrColor: "text-on-tertiary-container", officer: "Sr. DEN (Co.) / CPTM", memo: "S&T Memo T-351 Received", badge: "TRD OHE Cut Active", badgeBg: "bg-surface-container-highest text-primary", btn1: "Inspect Live", btn1Cls: "bg-primary hover:bg-primary-container text-on-primary", btn2: "+30m Extension", btn2Cls: "text-secondary hover:underline" },
+    { id: "BLK-WR-BCT-2025-112", demoStatus: "Live", groups: ["active-possessions", "block-sanctions", "engineering-machines", "corridor-punctuality"], section: "BCT - ST Corridor", km: "KM 128/4 to 129/2 [Up Through]", cat: "Track Relaying (TRT)", catBg: "bg-secondary text-on-secondary", machine: "TRT-06 Heavy Sleeper Laying", gang: "Engg Div Gang 12", window: "11:00 - 15:30 (4h 30m)", timePing: true, timeColor: "text-on-tertiary-container", timeIcon: "", remaining: "3h 48m remaining", remColor: "text-secondary", progColor: "bg-on-tertiary-container", progWidth: "22%", train: "12951 Tejas Rajdhani", trainDetail: "Handled on Up Slow Line", tsr: "TSR 45 KMPH Imposed", tsrColor: "text-on-tertiary-container", officer: "Sr. DOM / Sr. DEN WR", memo: "S&T Cable Shunt Done", badge: "Joint TRD Clear", badgeBg: "bg-surface-container-highest text-primary", btn1: "Inspect Live", btn1Cls: "bg-primary hover:bg-primary-container text-on-primary", btn2: "Handback Ready", btn2Cls: "text-error hover:underline" },
+    { id: "BLK-ECR-DDU-2025-045", demoStatus: "Cleared", groups: ["active-possessions", "rolling-block", "ohe-power-cut", "corridor-punctuality"], section: "Pt. Deen Dayal Upadhyaya Yard", km: "Grid Siding Lines 4 & 5", cat: "25kV OHE Wiring + S&T", catBg: "bg-tertiary-container text-on-tertiary", machine: "Tower Wagon TW-44 & Gang", gang: "TRD Catenary Overhaul", window: "08:00 - 12:00 (4h 00m)", timePing: false, timeColor: "text-error", timeIcon: "hourglass_bottom", remaining: "18 mins remaining", remColor: "text-error", progColor: "bg-error", progWidth: "92%", train: "BOXN Coal Rakes", trainDetail: "Held back at Chandauli Loop", tsr: "Zero Passenger Impact", tsrColor: "text-on-surface-variant", officer: "Sr. DEE (TRD) Approved", memo: "Disconnection Memo Live", badge: "Earth Clamp Active", badgeBg: "bg-error-container text-on-error-container font-bold", btn1: "Cancel / Relinquish", btn1Cls: "bg-error hover:bg-on-error-container text-on-error", btn2: "Test Charge 25kV", btn2Cls: "text-primary hover:underline" },
+    { id: "BLK-NCR-JHS-2025-019", demoStatus: "Next 2h", groups: ["active-possessions", "block-sanctions", "rolling-block", "corridor-punctuality"], section: "Gwalior - Jhansi Section", km: "KM 1221/10 to 1224/00 [Up Line]", cat: "Point Machine & EI", catBg: "bg-primary-container text-on-primary-container", machine: "Dual Detection Track Circuit", gang: "S&T Wing Gwalior", window: "13:00 - 16:00 (3h 00m)", timePing: false, timeColor: "text-on-surface-variant", timeIcon: "schedule", remaining: "Starts in 1h 18m", remColor: "text-outline", progColor: "bg-outline", progWidth: "0%", train: "Vande Bharat Exp 20172", trainDetail: "Run on Line 2 without detention", tsr: "Pre-Simulated in COA", tsrColor: "text-on-tertiary-container", officer: "Dy. CSTE (Works)", memo: "Pending Dy. DOM Authorization", badge: "Staging Ready", badgeBg: "bg-surface-container-high text-on-surface", btn1: "Finalize Sanction", btn1Cls: "bg-surface-container-high text-primary hover:bg-surface-container-highest", btn2: "Revise Window", btn2Cls: "text-outline hover:underline" },
   ];
 
   const handbackItems = [
@@ -111,6 +113,12 @@ export default function LivePortalMode() {
   ];
 
   const toggleHandback = (i) => setHandback((prev) => prev.map((v, idx) => (idx === i ? !v : v)));
+  const announceAction = (message) => setActionMessage(`${message} selected. Demo mode does not send this action to a railway system.`);
+
+  const visibleRows = blockRows.filter((row) => {
+    const statusMatches = statusFilter === "All sample blocks" || row.demoStatus === statusFilter;
+    return statusMatches && row.groups.includes(activeNav);
+  });
 
   const zoналRankings = [
     { zone: "Northern Railway (NR)", pct: 94.2, blocks: 38, color: "bg-primary", tc: "text-primary" },
@@ -133,7 +141,7 @@ export default function LivePortalMode() {
         <div className="flex items-center justify-between px-gutter-md py-2 flex-wrap gap-2">
           <div className="flex items-center flex-wrap gap-1 font-label-md text-label-md">
             {navItems.map((item) => (
-              <button key={item.key} onClick={() => setActiveNav(item.key)} aria-current={activeNav === item.key ? "page" : undefined}
+              <button key={item.key} onClick={() => { setActiveNav(item.key); setStatusFilter("All sample blocks"); }} aria-current={activeNav === item.key ? "page" : undefined}
                 className={`flex items-center px-gutter-md py-2 rounded transition-colors ${activeNav === item.key ? "bg-secondary text-on-secondary shadow-inner font-bold" : "text-on-primary-container hover:bg-primary hover:text-on-primary"}`}>
                 {item.label}
               </button>
@@ -168,13 +176,13 @@ export default function LivePortalMode() {
                 <span className="font-label-md text-label-md text-on-surface font-semibold">IR-TMS Telemetry Live</span>
                 <LiveClock />
               </div>
-              <button className="bg-primary hover:bg-primary-container text-on-primary font-label-md text-label-md uppercase px-gutter-md py-2.5 rounded-lg flex items-center gap-gutter-xs shadow transition-all">
+              <button onClick={() => onNavigate?.("emergency")} className="bg-primary hover:bg-primary-container text-on-primary font-label-md text-label-md uppercase px-gutter-md py-2.5 rounded-lg flex items-center gap-gutter-xs shadow transition-all">
                 <span className="material-symbols-outlined text-lg">post_add</span><span>Request Form E-102</span>
               </button>
-              <button className="bg-error hover:bg-on-error-container text-on-error font-label-md text-label-md uppercase px-gutter-md py-2.5 rounded-lg flex items-center gap-gutter-xs shadow transition-all">
+              <button onClick={() => onNavigate?.("emergency")} className="bg-error hover:bg-on-error-container text-on-error font-label-md text-label-md uppercase px-gutter-md py-2.5 rounded-lg flex items-center gap-gutter-xs shadow transition-all">
                 <span className="material-symbols-outlined text-lg">bolt</span><span>Emergency TRD Cut</span>
               </button>
-              <button className="bg-surface-container-high hover:bg-surface-container-highest text-primary font-label-md text-label-md uppercase px-gutter-md py-2.5 rounded-lg flex items-center gap-gutter-xs shadow-sm transition-all">
+              <button onClick={() => onNavigate?.("whatif")} className="bg-surface-container-high hover:bg-surface-container-highest text-primary font-label-md text-label-md uppercase px-gutter-md py-2.5 rounded-lg flex items-center gap-gutter-xs shadow-sm transition-all">
                 <span className="material-symbols-outlined text-lg">simulation</span><span>COA Impact Sim</span>
               </button>
             </div>
@@ -210,11 +218,11 @@ export default function LivePortalMode() {
             </div>
           </div>
           <div className="flex items-center gap-gutter-sm">
-            <button className="bg-secondary hover:bg-on-secondary-container text-on-secondary font-label-md text-label-md uppercase px-gutter-md py-2.5 rounded-lg flex items-center gap-1 shadow">
+            <button onClick={() => onNavigate?.("calendar")} className="bg-secondary hover:bg-on-secondary-container text-on-secondary font-label-md text-label-md uppercase px-gutter-md py-2.5 rounded-lg flex items-center gap-1 shadow">
               <span className="material-symbols-outlined text-lg">calendar_month</span><span>52-Wk Rolling Plan</span>
             </button>
-            <button className="bg-surface-container-lowest text-primary hover:bg-surface-container font-label-md text-label-md uppercase px-gutter-md py-2.5 rounded-lg flex items-center gap-1 shadow">
-              <span className="material-symbols-outlined text-lg">sync</span><span>Refresh Feeds</span>
+            <button type="button" onClick={onRefresh} disabled={refreshing} className="bg-surface-container-lowest text-primary hover:bg-surface-container font-label-md text-label-md uppercase px-gutter-md py-2.5 rounded-lg flex items-center gap-1 shadow disabled:opacity-60">
+              <span className={`material-symbols-outlined text-lg ${refreshing ? "animate-spin" : ""}`}>sync</span><span>{refreshing ? "Refreshing..." : "Refresh Feeds"}</span>
             </button>
           </div>
         </div>
@@ -318,7 +326,7 @@ export default function LivePortalMode() {
                     <span className="text-on-surface-variant">{desc}</span>
                     <span className={`font-bold font-label-sm text-label-sm mt-1 ${ac}`}>{action}</span>
                   </div>
-                  <button className={`font-label-sm text-label-sm uppercase px-2.5 py-1.5 rounded flex-shrink-0 ml-2 ${bc}`}>{btn}</button>
+                  <button type="button" onClick={() => announceAction(`${btn} action for ${title}`)} className={`font-label-sm text-label-sm uppercase px-2.5 py-1.5 rounded flex-shrink-0 ml-2 ${bc}`}>{btn}</button>
                 </div>
               ))}
             </div>
@@ -331,15 +339,13 @@ export default function LivePortalMode() {
               <div>
                 <div className="flex items-center gap-2">
                   <h2 className="font-headline-sm text-headline-sm font-bold text-primary">Active &amp; Granted Block Sanctions Ledger</h2>
-                  <span className="bg-secondary-fixed text-on-secondary-fixed font-label-sm text-label-sm px-2 py-0.5 rounded font-bold">14 Active in NR</span>
+                  <span className="bg-secondary-fixed text-on-secondary-fixed font-label-sm text-label-sm px-2 py-0.5 rounded font-bold">{visibleRows.length} sample blocks</span>
                 </div>
                 <p className="font-body-sm text-body-sm text-on-surface-variant">Real-time tracking of track relaying, tamping, deep screening &amp; power blocks</p>
               </div>
               <div className="flex items-center gap-2">
                 <span className="font-label-sm text-label-sm text-on-surface-variant">Filter Status:</span>
-                <span className="bg-primary text-on-primary font-label-sm text-label-sm px-2 py-1 rounded cursor-pointer">Live (8)</span>
-                <span className="bg-surface-container-high text-on-surface font-label-sm text-label-sm px-2 py-1 rounded cursor-pointer">Next 2h (4)</span>
-                <span className="bg-surface-container-high text-on-surface font-label-sm text-label-sm px-2 py-1 rounded cursor-pointer">Cleared (12)</span>
+                {["All sample blocks", "Live", "Next 2h", "Cleared"].map((filter) => <button type="button" key={filter} onClick={() => setStatusFilter(filter)} aria-pressed={statusFilter === filter} className={`${statusFilter === filter ? "bg-primary text-on-primary" : "bg-surface-container-high text-on-surface"} font-label-sm text-label-sm px-2 py-1 rounded`}>{filter}{filter === "All sample blocks" ? ` (${blockRows.length})` : ` (${blockRows.filter((row) => row.demoStatus === filter).length})`}</button>)}
               </div>
             </div>
             <div className="overflow-x-auto w-full">
@@ -355,22 +361,18 @@ export default function LivePortalMode() {
                   </tr>
                 </thead>
                 <tbody className="divide-y divide-transparent font-body-sm text-body-sm">
-                  {blockRows.map((row) => <BlockRow key={row.id} row={row} />)}
+                  {visibleRows.map((row) => <BlockRow key={row.id} row={row} onAction={announceAction} />)}
+                  {visibleRows.length === 0 && <tr><td colSpan="6" className="p-6 text-center text-on-surface-variant">No sample blocks match this section and status.</td></tr>}
                 </tbody>
               </table>
             </div>
             <div className="mt-gutter-md pt-gutter-sm flex flex-col sm:flex-row items-center justify-between gap-gutter-sm bg-surface-container-low p-gutter-sm rounded-lg">
               <div className="flex items-center gap-gutter-md text-on-surface-variant font-body-sm text-body-sm">
-                <span>Showing <strong>4</strong> of <strong>142</strong> sanctioned block possessions</span>
+                <span>Showing <strong>{visibleRows.length}</strong> of <strong>{blockRows.length}</strong> bundled sample possessions</span>
                 <span>&bull;</span>
                 <span className="text-on-tertiary-container font-bold">100% Shadow Traffic Interlocking Active</span>
               </div>
-              <div className="flex items-center gap-gutter-xs font-label-md text-label-md">
-                <button className="px-2.5 py-1 rounded bg-surface-container-lowest text-primary shadow-sm hover:bg-surface-container font-bold">1</button>
-                {[2, 3].map((p) => <button key={p} className="px-2.5 py-1 rounded text-on-surface-variant hover:bg-surface-container">{p}</button>)}
-                <span className="px-1 text-outline">...</span>
-                <button className="px-2.5 py-1 rounded text-on-surface-variant hover:bg-surface-container">12</button>
-              </div>
+              <span className="text-label-sm text-on-surface-variant">Synthetic demonstration rows</span>
             </div>
           </div>
         </div>
@@ -438,11 +440,12 @@ export default function LivePortalMode() {
             </div>
           </div>
           <div className="mt-gutter-md pt-gutter-sm">
-            <button className={`w-full font-label-md text-label-md uppercase font-bold py-3 rounded-lg shadow flex items-center justify-center gap-2 transition-all ${handback.every(Boolean) ? "bg-on-tertiary-container text-on-tertiary" : "bg-primary hover:bg-primary-container text-on-primary"}`}>
+            <button type="button" disabled={!handback.every(Boolean)} onClick={() => announceAction("Line handback T-402")} className={`w-full font-label-md text-label-md uppercase font-bold py-3 rounded-lg shadow flex items-center justify-center gap-2 transition-all disabled:opacity-50 ${handback.every(Boolean) ? "bg-on-tertiary-container text-on-tertiary" : "bg-primary hover:bg-primary-container text-on-primary"}`}>
               <span className="material-symbols-outlined text-lg">check_circle</span>
               <span>{handback.every(Boolean) ? "Ready: Execute Line Handback (T-402)" : "Execute Line Handback (T-402)"}</span>
             </button>
           </div>
+          {actionMessage && <div className="mt-3 bg-on-tertiary-container/10 border border-on-tertiary-container/30 text-on-tertiary-container p-2 rounded text-body-sm" role="status">{actionMessage}</div>}
         </div>
       </section>
 

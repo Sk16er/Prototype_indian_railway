@@ -15,10 +15,12 @@ export default function EmergencyWorkflow({ onEmergencySubmit }) {
   const [tsrFactor, setTsrFactor] = useState("0.8");
   const [isEvaluating, setIsEvaluating] = useState(false);
   const [result, setResult] = useState(null);
+  const [error, setError] = useState('');
 
   const handleEvaluateEmergency = async () => {
     setIsEvaluating(true);
     setResult(null);
+    setError('');
     try {
       // DRI formula: 0.55*failure + 0.20*(overdue/90) + 0.15*(tsr) + 0.10*(severity/4)
       const failure = floatVal(failureProb, 0.92);
@@ -51,7 +53,7 @@ export default function EmergencyWorkflow({ onEmergencySubmit }) {
         });
       }
     } catch (err) {
-      console.error("Emergency evaluation failed:", err);
+      setError(err.message || 'Emergency evaluation could not reach the freeze-lock API.');
     } finally {
       setIsEvaluating(false);
     }
@@ -148,6 +150,8 @@ export default function EmergencyWorkflow({ onEmergencySubmit }) {
         <span className="material-symbols-outlined text-lg">{isEvaluating ? "sync" : "security"}</span>
         <span>{isEvaluating ? "Evaluating against CRIS freeze lock API..." : `Evaluate Emergency Override Gate (DRI ≥ 0.85) — Current: ${liveDri.toFixed(3)}`}</span>
       </button>
+
+      {error && <div className="bg-error-container text-on-error-container border border-error/30 rounded-lg p-3 text-body-sm" role="alert">{error} No decision was recorded.</div>}
 
       {result && (
         <div className={`p-4 rounded-xl border font-body-sm ${result.override_granted ? "bg-on-tertiary-container/10 border-on-tertiary-container/40" : "bg-error/10 border-error/40"}`}>

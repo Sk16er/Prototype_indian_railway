@@ -49,36 +49,33 @@ export default function App() {
   const [isSolving, setIsSolving] = useState(false);
   const [mlEvidence, setMlEvidence] = useState(null);
   const [predictedDemand, setPredictedDemand] = useState(null);
+  const [dataLoading, setDataLoading] = useState(true);
+  const [dataError, setDataError] = useState('');
+  const [backendRefresh, setBackendRefresh] = useState(0);
 
   const [auditLogs, setAuditLogs] = useState([]);
 
   useEffect(() => {
     async function loadBackend() {
-      const h = await fetchHealth();
-      setHealthData(h);
-
-      const a = await fetchArchitecture();
-      setArchData(a);
-
-      const t = await fetchTasks();
-      setTaskList(t);
-
-      const p = await fetchWeeklyPlan("optimized");
-      setWeeklyPlan(p);
-
-      const comp = await fetchComparison();
-      setComparisonData(comp);
-      setMlEvidence(await fetchMlEvidence());
-      setPredictedDemand(await fetchPredictedBlockDemand());
-
-      const c = await fetchTimeSpaceGraph();
-      setCanvasData(c);
-
-      const d = await fetchDispatchPreview();
-      setDispatchPayload(d);
+      setDataLoading(true);
+      setDataError('');
+      try {
+        const h = await fetchHealth();
+        setHealthData(h);
+        const [a, t, p, comp, evidence, demand, c, d] = await Promise.all([
+          fetchArchitecture(), fetchTasks(), fetchWeeklyPlan("optimized"), fetchComparison(),
+          fetchMlEvidence(), fetchPredictedBlockDemand(), fetchTimeSpaceGraph(), fetchDispatchPreview(),
+        ]);
+        setArchData(a); setTaskList(t); setWeeklyPlan(p); setComparisonData(comp);
+        setMlEvidence(evidence); setPredictedDemand(demand); setCanvasData(c); setDispatchPayload(d);
+      } catch (err) {
+        setDataError(err.message || 'The dashboard data could not be loaded.');
+      } finally {
+        setDataLoading(false);
+      }
     }
     loadBackend();
-  }, []);
+  }, [backendRefresh]);
 
   const handleRunSolver = async (method = selectedMethod, horizon = selectedHorizon) => {
     setIsSolving(true);
@@ -109,7 +106,7 @@ export default function App() {
       };
       setAuditLogs(prev => [newLog, ...prev]);
     } catch (err) {
-      console.error("Solver execution error:", err);
+      setDataError(err.message || 'Optimization could not complete.');
     } finally {
       setIsSolving(false);
     }
@@ -323,6 +320,9 @@ export default function App() {
         <div className="max-w-container-max mx-auto px-gutter-lg py-gutter-lg">
           <div className="flex flex-col w-full gap-gutter-lg">
 
+            {dataLoading && <div className="bg-primary-container text-on-primary p-4 rounded-lg" role="status">Loading authenticated control-room data...</div>}
+            {dataError && <div className="bg-error-container text-on-error-container p-4 rounded-lg border border-error/30" role="alert">{dataError} Check that the scheduler is running, then sign out and sign in again.</div>}
+
             {/* — CLOSED-LOOP 10-STAGE STEPPER BAR — */}
             {activeTab !== "live_portal" && (
               <ClosedLoopStepper activeStage={activeStage} onStageSelect={handleStageSelect} />
@@ -385,7 +385,7 @@ export default function App() {
 
             {/* — TAB CONTENT SWITCHER — */}
             {activeTab === "live_portal" && (
-              <LivePortalMode weeklyPlan={weeklyPlan} />
+              <LivePortalMode weeklyPlan={weeklyPlan} onNavigate={(tab) => setActiveTab(tab)} onRefresh={() => setBackendRefresh((value) => value + 1)} refreshing={dataLoading} />
             )}
 
             {activeTab === "overview" && (
@@ -398,7 +398,7 @@ export default function App() {
               />
             )}
 
-            {activeTab === "calendar" && <CalendarView weeklyPlan={weeklyPlan} />}
+            {activeTab === "calendar" && <CalendarView weeklyPlan={weeklyPlan} loading={dataLoading} />}
 
             {activeTab === "replanning" && <ReplanningCenter weeklyPlan={weeklyPlan} onReplan={handleRunSolver} />}
 

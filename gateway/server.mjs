@@ -41,6 +41,8 @@ const BDMS_URL           = process.env.BDMS_URL         || null;   // null → s
 const STATE_FILE         = process.env.STATE_FILE       || path.join(path.dirname(fileURLToPath(import.meta.url)), 'state.json');
 const DISK_WARN_GB       = parseFloat(process.env.DISK_WARN_GB || '1');
 const RECONCILE_INTERVAL = parseInt(process.env.RECONCILE_INTERVAL_S || '120', 10);
+const DEMO_USERNAME      = process.env.DEMO_USERNAME || 'judge.demo';
+const DEMO_PASSWORD      = process.env.DEMO_PASSWORD || 'BandhanDemo2026!';
 
 // ─── Phase 4: Load state — refuse to start on corruption ─────────────────────
 let _state;
@@ -76,6 +78,17 @@ let _pool = null;
 
 // ─── Express app ──────────────────────────────────────────────────────────────
 const app = express();
+app.use((req, res, next) => {
+  const origin = req.headers.origin;
+  if (origin === 'http://localhost:5173' || origin === 'http://localhost:5174' || origin === 'http://127.0.0.1:5173' || origin === 'http://127.0.0.1:5174') {
+    res.setHeader('Access-Control-Allow-Origin', origin);
+    res.setHeader('Vary', 'Origin');
+    res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
+    res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS');
+  }
+  if (req.method === 'OPTIONS') return res.sendStatus(204);
+  next();
+});
 app.use(express.json());
 
 // ─── Phase 2: Timeout helpers ─────────────────────────────────────────────────
@@ -127,7 +140,7 @@ async function withRetry(fn, maxAttempts = 3, baseDelayMs = 200) {
 
 // ─── Phase 6: Auth utilities ──────────────────────────────────────────────────
 function signAccessToken(payload)  { return jwt.sign(payload, JWT_SECRET, { expiresIn: JWT_ACCESS_TTL }); }
-function signRefreshToken(payload) { return jwt.sign(payload, JWT_SECRET, { expiresIn: JWT_REFRESH_TTL, subject: 'refresh' }); }
+function signRefreshToken(payload) { return jwt.sign({ ...payload, tokenType: 'refresh' }, JWT_SECRET, { expiresIn: JWT_REFRESH_TTL }); }
 
 function requireAuth(req, res, next) {
   const header = req.headers.authorization || '';
@@ -151,12 +164,13 @@ const loginLimiter = rateLimit({
 
 app.post('/auth/login', loginLimiter, (req, res) => {
   const { username, password } = req.body || {};
-  // In this prototype, accept any non-empty credentials.
-  // Replace with real identity check against DB or LDAP before production.
-  if (!username || !password) {
+  if (typeof username !== 'string' || typeof password !== 'string' || !username || !password) {
     return res.status(400).json({ error: 'username and password required' });
   }
-  const payload = { sub: username, role: 'planner' };
+  if (username !== DEMO_USERNAME || password !== DEMO_PASSWORD) {
+    return res.status(401).json({ error: 'Invalid credentials. Use the labelled Demo Login account for this prototype.' });
+  }
+  const payload = { sub: username, role: 'planner', demo: true };
   return res.json({
     accessToken:  signAccessToken(payload),
     refreshToken: signRefreshToken(payload),
@@ -169,7 +183,8 @@ app.post('/auth/refresh', (req, res) => {
   const { refreshToken } = req.body || {};
   if (!refreshToken) return res.status(400).json({ error: 'refreshToken required' });
   try {
-    const decoded = jwt.verify(refreshToken, JWT_SECRET, { subject: 'refresh' });
+    const decoded = jwt.verify(refreshToken, JWT_SECRET);
+    if (decoded.tokenType !== 'refresh') throw new Error('Not a refresh token');
     const payload = { sub: decoded.sub, role: decoded.role };
     return res.json({
       accessToken:  signAccessToken(payload),

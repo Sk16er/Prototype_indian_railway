@@ -106,30 +106,28 @@ export default function LandingPage({ onAuthenticated }) {
 
     setIsLoading(true);
     try {
-      // Attempt backend JWT login
       await login(userId, password);
-      setSuccessMessage('Sovereign Handshake Confirmed: A 6-digit cryptographic 2FA OTP has been dispatched to your HRMS mobile & NIC mailbox.');
+      setSuccessMessage('Demo authentication confirmed. Opening the judge dashboard.');
       setTimeout(() => {
         onAuthenticated?.();
       }, 1200);
     } catch (err) {
-      // If network fails in standalone prototype preview mode, provide seamless gateway entry
-      console.warn('Backend auth gateway note:', err);
-      // Fallback local session token for seamless preview
-      try {
-        sessionStorage.setItem('rbms_token', 'prototype_mock_jwt_session_' + Date.now());
-        sessionStorage.setItem('rbms_user', JSON.stringify({
-          username: userId || 'CRIS-OFFICER-DEMO',
-          role: dept || 'pway',
-          zone: zone || 'NR'
-        }));
-        setSuccessMessage('Sovereign Handshake Confirmed: 2FA verified via NIC PKI Security Gateway.');
-        setTimeout(() => {
-          onAuthenticated?.();
-        }, 1100);
-      } catch {
-        setErrorMessage(err.message || 'Authentication error occurred.');
-      }
+      setErrorMessage(err.message || 'Authentication error occurred. The gateway may be unavailable.');
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
+  const handleDemoLogin = async () => {
+    setErrorMessage('');
+    setSuccessMessage('');
+    setIsLoading(true);
+    try {
+      await login('judge.demo', 'BandhanDemo2026!');
+      setSuccessMessage('Demo authentication confirmed. Opening the judge dashboard.');
+      setTimeout(() => onAuthenticated?.(), 500);
+    } catch (err) {
+      setErrorMessage(err.message || 'Demo login failed. Start the gateway and try again.');
     } finally {
       setIsLoading(false);
     }
@@ -429,6 +427,18 @@ export default function LandingPage({ onAuthenticated }) {
                 </div>
                 <span className="material-symbols-outlined text-[#003366] text-2xl">lock_person</span>
               </div>
+
+              <div className="bg-amber-50 border border-amber-300 rounded p-3 text-xs text-slate-800">
+                <div className="flex items-center justify-between gap-3">
+                  <div>
+                    <strong className="block text-[#003366]">Demo Login • SIH Judge Access</strong>
+                    <span className="block mt-1">Username: <code>judge.demo</code> · Password: <code>BandhanDemo2026!</code></span>
+                    <span className="block mt-1 text-slate-600">Demo-only account for this prototype. Backend required.</span>
+                  </div>
+                  <button type="button" onClick={handleDemoLogin} disabled={isLoading} className="shrink-0 bg-[#8f4e00] text-white px-3 py-2 rounded font-bold disabled:opacity-60">Demo Login</button>
+                </div>
+              </div>
+
 
               {/* Multi-Tier Authentication Switcher */}
               <div className="bg-slate-100 p-1 rounded border border-slate-200 flex gap-1 text-xs">

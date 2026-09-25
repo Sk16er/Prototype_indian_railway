@@ -1,5 +1,5 @@
 /**
- * api.js — BANDHAN gateway client
+ * api.js — BANDHAN scheduler client
  *
  * Phase 6 fixes:
  *   - All protected requests attach a JWT Bearer token.
@@ -12,9 +12,6 @@
  *   - These go direct to the scheduler (public, read-only) — no auth needed.
  */
 
-// The gateway (Node/Express) sits on port 3001.
-// The scheduler (FastAPI) is on 8001 — the UI talks to it only via the gateway.
-const GATEWAY_BASE   = import.meta.env.VITE_GATEWAY_BASE   || "http://localhost:3001";
 const SCHEDULER_BASE = import.meta.env.VITE_API_BASE       || "http://localhost:8001";
 
 // ─── Token management ─────────────────────────────────────────────────────────
@@ -33,16 +30,16 @@ export function clearTokens() {
 }
 export function isLoggedIn() { return !!getAccessToken(); }
 
-/** POST /auth/login — returns { accessToken, refreshToken } on success. */
+/** POST /auth/login — demo-only credentials verified by FastAPI. */
 export async function login(username, password) {
-  const res = await fetch(`${GATEWAY_BASE}/auth/login`, {
+  const res = await fetch(`${SCHEDULER_BASE}/auth/login`, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({ username, password }),
   });
   if (!res.ok) {
     const err = await res.json().catch(() => ({}));
-    throw new Error(err.error || `Login failed: HTTP ${res.status}`);
+    throw new Error(err.detail || err.error || `Login failed: HTTP ${res.status}`);
   }
   const tokens = await res.json();
   setTokens(tokens);
@@ -53,7 +50,7 @@ export async function login(username, password) {
 export async function refreshAccessToken() {
   const refreshToken = getRefreshToken();
   if (!refreshToken) throw new Error("No refresh token");
-  const res = await fetch(`${GATEWAY_BASE}/auth/refresh`, {
+  const res = await fetch(`${SCHEDULER_BASE}/auth/refresh`, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({ refreshToken }),
@@ -113,30 +110,18 @@ async function authFetch(url, options = {}) {
   return { data, freshness };
 }
 
-/** Authenticated GET via the gateway proxy (falls back to scheduler directly for public endpoints). */
-async function gatewayGet(path) {
+async function schedulerGet(path) {
   if (!isLoggedIn()) {
-    // Fall back to direct scheduler access for read-only/public views.
-    const res = await fetch(`${SCHEDULER_BASE}${path}`).catch(() => null);
-    if (!res?.ok) return { data: null, freshness: { status: "unknown", isFallback: true } };
-    const data = await res.json().catch(() => null);
-    return { data, freshness: { status: "unknown", isFallback: true } };
+    throw new Error("Authentication required. Please sign in again.");
   }
-  return authFetch(`${GATEWAY_BASE}/api${path}`);
+  return authFetch(`${SCHEDULER_BASE}${path}`);
 }
 
-async function gatewayPost(path, body) {
+async function schedulerPost(path, body) {
   if (!isLoggedIn()) {
-    const res = await fetch(`${SCHEDULER_BASE}${path}`, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(body),
-    }).catch(() => null);
-    if (!res?.ok) return { data: null, freshness: { status: "unknown", isFallback: true } };
-    const data = await res.json().catch(() => null);
-    return { data, freshness: { status: "unknown", isFallback: true } };
+    throw new Error("Authentication required. Please sign in again.");
   }
-  return authFetch(`${GATEWAY_BASE}/api${path}`, {
+  return authFetch(`${SCHEDULER_BASE}${path}`, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify(body),
@@ -155,21 +140,16 @@ export async function fetchHealth() {
 }
 
 export async function fetchGatewayHealth() {
-  try {
-    const res = await fetch(`${GATEWAY_BASE}/health`);
-    return await res.json();
-  } catch {
-    return { status: "offline", service: "BANDHAN Gateway" };
-  }
+  return fetchHealth();
 }
 
 export async function fetchArchitecture() {
-  const { data } = await gatewayGet("/architecture");
+  const { data } = await schedulerGet("/architecture");
   return data;
 }
 
 export async function fetchTasks() {
-  const { data, freshness } = await gatewayGet("/plan/tasks");
+  const { data, freshness } = await schedulerGet("/plan/tasks");
   // Attach freshness metadata so the UI can show a banner.
   if (data && Array.isArray(data)) {
     data._freshness = freshness;
@@ -178,52 +158,54 @@ export async function fetchTasks() {
 }
 
 export async function fetchWeeklyPlan(method = "optimized") {
-  const { data } = await gatewayPost("/plan/weekly", { method, time_limit_s: 15 });
+  const { data } = await schedulerPost("/plan/weekly", { method, time_limit_s: 15 });
   return data;
 }
 
 export async function fetchMonthlyPlan() {
-  const { data } = await gatewayPost("/plan/monthly", { method: "optimized", horizon_days: 30, time_limit_s: 20 });
+  const { data } = await schedulerPost("/plan/monthly", { method: "optimized", horizon_days: 30, time_limit_s: 20 });
   return data;
 }
 
-export async function fetchReplan(eventType = "defect_burst", eventSection = "SEC_0001") {
-  const { data } = await gatewayPost("/plan/replan", {
+export async function fetchReplan(eventType = "defect_burst", eventSection = "SEC_0001", options = {}) {
+  const { data } = await schedulerPost("/plan/replan", {
     event_type: eventType, event_section: eventSection,
-    num_new_defects: 5, surge_factor: 1.4, freeze_window_hrs: 24, time_limit_s: 15,
+    num_new_defects: options.numDefects ?? 5,
+    surge_factor: options.surgeFactor ?? 1.4,
+    freeze_window_hrs: 24, time_limit_s: 15,
   });
   return data;
 }
 
 export async function fetchComparison() {
-  const { data } = await gatewayGet("/plan/compare");
+  const { data } = await schedulerGet("/plan/compare");
   return data;
 }
 
 export async function fetchTimeSpaceGraph() {
-  const { data } = await gatewayGet("/plan/time_space_graph");
+  const { data } = await schedulerGet("/plan/time_space_graph");
   return data;
 }
 
 export async function fetchDispatchPreview() {
-  const { data } = await gatewayGet("/plan/dispatch/preview");
+  const { data } = await schedulerGet("/plan/dispatch/preview");
   return data;
 }
 
 export async function checkFreezeLock(taskId, scheduledStart, dri) {
-  const { data } = await gatewayPost("/plan/freeze_check", {
+  const { data } = await schedulerPost("/plan/freeze_check", {
     task_id: taskId, scheduled_start: scheduledStart, dynamic_risk_index: dri,
   });
   return data;
 }
 
 export async function fetchMlEvidence() {
-  const { data } = await gatewayGet("/plan/ml_evidence");
+  const { data } = await schedulerGet("/plan/ml_evidence");
   return data;
 }
 
 export async function fetchPredictedBlockDemand() {
-  const { data } = await gatewayGet("/plan/predicted_block_demand");
+  const { data } = await schedulerGet("/plan/predicted_block_demand");
   return data;
 }
 

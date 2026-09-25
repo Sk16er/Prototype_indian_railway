@@ -6,13 +6,13 @@ Enforces rolling horizons:
 - 24h Freeze Window Execution Lock (Override Gate: DRI >= 0.85)
 """
 
-from datetime import datetime, timedelta
+from datetime import datetime, timedelta, timezone
 from typing import Any
 
 
 def horizon_policy(horizon: str, now: datetime | None = None) -> dict[str, Any]:
     """Return operational horizon timing policy parameters."""
-    now = now or datetime.now()
+    now = now or datetime.now(timezone.utc)
     horizon_clean = str(horizon).lower().strip()
     days = {"monthly": 30, "weekly": 7, "replanned": 7, "daily": 1}.get(horizon_clean, 7)
 
@@ -51,6 +51,13 @@ def validate_freeze_window_modification(
             scheduled_dt = now + timedelta(hours=12)
     else:
         scheduled_dt = scheduled_start
+
+    # API clients commonly send ISO-8601 timestamps with a UTC offset. Keep
+    # both operands timezone-aware (or both naive) before subtracting them.
+    if scheduled_dt.tzinfo is not None and now.tzinfo is None:
+        now = now.replace(tzinfo=scheduled_dt.tzinfo)
+    elif scheduled_dt.tzinfo is None and now.tzinfo is not None:
+        scheduled_dt = scheduled_dt.replace(tzinfo=now.tzinfo)
 
     hours_until_execution = (scheduled_dt - now).total_seconds() / 3600.0
     inside_freeze_window = 0 <= hours_until_execution <= 24.0

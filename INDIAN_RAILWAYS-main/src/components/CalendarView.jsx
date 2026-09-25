@@ -32,7 +32,7 @@ function addDays(date, n) {
   return d;
 }
 
-export default function CalendarView({ weeklyPlan }) {
+export default function CalendarView({ weeklyPlan, loading = false }) {
   const [viewMode, setViewMode] = useState("weekly");
   const [selectedBlock, setSelectedBlock] = useState(null);
   const [weekOffset, setWeekOffset] = useState(0);
@@ -95,6 +95,10 @@ export default function CalendarView({ weeklyPlan }) {
 
   const dayNames = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
 
+  if (loading && !weeklyPlan) {
+    return <div className="bg-surface-container-lowest p-gutter-lg rounded-xl border border-outline-variant/30" role="status">Loading the authenticated schedule...</div>;
+  }
+
   return (
     <div className="bg-surface-container-lowest p-gutter-lg rounded-xl shadow-sm border border-outline-variant/30">
       {/* Header */}
@@ -153,7 +157,8 @@ export default function CalendarView({ weeklyPlan }) {
             </button>
           </div>
 
-          <div className="grid grid-cols-7 gap-1.5">
+          <div className="overflow-x-auto pb-2">
+          <div className="grid grid-cols-7 gap-1.5 min-w-[700px]">
             {weekDays.map((day, di) => {
               const dayBlocks = blocksByDay(day);
               const isToday = isSameDay(day, new Date());
@@ -206,6 +211,7 @@ export default function CalendarView({ weeklyPlan }) {
               );
             })}
           </div>
+          </div>
         </>
       )}
 
@@ -233,7 +239,8 @@ export default function CalendarView({ weeklyPlan }) {
           </div>
 
           {/* Day cells */}
-          <div className="grid grid-cols-7 gap-1">
+          <div className="overflow-x-auto pb-2">
+          <div className="grid grid-cols-7 gap-1 min-w-[560px]">
             {monthDays.map((day, i) => {
               if (!day) return <div key={`blank-${i}`} />;
               const dayBlocks = blocksByDay(day);
@@ -259,6 +266,7 @@ export default function CalendarView({ weeklyPlan }) {
                 </div>
               );
             })}
+          </div>
           </div>
         </>
       )}

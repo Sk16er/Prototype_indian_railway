@@ -31,6 +31,8 @@ def normalize_operational_bundle(bundle: dict[str, pd.DataFrame]) -> dict[str, p
     normalized: dict[str, pd.DataFrame] = {}
     department_map = {"tms": "Engineering", "smms": "S&T", "tdms": "TRD"}
     for name, frame in bundle.items():
+        if name.startswith("_"):
+            continue
         current = frame.copy() if isinstance(frame, pd.DataFrame) else pd.DataFrame(frame)
         current = _rename_aliases(current)
         current["source_system"] = name.upper()
