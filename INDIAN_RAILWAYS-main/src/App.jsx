@@ -50,34 +50,50 @@ export default function App() {
   const [isSolving, setIsSolving] = useState(false);
   const [mlEvidence, setMlEvidence] = useState(null);
   const [predictedDemand, setPredictedDemand] = useState(null);
-  const [dataLoading, setDataLoading] = useState(true);
+  const [dataLoading, setDataLoading] = useState(false);
   const [dataError, setDataError] = useState('');
   const [backendRefresh, setBackendRefresh] = useState(0);
 
   const [auditLogs, setAuditLogs] = useState([]);
 
   useEffect(() => {
-    async function loadBackend() {
-      setDataLoading(true);
-      setDataError('');
-      const requests = [
-        ['architecture', fetchArchitecture, setArchData],
-        ['tasks', fetchTasks, setTaskList],
-        ['weekly plan', () => fetchWeeklyPlan("optimized"), setWeeklyPlan],
-        ['comparison', fetchComparison, setComparisonData],
-        ['ML evidence', fetchMlEvidence, setMlEvidence],
-        ['predicted demand', fetchPredictedBlockDemand, setPredictedDemand],
-        ['time-space graph', fetchTimeSpaceGraph, setCanvasData],
-        ['dispatch preview', fetchDispatchPreview, setDispatchPayload],
-      ];
-      const [health, ...results] = await Promise.all([
-        fetchHealth(),
-        ...requests.map(([, fetcher]) => fetcher().then(
-          (value) => ({ status: 'fulfilled', value }),
-          (reason) => ({ status: 'rejected', reason }),
-        )),
-      ]);
-      setHealthData(health);
+    let active = true;
+    fetchHealth().then((health) => {
+      if (active) setHealthData(health);
+    });
+    return () => { active = false; };
+  }, []);
+
+  useEffect(() => {
+    const needsPlan = ["overview", "calendar", "replanning", "emergency", "execution", "corridor_map", "explainable", "whatif", "alerts", "bdms_audit"].includes(activeTab);
+    const needsTasks = ["overview", "corridor_map", "explainable", "alerts"].includes(activeTab);
+    const needsEvidence = activeTab === "evidence";
+    const needsArchitecture = activeTab === "architecture";
+    const needsComparison = activeTab === "benchmark";
+    if (!needsPlan && !needsTasks && !needsEvidence && !needsArchitecture && !needsComparison) return undefined;
+
+    let active = true;
+    setDataLoading(true);
+    setDataError('');
+    const requests = [];
+    if (needsPlan && !weeklyPlan) requests.push(['weekly plan', fetchWeeklyPlan, setWeeklyPlan]);
+    if (needsTasks && taskList.length === 0) requests.push(['tasks', fetchTasks, setTaskList]);
+    if (needsEvidence && !mlEvidence) requests.push(['ML evidence', fetchMlEvidence, setMlEvidence]);
+    if (needsEvidence && !predictedDemand) requests.push(['predicted demand', fetchPredictedBlockDemand, setPredictedDemand]);
+    if (needsArchitecture && !archData) requests.push(['architecture', fetchArchitecture, setArchData]);
+    if (needsArchitecture && !canvasData) requests.push(['time-space graph', fetchTimeSpaceGraph, setCanvasData]);
+    if (needsComparison && !comparisonData) requests.push(['comparison', fetchComparison, setComparisonData]);
+
+    if (requests.length === 0) {
+      setDataLoading(false);
+      return undefined;
+    }
+
+    Promise.all(requests.map(([, fetcher]) => fetcher().then(
+      (value) => ({ status: 'fulfilled', value }),
+      (reason) => ({ status: 'rejected', reason }),
+    ))).then((results) => {
+      if (!active) return;
       const failures = [];
       results.forEach((result, index) => {
         const [label, , setter] = requests[index];
@@ -86,9 +102,9 @@ export default function App() {
       });
       setDataError(failures.join(' | '));
       setDataLoading(false);
-    }
-    loadBackend();
-  }, [backendRefresh]);
+    });
+    return () => { active = false; };
+  }, [activeTab, backendRefresh, weeklyPlan, taskList, mlEvidence, predictedDemand, archData, canvasData, comparisonData]);
 
   const handleRunSolver = async (method = selectedMethod, horizon = selectedHorizon) => {
     setIsSolving(true);
@@ -102,13 +118,6 @@ export default function App() {
         p = await fetchWeeklyPlan(method);
       }
       setWeeklyPlan(p);
-      const c = await fetchTimeSpaceGraph();
-      setCanvasData(c);
-      const a = await fetchArchitecture();
-      setArchData(a);
-      const comp = await fetchComparison();
-      setComparisonData(comp);
-      setMlEvidence(await fetchMlEvidence());
 
       const newLog = {
         timestamp: new Date().toISOString().replace('T', ' ').substring(0, 19),
@@ -354,7 +363,7 @@ export default function App() {
                 <span className="material-symbols-outlined text-primary text-2xl">tune</span>
                 <div>
                   <h4 className="font-title-md text-title-md font-bold text-primary">BANDHAN Multi-Department Engine Controls</h4>
-                  <p className="text-body-sm text-on-surface-variant">Switch solver heuristics, horizons or trigger auto-BDMS payload generation</p>
+                  <p className="text-body-sm text-on-surface-variant">Switch solver heuristics, horizons or trigger auto-BDMS payload generation, Please Click on Rerun optimization</p>
                 </div>
               </div>
               <div className="flex flex-wrap items-center gap-3">
