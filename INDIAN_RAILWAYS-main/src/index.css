@@ -628,7 +628,16 @@
 .copilot-intent-what_if           { background: #fff3cd; color: #5a3a00; }
 .copilot-intent-section_context   { background: #e8f5e9; color: #1b5e20; }
 .copilot-intent-context           { background: #e8f5e9; color: #1b5e20; }
+.copilot-intent-audit_hallucination { background: #d1fae5; color: #065f46; border: 1px solid #6ee7b7; font-weight: 700; }
 .copilot-intent-off_topic         { background: #f5f5f5; color: #555; }
+
+.copilot-hallucination-card {
+  transition: all 0.2s ease;
+}
+.copilot-hallucination-card:hover {
+  border-color: #059669;
+  background-color: #ecfdf5;
+}
 
 .copilot-evidence {
   background: #f0f4ff;

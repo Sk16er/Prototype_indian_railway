@@ -37,11 +37,12 @@ export function clearTokens() {
 export function isLoggedIn() { return !!getAccessToken(); }
 
 /** POST /auth/login — demo-only credentials verified by FastAPI. */
-export async function login(username, password) {
+export async function login(username, password, options = {}) {
   const res = await fetch(`${SCHEDULER_BASE}/auth/login`, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({ username, password }),
+    signal: options.signal,
   });
   if (!res.ok) {
     const err = await res.json().catch(() => ({}));
@@ -467,6 +468,15 @@ export async function copilotBhashiniTranslate(text, sourceLang = "en", targetLa
     text,
     source_lang: sourceLang,
     target_lang: targetLang,
+  });
+}
+
+/** ANTI_HALLUCINATION: verify factual grounding against timetable & solver ground truth */
+export async function copilotAntiHallucination(text, sectionId = "SEC_0001", blockId = null) {
+  return _schedulerPost("/copilot/anti_hallucination", {
+    text,
+    section_id: sectionId,
+    block_id: blockId,
   });
 }
 

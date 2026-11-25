@@ -1,23 +1,39 @@
-import React, { useState, useEffect } from 'react';
-import ArchitectureGraph from './components/ArchitectureGraph';
-import TimeSpaceCanvas from './components/TimeSpaceCanvas';
-import BenchmarkComparison from './components/BenchmarkComparison';
-import ExplainableScheduleInspector from './components/ExplainableScheduleInspector';
+import React, { useState, useEffect, lazy, Suspense } from 'react';
 import ClosedLoopStepper from './components/ClosedLoopStepper';
-import ControlRoomOverview from './components/ControlRoomOverview';
-import CalendarView from './components/CalendarView';
-import ReplanningCenter from './components/ReplanningCenter';
-import EmergencyWorkflow from './components/EmergencyWorkflow';
-import ExecutionMonitor from './components/ExecutionMonitor';
-import CorridorMap from './components/CorridorMap';
-import ConflictAlertCenter from './components/ConflictAlertCenter';
-import WhatIfSimulator from './components/WhatIfSimulator';
-import BdmsLifecycleTracker from './components/BdmsLifecycleTracker';
-import AuditTrail from './components/AuditTrail';
 import LivePortalMode from './components/LivePortalMode';
-import MlEvidencePanel from './components/MlEvidencePanel';
-import TimetableScheduler from './components/TimetableScheduler';
-import ControlCopilot from './components/ControlCopilot';
+
+// Code-split heavy views with React.lazy for instant login & low initial memory footprint
+const ArchitectureGraph = lazy(() => import('./components/ArchitectureGraph'));
+const TimeSpaceCanvas = lazy(() => import('./components/TimeSpaceCanvas'));
+const BenchmarkComparison = lazy(() => import('./components/BenchmarkComparison'));
+const ExplainableScheduleInspector = lazy(() => import('./components/ExplainableScheduleInspector'));
+const ControlRoomOverview = lazy(() => import('./components/ControlRoomOverview'));
+const CalendarView = lazy(() => import('./components/CalendarView'));
+const ReplanningCenter = lazy(() => import('./components/ReplanningCenter'));
+const EmergencyWorkflow = lazy(() => import('./components/EmergencyWorkflow'));
+const ExecutionMonitor = lazy(() => import('./components/ExecutionMonitor'));
+const CorridorMap = lazy(() => import('./components/CorridorMap'));
+const ConflictAlertCenter = lazy(() => import('./components/ConflictAlertCenter'));
+const WhatIfSimulator = lazy(() => import('./components/WhatIfSimulator'));
+const BdmsLifecycleTracker = lazy(() => import('./components/BdmsLifecycleTracker'));
+const AuditTrail = lazy(() => import('./components/AuditTrail'));
+const MlEvidencePanel = lazy(() => import('./components/MlEvidencePanel'));
+const TimetableScheduler = lazy(() => import('./components/TimetableScheduler'));
+const ControlCopilot = lazy(() => import('./components/ControlCopilot'));
+
+function TabFallback({ activeTab }) {
+  return (
+    <div className="bg-surface-container-lowest p-8 rounded-xl shadow-sm border border-outline-variant/30 flex flex-col items-center justify-center min-h-[360px]">
+      <div className="w-10 h-10 border-3 border-primary border-t-transparent rounded-full animate-spin mb-3" />
+      <span className="font-label-md text-label-md font-bold uppercase text-primary tracking-wider">
+        Loading {activeTab ? activeTab.replace(/_/g, ' ') : 'Module'}...
+      </span>
+      <span className="text-body-sm text-on-surface-variant text-xs mt-1">
+        Asynchronously mounting code-split bundle via React.lazy
+      </span>
+    </div>
+  );
+}
 import {
   fetchHealth,
   fetchArchitecture,
@@ -412,56 +428,58 @@ export default function App() {
               </div>
             </div>}
 
-            {/* — TAB CONTENT SWITCHER — */}
-            {activeTab === "live_portal" && (
-              <LivePortalMode weeklyPlan={weeklyPlan} onNavigate={(tab) => setActiveTab(tab)} onRefresh={() => setBackendRefresh((value) => value + 1)} refreshing={dataLoading} />
-            )}
+            {/* — TAB CONTENT SWITCHER (Lazy-loaded chunks) — */}
+            <Suspense fallback={<TabFallback activeTab={activeTab} />}>
+              {activeTab === "live_portal" && (
+                <LivePortalMode weeklyPlan={weeklyPlan} onNavigate={(tab) => setActiveTab(tab)} onRefresh={() => setBackendRefresh((value) => value + 1)} refreshing={dataLoading} />
+              )}
 
-            {activeTab === "overview" && (
-              <ControlRoomOverview
-                weeklyPlan={weeklyPlan}
-                taskList={taskList}
-                archData={archData}
-                healthData={healthData}
-                onNavigate={(tab) => setActiveTab(tab)}
-              />
-            )}
+              {activeTab === "overview" && (
+                <ControlRoomOverview
+                  weeklyPlan={weeklyPlan}
+                  taskList={taskList}
+                  archData={archData}
+                  healthData={healthData}
+                  onNavigate={(tab) => setActiveTab(tab)}
+                />
+              )}
 
-            {activeTab === "calendar" && <CalendarView weeklyPlan={weeklyPlan} loading={dataLoading} />}
+              {activeTab === "calendar" && <CalendarView weeklyPlan={weeklyPlan} loading={dataLoading} />}
 
-            {activeTab === "replanning" && <ReplanningCenter weeklyPlan={weeklyPlan} onReplan={handleRunSolver} />}
+              {activeTab === "replanning" && <ReplanningCenter weeklyPlan={weeklyPlan} onReplan={handleRunSolver} />}
 
-            {activeTab === "emergency" && <EmergencyWorkflow onEmergencySubmit={handleEmergencyLogged} />}
+              {activeTab === "emergency" && <EmergencyWorkflow onEmergencySubmit={handleEmergencyLogged} />}
 
-            {activeTab === "execution" && <ExecutionMonitor weeklyPlan={weeklyPlan} />}
+              {activeTab === "execution" && <ExecutionMonitor weeklyPlan={weeklyPlan} />}
 
-            {activeTab === "corridor_map" && <CorridorMap weeklyPlan={weeklyPlan} taskList={taskList} />}
+              {activeTab === "corridor_map" && <CorridorMap weeklyPlan={weeklyPlan} taskList={taskList} />}
 
-            {activeTab === "explainable" && <ExplainableScheduleInspector taskList={taskList} weeklyPlan={weeklyPlan} />}
+              {activeTab === "explainable" && <ExplainableScheduleInspector taskList={taskList} weeklyPlan={weeklyPlan} />}
 
-            {activeTab === "benchmark" && <BenchmarkComparison comparisonData={comparisonData} />}
+              {activeTab === "benchmark" && <BenchmarkComparison comparisonData={comparisonData} />}
 
-            {activeTab === "whatif" && <WhatIfSimulator weeklyPlan={weeklyPlan} />}
+              {activeTab === "whatif" && <WhatIfSimulator weeklyPlan={weeklyPlan} />}
 
-            {activeTab === "alerts" && <ConflictAlertCenter weeklyPlan={weeklyPlan} />}
+              {activeTab === "alerts" && <ConflictAlertCenter weeklyPlan={weeklyPlan} />}
 
-            {activeTab === "bdms_audit" && (
-              <div className="space-y-6">
-                <BdmsLifecycleTracker weeklyPlan={weeklyPlan} />
-                <AuditTrail logs={auditLogs} />
-              </div>
-            )}
+              {activeTab === "bdms_audit" && (
+                <div className="space-y-6">
+                  <BdmsLifecycleTracker weeklyPlan={weeklyPlan} />
+                  <AuditTrail logs={auditLogs} />
+                </div>
+              )}
 
-            {activeTab === "architecture" && (
-              <div className="space-y-6">
-                <ArchitectureGraph archData={archData} />
-                <TimeSpaceCanvas canvasData={canvasData} />
-              </div>
-            )}
+              {activeTab === "architecture" && (
+                <div className="space-y-6">
+                  <ArchitectureGraph archData={archData} />
+                  <TimeSpaceCanvas canvasData={canvasData} />
+                </div>
+              )}
 
-            {activeTab === "evidence" && <MlEvidencePanel evidence={mlEvidence} demand={predictedDemand} />}
+              {activeTab === "evidence" && <MlEvidencePanel evidence={mlEvidence} demand={predictedDemand} />}
 
-            {activeTab === "timetable" && <TimetableScheduler weeklyPlan={weeklyPlan} />}
+              {activeTab === "timetable" && <TimetableScheduler weeklyPlan={weeklyPlan} />}
+            </Suspense>
 
           </div>
         </div>
@@ -517,16 +535,18 @@ export default function App() {
         </div>
       </footer>
 
-      {/* Floating Circular Hanging Control Copilot */}
-      <ControlCopilot
-        sectionId={weeklyPlan?.schedule?.[0]?.section_id || "SEC_0001"}
-        blockId={null}
-        weeklyPlan={weeklyPlan}
-        taskList={taskList}
-        comparisonData={comparisonData}
-        onRunSolver={handleRunSolver}
-        isSolving={isSolving}
-      />
+      {/* Floating Circular Hanging Control Copilot (Lazy-Loaded) */}
+      <Suspense fallback={null}>
+        <ControlCopilot
+          sectionId={weeklyPlan?.schedule?.[0]?.section_id || "SEC_0001"}
+          blockId={null}
+          weeklyPlan={weeklyPlan}
+          taskList={taskList}
+          comparisonData={comparisonData}
+          onRunSolver={handleRunSolver}
+          isSolving={isSolving}
+        />
+      </Suspense>
     </>
   );
 }
